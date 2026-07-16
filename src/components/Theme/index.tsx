@@ -1,5 +1,6 @@
 "use client";
 
+import { cn } from "@/utils/cn";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { LuSun, LuMoon } from "react-icons/lu";
@@ -25,11 +26,11 @@ export default function Theme() {
   }
   return (
     <button
-      className="
-        border-2 rounded-full w-10 h-10 flex justify-center items-center
-        border-secondary-border text-primary-text
-        dark:border-primary-border dark:text-primary-text
-      "
+      className={cn(
+        "flex justify-center items-center rounded-full w-10 h-10",
+        "border-2 border-secondary-border text-primary-text",
+        "dark:border-primary-border dark:text-primary-text",
+      )}
       onClick={() =>
         resolvedTheme === "light" ? setTheme("dark") : setTheme("light")
       }
@@ -38,3 +39,19 @@ export default function Theme() {
     </button>
   );
 }
+
+/*
+      className="
+        border-2 
+        border-secondary-border text-primary-text
+        dark:border-primary-border dark:text-primary-text
+      "
+*/
+
+/*
+      className="
+        border-2 rounded-full w-10 h-10 flex justify-center items-center
+        border-secondary-border text-primary-text
+        dark:border-primary-border dark:text-primary-text
+      "
+*/
