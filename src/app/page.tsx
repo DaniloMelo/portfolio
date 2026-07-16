@@ -1,14 +1,25 @@
-import Image from "next/image";
+"use client";
+
+import About from "@/components/About";
+import Contact from "@/components/Contact";
+import Header from "@/components/Header";
+import Hero from "@/components/Hero";
+import Projects from "@/components/Projects";
 
 export default function Home() {
   return (
-    <div>
-      <Image
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlUFS5gRaxwvQL5yFqJZ5c8JA25gJ41FRvC-_oIt3Ft37QWtjX2NcIUVUz&s=10"
-        alt="meme"
-        width="500"
-        height="500"
-      />
-    </div>
+    <>
+      <Header />
+
+      <main>
+        <Hero />
+
+        <Projects />
+
+        <About />
+
+        <Contact />
+      </main>
+    </>
   );
 }

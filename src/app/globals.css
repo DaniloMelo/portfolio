@@ -3,31 +3,33 @@
 @variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-primary-background: #faf9f6;
-  --color-secondary-background: #ffffff;
-  --color-primary-text: #000000;
-  --color-secondary-text: #434343;
+  --color-primary-background: #F7F6F3;
+  --color-secondary-background: #ECEAE4;
+  --color-primary-text: #18181B;
+  --color-secondary-text: #52525B;
   --color-muted-text: #888888;
   --color-primary-border: #222222;
   --color-secondary-border: #959595;
 }
 
 .dark {
-  --color-primary-background: #000000;
-  --color-secondary-background: #262626;
-  --color-primary-text: #dfdfdf;
-  --color-secondary-text: #8b8b8b;
+  --color-primary-background: #191919;
+  --color-secondary-background: #242424;
+  --color-primary-text: #F5F5F3;
+  --color-secondary-text: #B8B8B3;
   --color-muted-text: #626262;
-  --color-primary-border: #505050;
+  --color-primary-border: #3A3A3A;
   --color-secondary-border: #363636;
 }
 
-html {
-  scroll-behavior: smooth
-}
 
 body {
   background-color: var(--color-primary-background);
   color: var(--color-primary-text);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 55px
 }
