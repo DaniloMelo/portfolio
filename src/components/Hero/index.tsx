@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section id="hero" className="pt-14">
+    <section id="hero" className="lg:pt-14">
       <div className="flex justify-center items-center gap-x-6">
         <Image
           className="rounded-full border-4 border-blue-700"
