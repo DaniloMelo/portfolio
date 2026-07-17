@@ -22,14 +22,13 @@
   --color-secondary-border: #363636;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 55px
+}
 
 body {
   background-color: var(--color-primary-background);
   color: var(--color-primary-text);
   font-family: Arial, Helvetica, sans-serif;
-}
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 55px
 }
