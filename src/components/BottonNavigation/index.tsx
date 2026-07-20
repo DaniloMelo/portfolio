@@ -1,22 +1,30 @@
+"use-client";
+
 import Link from "next/link";
 import Theme from "../Theme";
 import { cn } from "@/utils/cn";
 import { LuHouse, LuLaptop, LuPhone } from "react-icons/lu";
 import { GoPerson } from "react-icons/go";
-// import { MdOutlinePersonOutline } from "react-icons/md";
 import Container from "../Container";
+import { useState } from "react";
+import { SlOptionsVertical } from "react-icons/sl";
 
 export default function BottonNavigation() {
+  const [hidden, setHidden] = useState(false);
+
   return (
     <div
       className={cn(
-        "w-full fixed bottom-0 z-50 py-2 lg:hidden",
+        "w-full min-h-15 flex items-center fixed bottom-0 z-50 py-2 lg:hidden",
         "bg-secondary-background dark:bg-secondary-background",
       )}
     >
-      <Container className="flex px-0 sm:px-0 sm:py-0 lg:px-0 lg:py-0 ">
+      <Container className="flex px-0 sm:px-0 sm:py-0 lg:px-0 lg:py-0">
         <nav
-          className="flex flex-1 justify-center gap-10"
+          className={cn(
+            "flex flex-1 justify-center gap-12",
+            hidden && "hidden",
+          )}
           aria-label="Navegação principal"
         >
           <Link
@@ -52,7 +60,21 @@ export default function BottonNavigation() {
           </Link>
         </nav>
 
-        <Theme />
+        <div
+          className={cn(
+            "w-full",
+            hidden ? "flex justify-center items-center" : "hidden",
+          )}
+        >
+          <Theme />
+        </div>
+
+        <div
+          className="flex items-center mr-2 px-2"
+          onClick={() => setHidden(!hidden)}
+        >
+          <SlOptionsVertical size={25} />
+        </div>
       </Container>
     </div>
   );
