@@ -27,7 +27,7 @@ export default function Theme() {
   return (
     <button
       className={cn(
-        "flex justify-center items-center rounded-full w-10 h-10 mr-4",
+        "flex justify-center items-center rounded-full w-10 h-10",
         "border-2 border-secondary-border text-primary-text",
         "dark:border-primary-border dark:text-primary-text",
       )}
@@ -39,19 +39,3 @@ export default function Theme() {
     </button>
   );
 }
-
-/*
-      className="
-        border-2 
-        border-secondary-border text-primary-text
-        dark:border-primary-border dark:text-primary-text
-      "
-*/
-
-/*
-      className="
-        border-2 rounded-full w-10 h-10 flex justify-center items-center
-        border-secondary-border text-primary-text
-        dark:border-primary-border dark:text-primary-text
-      "
-*/

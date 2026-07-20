@@ -63,7 +63,7 @@ export default function BottonNavigation() {
         <div
           className={cn(
             "w-full",
-            hidden ? "flex justify-center items-center" : "hidden",
+            hidden ? "flex justify-center items-center pl-10" : "hidden",
           )}
         >
           <Theme />
