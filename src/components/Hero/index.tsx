@@ -2,21 +2,22 @@ import Image from "next/image";
 import CvButton from "../CvButton";
 import { LuEye, LuDownload } from "react-icons/lu";
 import Container from "../Container";
+import { TypeAnimation } from "react-type-animation";
 
 export default function Hero() {
   return (
     <section
       id="hero"
       className="
-        h-screen flex items-center 
+        h-screen flex items-center
         bg-linear-to-br from-primary-background from-0% via-accent/50 via-70% to-accent to-100% 
         dark:from-primary-background dark:from-50% dark:via-accent/10 dark:via-70% dark:to-accent/40 dark:to-100%
       "
     >
       <Container>
-        <div className="flex justify-center items-center gap-x-6">
+        <div className="flex flex-col items-center gap-5 lg:gap-20 lg:flex-row">
           <Image
-            className="rounded-full border-8 border-accent dark:border-accent"
+            className="rounded-full border-8 size-[clamp(14rem,30vw,25rem)] border-accent dark:border-accent"
             src="https://github.com/DaniloMelo.png"
             alt="foto de perfil"
             width="400"
@@ -24,12 +25,20 @@ export default function Hero() {
             loading="eager"
           />
 
-          <div>
-            <h1 className="text-5xl font-bold mb-2 text-accent dark:text-accent">
-              Danilo Marques de Melo
+          <div className="w-full flex flex-col items-center text-center lg:items-start">
+            <h1 className="text-[clamp(2rem,5vw,3rem)] font-bold mb-2 text-accent dark:text-accent">
+              <TypeAnimation
+                sequence={["Danilo Marques de Melo", 100]}
+                wrapper="span"
+                speed={60}
+                style={{ display: "inline-block" }}
+                repeat={Infinity}
+              />
             </h1>
 
-            <p className="mb-4 text-2xl font-bold">Desenvolvedor Full Stack</p>
+            <p className="mb-4 text-[clamp(1.2rem,2vw,1.5rem)] font-bold">
+              Desenvolvedor Full Stack
+            </p>
 
             <p>Transformando idéias em realidade através do código</p>
 
@@ -58,4 +67,4 @@ export default function Hero() {
   );
 }
 
-// dark:from-primary-background dark:from-0% dark:via-accent/20 dark:via-50% dark:to-primary-background dark:to-100%
+// clamp(1.25em,1.5rem,1.5rem)

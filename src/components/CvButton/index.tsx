@@ -12,8 +12,9 @@ export default function CvButton({ children, icon, ...rest }: CvButtonProps) {
       className={cn(
         "flex justify-center items-center gap-2 py-1 px-4 rounded-3xl cursor-pointer",
         "transition-colors",
-        "border-2 border-accent hover:bg-accent/30",
-        "dark:border-accent dark:hover:bg-accent/30",
+        "bg-accent/20 dark:bg-accent/20 ",
+        "border-2 border-accent hover:bg-accent/40",
+        "dark:border-accent dark:hover:bg-accent/40",
       )}
       {...rest}
     >

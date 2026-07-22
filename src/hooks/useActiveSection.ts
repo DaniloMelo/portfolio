@@ -16,7 +16,8 @@ export function useActiveSection() {
         });
       },
       {
-        rootMargin: "-25% 0px -25% 0px", // região central da view port
+        // rootMargin: "-25% 0px -25% 0px",
+        rootMargin: "-50% 0px -50% 0px", // região central da view port
         threshold: 0,
       },
     );
