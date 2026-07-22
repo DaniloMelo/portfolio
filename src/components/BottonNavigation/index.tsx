@@ -36,7 +36,7 @@ export default function BottonNavigation() {
             href="/#hero"
             className={cn(
               "flex flex-col justify-center items-center gap-0.5 text-xs",
-              activeSection === "hero" && "text-blue-500",
+              activeSection === "hero" && "text-accent dark:text-accent",
             )}
           >
             <LuHouse size={25} />
@@ -47,7 +47,7 @@ export default function BottonNavigation() {
             href="/#projects"
             className={cn(
               "flex flex-col justify-center items-center gap-0.5 text-xs",
-              activeSection === "projects" && "text-blue-500",
+              activeSection === "projects" && "text-accent dark:text-accent",
             )}
           >
             <LuLaptop size={25} />
@@ -58,7 +58,7 @@ export default function BottonNavigation() {
             href="/#about"
             className={cn(
               "flex flex-col justify-center items-center gap-0.5 text-xs",
-              activeSection === "about" && "text-blue-500",
+              activeSection === "about" && "text-accent dark:text-accent",
             )}
           >
             <GoPerson size={25} />
@@ -69,7 +69,7 @@ export default function BottonNavigation() {
             href="/#contact"
             className={cn(
               "flex flex-col justify-center items-center gap-0.5 text-xs",
-              activeSection === "contact" && "text-blue-500",
+              activeSection === "contact" && "text-accent dark:text-accent",
             )}
           >
             <LuPhone size={25} />

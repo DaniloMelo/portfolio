@@ -25,28 +25,36 @@ export default function Header() {
           <nav className="flex gap-10">
             <Link
               href="/#hero"
-              className={cn(activeSection === "hero" && "text-blue-500")}
+              className={cn(
+                activeSection === "hero" && "text-accent dark:text-accent",
+              )}
             >
               Início
             </Link>
 
             <Link
               href="/#projects"
-              className={cn(activeSection === "projects" && "text-blue-500")}
+              className={cn(
+                activeSection === "projects" && "text-accent dark:text-accent",
+              )}
             >
               Projetos
             </Link>
 
             <Link
               href="/#about"
-              className={cn(activeSection === "about" && "text-blue-500")}
+              className={cn(
+                activeSection === "about" && "text-accent dark:text-accent",
+              )}
             >
               Sobre
             </Link>
 
             <Link
               href="/#contact"
-              className={cn(activeSection === "contact" && "text-blue-500")}
+              className={cn(
+                activeSection === "contact" && "text-accent dark:text-accent",
+              )}
             >
               Contato
             </Link>

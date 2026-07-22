@@ -3,6 +3,7 @@
 @variant dark (&:where(.dark, .dark *));
 
 @theme {
+  --color-accent: #4F46E5;
   --color-primary-background: #F7F6F3;
   --color-secondary-background: #ECEAE4;
   --color-primary-text: #18181B;
@@ -13,6 +14,7 @@
 }
 
 .dark {
+  --color-accent: #818CF8;
   --color-primary-background: #191919;
   --color-secondary-background: #242424;
   --color-primary-text: #F5F5F3;
