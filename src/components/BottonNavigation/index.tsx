@@ -8,9 +8,14 @@ import { GoPerson } from "react-icons/go";
 import Container from "../Container";
 import { useState } from "react";
 import { SlOptionsVertical } from "react-icons/sl";
+import { useNavigation } from "@/contexts/NavigationContext";
+import { useActiveSection } from "@/hooks/useActiveSection";
 
 export default function BottonNavigation() {
   const [hidden, setHidden] = useState(false);
+
+  useActiveSection();
+  const { activeSection } = useNavigation();
 
   return (
     <div
@@ -29,7 +34,10 @@ export default function BottonNavigation() {
         >
           <Link
             href="/#hero"
-            className="flex flex-col justify-center items-center gap-0.5 text-xs"
+            className={cn(
+              "flex flex-col justify-center items-center gap-0.5 text-xs",
+              activeSection === "hero" && "text-blue-500",
+            )}
           >
             <LuHouse size={25} />
             Início
@@ -37,7 +45,10 @@ export default function BottonNavigation() {
 
           <Link
             href="/#projects"
-            className="flex flex-col justify-center items-center gap-0.5 text-xs"
+            className={cn(
+              "flex flex-col justify-center items-center gap-0.5 text-xs",
+              activeSection === "projects" && "text-blue-500",
+            )}
           >
             <LuLaptop size={25} />
             Projetos
@@ -45,7 +56,10 @@ export default function BottonNavigation() {
 
           <Link
             href="/#about"
-            className="flex flex-col justify-center items-center gap-0.5 text-xs"
+            className={cn(
+              "flex flex-col justify-center items-center gap-0.5 text-xs",
+              activeSection === "about" && "text-blue-500",
+            )}
           >
             <GoPerson size={25} />
             Sobre
@@ -53,7 +67,10 @@ export default function BottonNavigation() {
 
           <Link
             href="/#contact"
-            className="flex flex-col justify-center items-center gap-0.5 text-xs"
+            className={cn(
+              "flex flex-col justify-center items-center gap-0.5 text-xs",
+              activeSection === "contact" && "text-blue-500",
+            )}
           >
             <LuPhone size={25} />
             Contato

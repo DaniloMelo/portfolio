@@ -14,8 +14,6 @@ export default function Theme() {
     setMounted(true);
   }, []);
 
-  console.log(resolvedTheme);
-
   if (!mounted) {
     return (
       <button
