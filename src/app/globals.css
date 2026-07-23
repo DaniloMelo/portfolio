@@ -26,11 +26,18 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 55px
+  scroll-padding-bottom: 60px
 }
 
 body {
   background-color: var(--color-primary-background);
   color: var(--color-primary-text);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@media (min-width: 64rem) {
+  html {
+    scroll-padding-top: 55px;
+    scroll-padding-bottom: 0;
+  }
 }

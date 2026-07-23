@@ -9,7 +9,7 @@ export default function Hero() {
     <section
       id="hero"
       className="
-        h-screen flex items-center
+        h-dvh flex items-center
         bg-linear-to-br from-primary-background from-0% via-accent/50 via-70% to-accent to-100% 
         dark:from-primary-background dark:from-50% dark:via-accent/10 dark:via-70% dark:to-accent/40 dark:to-100%
       "
@@ -66,5 +66,3 @@ export default function Hero() {
     </section>
   );
 }
-
-// clamp(1.25em,1.5rem,1.5rem)

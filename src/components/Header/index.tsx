@@ -11,8 +11,6 @@ export default function Header() {
   useActiveSection();
   const { activeSection } = useNavigation();
 
-  console.log(activeSection);
-
   return (
     <header
       className={cn(
