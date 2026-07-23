@@ -1,11 +1,11 @@
 "use client";
 
-import Link from "next/link";
 import Theme from "../Theme";
 import Container from "../Container";
 import { cn } from "@/utils/cn";
 import { useNavigation } from "@/contexts/NavigationContext";
 import { useActiveSection } from "@/hooks/useActiveSection";
+import AnchorLink from "../AnchorLink";
 
 export default function Header() {
   useActiveSection();
@@ -21,41 +21,41 @@ export default function Header() {
       <Container className="px-0 sm:px-0 sm:py-0 lg:px-0 lg:py-0">
         <div className="flex items-center justify-end gap-20 p-2">
           <nav className="flex gap-10">
-            <Link
-              href="/#hero"
+            <AnchorLink
+              sectionId="hero"
               className={cn(
                 activeSection === "hero" && "text-accent dark:text-accent",
               )}
             >
               Início
-            </Link>
+            </AnchorLink>
 
-            <Link
-              href="/#projects"
+            <AnchorLink
+              sectionId="projects"
               className={cn(
                 activeSection === "projects" && "text-accent dark:text-accent",
               )}
             >
               Projetos
-            </Link>
+            </AnchorLink>
 
-            <Link
-              href="/#about"
+            <AnchorLink
+              sectionId="about"
               className={cn(
                 activeSection === "about" && "text-accent dark:text-accent",
               )}
             >
               Sobre
-            </Link>
+            </AnchorLink>
 
-            <Link
-              href="/#contact"
+            <AnchorLink
+              sectionId="contact"
               className={cn(
                 activeSection === "contact" && "text-accent dark:text-accent",
               )}
             >
               Contato
-            </Link>
+            </AnchorLink>
           </nav>
 
           <Theme />

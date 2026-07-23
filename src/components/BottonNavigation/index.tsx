@@ -1,6 +1,5 @@
 "use-client";
 
-import Link from "next/link";
 import Theme from "../Theme";
 import { cn } from "@/utils/cn";
 import { LuHouse, LuLaptop, LuPhone } from "react-icons/lu";
@@ -10,6 +9,7 @@ import { useState } from "react";
 import { SlOptionsVertical } from "react-icons/sl";
 import { useNavigation } from "@/contexts/NavigationContext";
 import { useActiveSection } from "@/hooks/useActiveSection";
+import AnchorLink from "../AnchorLink";
 
 export default function BottonNavigation() {
   const [hidden, setHidden] = useState(false);
@@ -32,8 +32,8 @@ export default function BottonNavigation() {
           )}
           aria-label="Navegação principal"
         >
-          <Link
-            href="/#hero"
+          <AnchorLink
+            sectionId="hero"
             className={cn(
               "flex flex-col justify-center items-center gap-0.5 text-xs",
               activeSection === "hero" && "text-accent dark:text-accent",
@@ -41,10 +41,10 @@ export default function BottonNavigation() {
           >
             <LuHouse size={25} />
             Início
-          </Link>
+          </AnchorLink>
 
-          <Link
-            href="/#projects"
+          <AnchorLink
+            sectionId="projects"
             className={cn(
               "flex flex-col justify-center items-center gap-0.5 text-xs",
               activeSection === "projects" && "text-accent dark:text-accent",
@@ -52,10 +52,10 @@ export default function BottonNavigation() {
           >
             <LuLaptop size={25} />
             Projetos
-          </Link>
+          </AnchorLink>
 
-          <Link
-            href="/#about"
+          <AnchorLink
+            sectionId="about"
             className={cn(
               "flex flex-col justify-center items-center gap-0.5 text-xs",
               activeSection === "about" && "text-accent dark:text-accent",
@@ -63,10 +63,10 @@ export default function BottonNavigation() {
           >
             <GoPerson size={25} />
             Sobre
-          </Link>
+          </AnchorLink>
 
-          <Link
-            href="/#contact"
+          <AnchorLink
+            sectionId="contact"
             className={cn(
               "flex flex-col justify-center items-center gap-0.5 text-xs",
               activeSection === "contact" && "text-accent dark:text-accent",
@@ -74,7 +74,7 @@ export default function BottonNavigation() {
           >
             <LuPhone size={25} />
             Contato
-          </Link>
+          </AnchorLink>
         </nav>
 
         <div
