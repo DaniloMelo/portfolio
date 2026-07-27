@@ -5,32 +5,53 @@ import { cn } from "@/utils/cn";
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { LuChevronLeft, LuChevronRight } from "react-icons/lu";
 
+type ProjectCarrouselVariant = "preview" | "detail";
+
 interface ProjectCarrouselProps {
+  variant?: ProjectCarrouselVariant;
   images: ProjectImage[];
-  autoplay?: boolean;
 }
+
+const carrouselConfig = {
+  preview: {
+    autoplay: true,
+    showArrows: false,
+  },
+  detail: {
+    autoplay: false,
+    showArrows: true,
+  },
+} as const;
 
 export default function ProjectCarrousel({
   images,
-  autoplay = false,
+  variant = "preview",
 }: ProjectCarrouselProps) {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
+  const config = carrouselConfig[variant];
+
+  const shouldAutoplay = config.autoplay && images.length > 1;
+
+  const autoplayPlugin = useMemo(() => {
+    if (!shouldAutoplay) return null;
+
+    return Autoplay({
+      delay: 5000,
+      stopOnInteraction: true,
+      stopOnMouseEnter: true,
+    });
+  }, [shouldAutoplay]);
+
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
-      loop: true,
+      loop: images.length > 1,
+      align: "start",
     },
-    autoplay
-      ? [
-          Autoplay({
-            delay: 5000,
-            stopOnInteraction: false,
-          }),
-        ]
-      : [],
+    autoplayPlugin ? [autoplayPlugin] : [],
   );
 
   useEffect(() => {
@@ -53,13 +74,22 @@ export default function ProjectCarrousel({
     return null;
   }
 
+  const hasMultipleImages = images.length > 1;
+
   return (
     <div className="relative w-full">
       <div ref={emblaRef} className="overflow-hidden">
         <div className="flex touch-pan-y">
           {images.map((image) => (
-            <div key={image.src} className="min-w-0 flex-[0_0_100%]">
-              <div className="relative aspect-video overflow-hidden rounded-xl">
+            <div key={image.id} className="min-w-0 flex-[0_0_100%]">
+              <div
+                className={cn(
+                  "relative overflow-hidden",
+                  "aspect-video",
+                  variant === "preview" && "rounded-xl",
+                  variant === "detail" && "rounded-2xl",
+                )}
+              >
                 <Image
                   src={image.src}
                   alt={image.alt}
@@ -73,7 +103,7 @@ export default function ProjectCarrousel({
         </div>
       </div>
 
-      {images.length > 1 && (
+      {hasMultipleImages && config.showArrows && (
         <>
           <button
             type="button"
@@ -95,17 +125,23 @@ export default function ProjectCarrousel({
         </>
       )}
 
-      {images.length > 1 && (
-        <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
+      {hasMultipleImages && (
+        <div
+          className={cn(
+            "absolute bottom-4 left-1/2 flex",
+            "-translate-x-1/2 gap-2",
+          )}
+        >
           {images.map((image, index) => (
             <button
-              key={image.src}
+              key={image.id}
               type="button"
               onClick={() => emblaApi?.scrollTo(index)}
               aria-label={`Ir para imagem ${index + 1}`}
               aria-current={selectedIndex === index}
               className={cn(
-                "h-2 rounded-full transition-all",
+                "h-2 rounded-full",
+                "transition-all",
                 selectedIndex === index
                   ? "w-6 bg-white"
                   : "w-2 bg-white/50 hover:bg-white/75",
