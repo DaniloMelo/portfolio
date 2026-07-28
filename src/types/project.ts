@@ -10,6 +10,8 @@ export interface Project {
   title: string;
   description: string;
   about: string;
+  repositoryCodeUrl: string;
+  deployUrl: string;
   technologies: string[];
   images: ProjectImage[];
 }

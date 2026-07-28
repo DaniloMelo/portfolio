@@ -1,8 +1,8 @@
 import Image from "next/image";
-import CvButton from "../CvButton";
 import { LuEye, LuDownload } from "react-icons/lu";
 import Container from "../Container";
 import { TypeAnimation } from "react-type-animation";
+import Button from "../Button";
 
 export default function Hero() {
   return (
@@ -43,22 +43,24 @@ export default function Hero() {
             <p>Transformando idéias em realidade através do código</p>
 
             <div className="flex items-center gap-4 mt-10">
-              <CvButton
-                href="/Danilo-Marques-de-Melo.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                icon={<LuEye />}
-              >
-                Ver CV
-              </CvButton>
+              <Button icon={<LuEye />}>
+                <a
+                  href="/Danilo-Marques-de-Melo.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Ver CV
+                </a>
+              </Button>
 
-              <CvButton
-                href="/Danilo-Marques-de-Melo.pdf"
-                download="Danilo-Marques-de-Melo.pdf"
-                icon={<LuDownload />}
-              >
-                Baixar CV
-              </CvButton>
+              <Button icon={<LuDownload />}>
+                <a
+                  href="/Danilo-Marques-de-Melo.pdf"
+                  download="Danilo-Marques-de-Melo.pdf"
+                >
+                  Baixar CV
+                </a>
+              </Button>
             </div>
           </div>
         </div>

@@ -143,8 +143,8 @@ export default function ProjectCarrousel({
                 "h-2 rounded-full",
                 "transition-all",
                 selectedIndex === index
-                  ? "w-6 bg-white"
-                  : "w-2 bg-white/50 hover:bg-white/75",
+                  ? "w-6 bg-white border border-black"
+                  : "w-2 bg-white/50 hover:bg-white/75 border border-black",
               )}
             />
           ))}
