@@ -25,7 +25,7 @@ export default function Theme() {
   return (
     <button
       className={cn(
-        "flex justify-center items-center rounded-full w-10 h-10",
+        "flex justify-center items-center rounded-full w-10 h-10 cursor-pointer",
         "border-2 border-secondary-border text-primary-text",
         "dark:border-primary-border dark:text-primary-text",
       )}
