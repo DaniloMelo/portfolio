@@ -1,4 +1,5 @@
 import { Project } from "@/types/project";
+import { TechnologyName } from "@/types/technologies";
 
 export const projectsMock: Project[] = [
   {
@@ -10,7 +11,19 @@ export const projectsMock: Project[] = [
       "Sobre de exemplo projeto 1 - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga ipsam provident recusandae. Atque earum similique quae consectetur facilis tenetur vero voluptatum doloremque, eligendi, necessitatibus saepe! Vero ex repellat eveniet velit?",
     repositoryCodeUrl: "#",
     deployUrl: "#",
-    technologies: ["tech-1", "tech-2", "tech-3"],
+    // technologies: ["HTML5", "CSS", "JavaScript"],
+    technologies: [
+      "HTML5",
+      "CSS",
+      "JavaScript",
+      "TypeScript",
+      "Node.js",
+      "tailwindcss",
+      "React",
+      "Next.js",
+      "NestJS",
+      "Docker",
+    ] as TechnologyName[],
     images: [
       {
         id: "id-imagem-projeto-exemplo-1-1",
@@ -39,7 +52,7 @@ export const projectsMock: Project[] = [
       "Sobre de exemplo projeto 2 - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga ipsam provident recusandae. Atque earum similique quae consectetur facilis tenetur vero voluptatum doloremque, eligendi, necessitatibus saepe! Vero ex repellat eveniet velit?",
     repositoryCodeUrl: "#",
     deployUrl: "#",
-    technologies: ["tech-1", "tech-2", "tech-3"],
+    technologies: ["Next.js", "tailwindcss"],
     images: [
       {
         id: "id-imagem-projeto-exemplo-2-1",
@@ -68,7 +81,7 @@ export const projectsMock: Project[] = [
       "Sobre de exemplo projeto 3 - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga ipsam provident recusandae. Atque earum similique quae consectetur facilis tenetur vero voluptatum doloremque, eligendi, necessitatibus saepe! Vero ex repellat eveniet velit?",
     repositoryCodeUrl: "#",
     deployUrl: "#",
-    technologies: ["tech-1", "tech-2", "tech-3"],
+    technologies: ["NestJS", "Node.js", "TypeScript", "Docker"],
     images: [
       {
         id: "id-imagem-projeto-exemplo-3-1",

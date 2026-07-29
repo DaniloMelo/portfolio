@@ -1,5 +1,8 @@
+import Technology from "@/components/Technology";
+import Theme from "@/components/Theme";
 import { projectsMock } from "@/data/projects.mocks";
 import { Project } from "@/types/project";
+import { TechnologyName } from "@/types/technologies";
 
 interface ProjectPageParams {
   params: Promise<{ slug: string }>;
@@ -13,6 +16,7 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
 
   return (
     <div>
+      <Theme />
       <h1>Title: {data?.title}</h1>
 
       <p>desc: {data?.description}</p>
@@ -20,6 +24,12 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
       <p>techs: {data?.technologies}</p>
 
       <p>sobre: {data?.about}</p>
+
+      <div className="flex gap-5">
+        {data?.technologies.map((tech) => (
+          <Technology name={tech as TechnologyName} key={tech} />
+        ))}
+      </div>
     </div>
   );
 }
