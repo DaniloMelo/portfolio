@@ -1,10 +1,16 @@
 import Image from "next/image";
 import { LuEye, LuDownload } from "react-icons/lu";
 import Container from "../Container";
-import { TypeAnimation } from "react-type-animation";
 import Button from "../Button";
+import AnimatedName from "../AnimatedName";
 
-export default function Hero() {
+interface HeroProps {
+  name: string;
+  jobTitle: string;
+  introduction: string;
+}
+
+export default function Hero({ name, jobTitle, introduction }: HeroProps) {
   return (
     <section
       id="hero"
@@ -27,20 +33,14 @@ export default function Hero() {
 
           <div className="w-full flex flex-col items-center text-center lg:items-start">
             <h1 className="text-[clamp(2rem,5vw,3rem)] font-bold mb-2 text-accent dark:text-accent">
-              <TypeAnimation
-                sequence={["Danilo Marques de Melo", 100]}
-                wrapper="span"
-                speed={60}
-                style={{ display: "inline-block" }}
-                repeat={Infinity}
-              />
+              <AnimatedName name={name} />
             </h1>
 
             <p className="mb-4 text-[clamp(1.2rem,2vw,1.5rem)] font-bold">
-              Desenvolvedor Full Stack
+              {jobTitle}
             </p>
 
-            <p>Transformando idéias em realidade através do código</p>
+            <p>{introduction}</p>
 
             <div className="flex items-center gap-4 mt-10">
               <Button icon={<LuEye />}>

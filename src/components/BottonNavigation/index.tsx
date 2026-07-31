@@ -1,4 +1,4 @@
-"use-client";
+"use client";
 
 import Theme from "../Theme";
 import { cn } from "@/utils/cn";
