@@ -3,7 +3,7 @@ import Container from "@/components/Container";
 import ProjectCarrousel from "@/components/ProjectCarousel";
 import Technology from "@/components/Technology";
 import Theme from "@/components/Theme";
-import { projectsMock } from "@/data/projects.mocks";
+import { getProjectDetail } from "@/services/project/getProjectDetail";
 import { Project } from "@/types/project";
 import { TechnologyName } from "@/types/technologies";
 import Link from "next/link";
@@ -15,9 +15,7 @@ interface ProjectPageParams {
 
 export default async function ProjectPage({ params }: ProjectPageParams) {
   const { slug } = await params;
-
-  // TODO: Quando implementar o backend/banco, uma nova requisição deve ser feita aqui, buscando dados necessários (getDetailedProjectData, por exemplo)
-  const data = temp(projectsMock, slug)!;
+  const data = await getProjectDetail(slug);
 
   return (
     <main>

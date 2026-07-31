@@ -1,13 +1,12 @@
-import { projectsMock } from "@/data/projects.mocks";
 import ProjectCarrousel from "../ProjectCarousel";
 import Container from "../Container";
 import Link from "next/link";
 import Button from "../Button";
 import { LuFileText, LuCodeXml, LuLaptop } from "react-icons/lu";
+import { getProjectPreview } from "@/services/project/getProjectPreview";
 
-export default function Projects() {
-  // TODO: Quando implementar o backend/banco, o repository deve trazer somente os dados necessários (getPreviewProjectData, por exemplo)
-  const data = projectsMock;
+export default async function Projects() {
+  const data = await getProjectPreview();
 
   return (
     <section
