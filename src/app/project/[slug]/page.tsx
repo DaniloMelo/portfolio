@@ -4,7 +4,6 @@ import ProjectCarrousel from "@/components/ProjectCarousel";
 import Technology from "@/components/Technology";
 import Theme from "@/components/Theme";
 import { getProjectDetail } from "@/services/project/getProjectDetail";
-import { Project } from "@/types/project";
 import { TechnologyName } from "@/types/technologies";
 import Link from "next/link";
 import { LuCodeXml, LuLaptop } from "react-icons/lu";
@@ -74,12 +73,4 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
       </Container>
     </main>
   );
-}
-
-function temp(projects: Project[], slug: string): Project | null {
-  const data = projects.find((project) => project.slug === slug);
-
-  if (!data) return null;
-
-  return data;
 }
