@@ -1,0 +1,78 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Me {
+  id           String @id @default(uuid())
+  name         String @db.VarChar(255)
+  jobTitle     String @map("job_title") @db.VarChar(255)
+  introduction String @db.VarChar(255)
+  about        String @db.Text
+
+  contact Contact?
+
+  @@map("me")
+}
+
+model Contact {
+  id                 String @id @default(uuid())
+  email              String @db.VarChar(255)
+  phone              String @db.VarChar(20)
+  linkedInProfileUrl String @map("linkedin_profile_url") @db.VarChar(255)
+
+  meId String @unique @map("me_id")
+  me   Me     @relation(fields: [meId], references: [id], onDelete: Cascade)
+
+  @@map("contacts")
+}
+
+model Project {
+  id                String @id @default(uuid())
+  slug              String @unique @db.VarChar(99)
+  title             String @db.VarChar(99)
+  description       String @db.Text
+  about             String @db.Text
+  repositoryCodeUrl String @map("repository_code_url") @db.VarChar(255)
+  deployUrl         String @map("deploy_url") @db.VarChar(255)
+
+  projectImages       ProjectImage[]
+  projectTechnologies ProjectTechnology[]
+
+  @@map("projects")
+}
+
+model ProjectImage {
+  id  String @id @default(uuid())
+  src String @db.VarChar(255)
+  alt String @db.VarChar(99)
+
+  projectId String  @map("project_id")
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@map("project_images")
+}
+
+model Technology {
+  id   String @id @default(uuid())
+  name String @unique @db.VarChar(255)
+
+  projectTechnologies ProjectTechnology[]
+
+  @@map("technologies")
+}
+
+model ProjectTechnology {
+  projectId    String @map("project_id")
+  technologyId String @map("technology_id")
+
+  project    Project    @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  technology Technology @relation(fields: [technologyId], references: [id], onDelete: Cascade)
+
+  @@id([projectId, technologyId])
+  @@map("projects_technologies")
+}
