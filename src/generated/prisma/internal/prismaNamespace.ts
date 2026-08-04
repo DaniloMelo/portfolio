@@ -400,7 +400,7 @@ export const ModelName = {
   Me: 'Me',
   Contact: 'Contact',
   Project: 'Project',
-  ProjectImage: 'ProjectImage',
+  Image: 'Image',
   Technology: 'Technology',
   ProjectTechnology: 'ProjectTechnology'
 } as const
@@ -418,7 +418,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "me" | "contact" | "project" | "projectImage" | "technology" | "projectTechnology"
+    modelProps: "me" | "contact" | "project" | "image" | "technology" | "projectTechnology"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -644,77 +644,77 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    ProjectImage: {
-      payload: Prisma.$ProjectImagePayload<ExtArgs>
-      fields: Prisma.ProjectImageFieldRefs
+    Image: {
+      payload: Prisma.$ImagePayload<ExtArgs>
+      fields: Prisma.ImageFieldRefs
       operations: {
         findUnique: {
-          args: Prisma.ProjectImageFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProjectImagePayload> | null
+          args: Prisma.ImageFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ImagePayload> | null
         }
         findUniqueOrThrow: {
-          args: Prisma.ProjectImageFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProjectImagePayload>
+          args: Prisma.ImageFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ImagePayload>
         }
         findFirst: {
-          args: Prisma.ProjectImageFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProjectImagePayload> | null
+          args: Prisma.ImageFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ImagePayload> | null
         }
         findFirstOrThrow: {
-          args: Prisma.ProjectImageFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProjectImagePayload>
+          args: Prisma.ImageFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ImagePayload>
         }
         findMany: {
-          args: Prisma.ProjectImageFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProjectImagePayload>[]
+          args: Prisma.ImageFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ImagePayload>[]
         }
         create: {
-          args: Prisma.ProjectImageCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProjectImagePayload>
+          args: Prisma.ImageCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ImagePayload>
         }
         createMany: {
-          args: Prisma.ProjectImageCreateManyArgs<ExtArgs>
+          args: Prisma.ImageCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
         createManyAndReturn: {
-          args: Prisma.ProjectImageCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProjectImagePayload>[]
+          args: Prisma.ImageCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ImagePayload>[]
         }
         delete: {
-          args: Prisma.ProjectImageDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProjectImagePayload>
+          args: Prisma.ImageDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ImagePayload>
         }
         update: {
-          args: Prisma.ProjectImageUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProjectImagePayload>
+          args: Prisma.ImageUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ImagePayload>
         }
         deleteMany: {
-          args: Prisma.ProjectImageDeleteManyArgs<ExtArgs>
+          args: Prisma.ImageDeleteManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateMany: {
-          args: Prisma.ProjectImageUpdateManyArgs<ExtArgs>
+          args: Prisma.ImageUpdateManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateManyAndReturn: {
-          args: Prisma.ProjectImageUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProjectImagePayload>[]
+          args: Prisma.ImageUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ImagePayload>[]
         }
         upsert: {
-          args: Prisma.ProjectImageUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProjectImagePayload>
+          args: Prisma.ImageUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ImagePayload>
         }
         aggregate: {
-          args: Prisma.ProjectImageAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateProjectImage>
+          args: Prisma.ImageAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateImage>
         }
         groupBy: {
-          args: Prisma.ProjectImageGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.ProjectImageGroupByOutputType>[]
+          args: Prisma.ImageGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ImageGroupByOutputType>[]
         }
         count: {
-          args: Prisma.ProjectImageCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.ProjectImageCountAggregateOutputType> | number
+          args: Prisma.ImageCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ImageCountAggregateOutputType> | number
         }
       }
     }
@@ -940,14 +940,14 @@ export const ProjectScalarFieldEnum = {
 export type ProjectScalarFieldEnum = (typeof ProjectScalarFieldEnum)[keyof typeof ProjectScalarFieldEnum]
 
 
-export const ProjectImageScalarFieldEnum = {
+export const ImageScalarFieldEnum = {
   id: 'id',
   src: 'src',
   alt: 'alt',
   projectId: 'projectId'
 } as const
 
-export type ProjectImageScalarFieldEnum = (typeof ProjectImageScalarFieldEnum)[keyof typeof ProjectImageScalarFieldEnum]
+export type ImageScalarFieldEnum = (typeof ImageScalarFieldEnum)[keyof typeof ImageScalarFieldEnum]
 
 
 export const TechnologyScalarFieldEnum = {
@@ -1169,7 +1169,7 @@ export type GlobalOmitConfig = {
   me?: Prisma.MeOmit
   contact?: Prisma.ContactOmit
   project?: Prisma.ProjectOmit
-  projectImage?: Prisma.ProjectImageOmit
+  image?: Prisma.ImageOmit
   technology?: Prisma.TechnologyOmit
   projectTechnology?: Prisma.ProjectTechnologyOmit
 }

@@ -54,7 +54,7 @@ export const ModelName = {
   Me: 'Me',
   Contact: 'Contact',
   Project: 'Project',
-  ProjectImage: 'ProjectImage',
+  Image: 'Image',
   Technology: 'Technology',
   ProjectTechnology: 'ProjectTechnology'
 } as const
@@ -110,14 +110,14 @@ export const ProjectScalarFieldEnum = {
 export type ProjectScalarFieldEnum = (typeof ProjectScalarFieldEnum)[keyof typeof ProjectScalarFieldEnum]
 
 
-export const ProjectImageScalarFieldEnum = {
+export const ImageScalarFieldEnum = {
   id: 'id',
   src: 'src',
   alt: 'alt',
   projectId: 'projectId'
 } as const
 
-export type ProjectImageScalarFieldEnum = (typeof ProjectImageScalarFieldEnum)[keyof typeof ProjectImageScalarFieldEnum]
+export type ImageScalarFieldEnum = (typeof ImageScalarFieldEnum)[keyof typeof ImageScalarFieldEnum]
 
 
 export const TechnologyScalarFieldEnum = {

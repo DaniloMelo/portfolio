@@ -11,7 +11,7 @@
 export type * from './models/Me'
 export type * from './models/Contact'
 export type * from './models/Project'
-export type * from './models/ProjectImage'
+export type * from './models/Image'
 export type * from './models/Technology'
 export type * from './models/ProjectTechnology'
 export type * from './commonInputTypes'

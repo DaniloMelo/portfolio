@@ -57,10 +57,10 @@ export type Contact = Prisma.ContactModel
  */
 export type Project = Prisma.ProjectModel
 /**
- * Model ProjectImage
+ * Model Image
  * 
  */
-export type ProjectImage = Prisma.ProjectImageModel
+export type Image = Prisma.ImageModel
 /**
  * Model Technology
  * 

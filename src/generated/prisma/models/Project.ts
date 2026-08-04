@@ -198,8 +198,8 @@ export type ProjectWhereInput = {
   about?: Prisma.StringFilter<"Project"> | string
   repositoryCodeUrl?: Prisma.StringFilter<"Project"> | string
   deployUrl?: Prisma.StringFilter<"Project"> | string
-  projectImages?: Prisma.ProjectImageListRelationFilter
   projectTechnologies?: Prisma.ProjectTechnologyListRelationFilter
+  images?: Prisma.ImageListRelationFilter
 }
 
 export type ProjectOrderByWithRelationInput = {
@@ -210,8 +210,8 @@ export type ProjectOrderByWithRelationInput = {
   about?: Prisma.SortOrder
   repositoryCodeUrl?: Prisma.SortOrder
   deployUrl?: Prisma.SortOrder
-  projectImages?: Prisma.ProjectImageOrderByRelationAggregateInput
   projectTechnologies?: Prisma.ProjectTechnologyOrderByRelationAggregateInput
+  images?: Prisma.ImageOrderByRelationAggregateInput
 }
 
 export type ProjectWhereUniqueInput = Prisma.AtLeast<{
@@ -225,8 +225,8 @@ export type ProjectWhereUniqueInput = Prisma.AtLeast<{
   about?: Prisma.StringFilter<"Project"> | string
   repositoryCodeUrl?: Prisma.StringFilter<"Project"> | string
   deployUrl?: Prisma.StringFilter<"Project"> | string
-  projectImages?: Prisma.ProjectImageListRelationFilter
   projectTechnologies?: Prisma.ProjectTechnologyListRelationFilter
+  images?: Prisma.ImageListRelationFilter
 }, "id" | "slug">
 
 export type ProjectOrderByWithAggregationInput = {
@@ -263,8 +263,8 @@ export type ProjectCreateInput = {
   about: string
   repositoryCodeUrl: string
   deployUrl: string
-  projectImages?: Prisma.ProjectImageCreateNestedManyWithoutProjectInput
   projectTechnologies?: Prisma.ProjectTechnologyCreateNestedManyWithoutProjectInput
+  images?: Prisma.ImageCreateNestedManyWithoutProjectInput
 }
 
 export type ProjectUncheckedCreateInput = {
@@ -275,8 +275,8 @@ export type ProjectUncheckedCreateInput = {
   about: string
   repositoryCodeUrl: string
   deployUrl: string
-  projectImages?: Prisma.ProjectImageUncheckedCreateNestedManyWithoutProjectInput
   projectTechnologies?: Prisma.ProjectTechnologyUncheckedCreateNestedManyWithoutProjectInput
+  images?: Prisma.ImageUncheckedCreateNestedManyWithoutProjectInput
 }
 
 export type ProjectUpdateInput = {
@@ -287,8 +287,8 @@ export type ProjectUpdateInput = {
   about?: Prisma.StringFieldUpdateOperationsInput | string
   repositoryCodeUrl?: Prisma.StringFieldUpdateOperationsInput | string
   deployUrl?: Prisma.StringFieldUpdateOperationsInput | string
-  projectImages?: Prisma.ProjectImageUpdateManyWithoutProjectNestedInput
   projectTechnologies?: Prisma.ProjectTechnologyUpdateManyWithoutProjectNestedInput
+  images?: Prisma.ImageUpdateManyWithoutProjectNestedInput
 }
 
 export type ProjectUncheckedUpdateInput = {
@@ -299,8 +299,8 @@ export type ProjectUncheckedUpdateInput = {
   about?: Prisma.StringFieldUpdateOperationsInput | string
   repositoryCodeUrl?: Prisma.StringFieldUpdateOperationsInput | string
   deployUrl?: Prisma.StringFieldUpdateOperationsInput | string
-  projectImages?: Prisma.ProjectImageUncheckedUpdateManyWithoutProjectNestedInput
   projectTechnologies?: Prisma.ProjectTechnologyUncheckedUpdateManyWithoutProjectNestedInput
+  images?: Prisma.ImageUncheckedUpdateManyWithoutProjectNestedInput
 }
 
 export type ProjectCreateManyInput = {
@@ -368,18 +368,18 @@ export type ProjectScalarRelationFilter = {
   isNot?: Prisma.ProjectWhereInput
 }
 
-export type ProjectCreateNestedOneWithoutProjectImagesInput = {
-  create?: Prisma.XOR<Prisma.ProjectCreateWithoutProjectImagesInput, Prisma.ProjectUncheckedCreateWithoutProjectImagesInput>
-  connectOrCreate?: Prisma.ProjectCreateOrConnectWithoutProjectImagesInput
+export type ProjectCreateNestedOneWithoutImagesInput = {
+  create?: Prisma.XOR<Prisma.ProjectCreateWithoutImagesInput, Prisma.ProjectUncheckedCreateWithoutImagesInput>
+  connectOrCreate?: Prisma.ProjectCreateOrConnectWithoutImagesInput
   connect?: Prisma.ProjectWhereUniqueInput
 }
 
-export type ProjectUpdateOneRequiredWithoutProjectImagesNestedInput = {
-  create?: Prisma.XOR<Prisma.ProjectCreateWithoutProjectImagesInput, Prisma.ProjectUncheckedCreateWithoutProjectImagesInput>
-  connectOrCreate?: Prisma.ProjectCreateOrConnectWithoutProjectImagesInput
-  upsert?: Prisma.ProjectUpsertWithoutProjectImagesInput
+export type ProjectUpdateOneRequiredWithoutImagesNestedInput = {
+  create?: Prisma.XOR<Prisma.ProjectCreateWithoutImagesInput, Prisma.ProjectUncheckedCreateWithoutImagesInput>
+  connectOrCreate?: Prisma.ProjectCreateOrConnectWithoutImagesInput
+  upsert?: Prisma.ProjectUpsertWithoutImagesInput
   connect?: Prisma.ProjectWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.ProjectUpdateToOneWithWhereWithoutProjectImagesInput, Prisma.ProjectUpdateWithoutProjectImagesInput>, Prisma.ProjectUncheckedUpdateWithoutProjectImagesInput>
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ProjectUpdateToOneWithWhereWithoutImagesInput, Prisma.ProjectUpdateWithoutImagesInput>, Prisma.ProjectUncheckedUpdateWithoutImagesInput>
 }
 
 export type ProjectCreateNestedOneWithoutProjectTechnologiesInput = {
@@ -396,7 +396,7 @@ export type ProjectUpdateOneRequiredWithoutProjectTechnologiesNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.ProjectUpdateToOneWithWhereWithoutProjectTechnologiesInput, Prisma.ProjectUpdateWithoutProjectTechnologiesInput>, Prisma.ProjectUncheckedUpdateWithoutProjectTechnologiesInput>
 }
 
-export type ProjectCreateWithoutProjectImagesInput = {
+export type ProjectCreateWithoutImagesInput = {
   id?: string
   slug: string
   title: string
@@ -407,7 +407,7 @@ export type ProjectCreateWithoutProjectImagesInput = {
   projectTechnologies?: Prisma.ProjectTechnologyCreateNestedManyWithoutProjectInput
 }
 
-export type ProjectUncheckedCreateWithoutProjectImagesInput = {
+export type ProjectUncheckedCreateWithoutImagesInput = {
   id?: string
   slug: string
   title: string
@@ -418,23 +418,23 @@ export type ProjectUncheckedCreateWithoutProjectImagesInput = {
   projectTechnologies?: Prisma.ProjectTechnologyUncheckedCreateNestedManyWithoutProjectInput
 }
 
-export type ProjectCreateOrConnectWithoutProjectImagesInput = {
+export type ProjectCreateOrConnectWithoutImagesInput = {
   where: Prisma.ProjectWhereUniqueInput
-  create: Prisma.XOR<Prisma.ProjectCreateWithoutProjectImagesInput, Prisma.ProjectUncheckedCreateWithoutProjectImagesInput>
+  create: Prisma.XOR<Prisma.ProjectCreateWithoutImagesInput, Prisma.ProjectUncheckedCreateWithoutImagesInput>
 }
 
-export type ProjectUpsertWithoutProjectImagesInput = {
-  update: Prisma.XOR<Prisma.ProjectUpdateWithoutProjectImagesInput, Prisma.ProjectUncheckedUpdateWithoutProjectImagesInput>
-  create: Prisma.XOR<Prisma.ProjectCreateWithoutProjectImagesInput, Prisma.ProjectUncheckedCreateWithoutProjectImagesInput>
+export type ProjectUpsertWithoutImagesInput = {
+  update: Prisma.XOR<Prisma.ProjectUpdateWithoutImagesInput, Prisma.ProjectUncheckedUpdateWithoutImagesInput>
+  create: Prisma.XOR<Prisma.ProjectCreateWithoutImagesInput, Prisma.ProjectUncheckedCreateWithoutImagesInput>
   where?: Prisma.ProjectWhereInput
 }
 
-export type ProjectUpdateToOneWithWhereWithoutProjectImagesInput = {
+export type ProjectUpdateToOneWithWhereWithoutImagesInput = {
   where?: Prisma.ProjectWhereInput
-  data: Prisma.XOR<Prisma.ProjectUpdateWithoutProjectImagesInput, Prisma.ProjectUncheckedUpdateWithoutProjectImagesInput>
+  data: Prisma.XOR<Prisma.ProjectUpdateWithoutImagesInput, Prisma.ProjectUncheckedUpdateWithoutImagesInput>
 }
 
-export type ProjectUpdateWithoutProjectImagesInput = {
+export type ProjectUpdateWithoutImagesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
@@ -445,7 +445,7 @@ export type ProjectUpdateWithoutProjectImagesInput = {
   projectTechnologies?: Prisma.ProjectTechnologyUpdateManyWithoutProjectNestedInput
 }
 
-export type ProjectUncheckedUpdateWithoutProjectImagesInput = {
+export type ProjectUncheckedUpdateWithoutImagesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
@@ -464,7 +464,7 @@ export type ProjectCreateWithoutProjectTechnologiesInput = {
   about: string
   repositoryCodeUrl: string
   deployUrl: string
-  projectImages?: Prisma.ProjectImageCreateNestedManyWithoutProjectInput
+  images?: Prisma.ImageCreateNestedManyWithoutProjectInput
 }
 
 export type ProjectUncheckedCreateWithoutProjectTechnologiesInput = {
@@ -475,7 +475,7 @@ export type ProjectUncheckedCreateWithoutProjectTechnologiesInput = {
   about: string
   repositoryCodeUrl: string
   deployUrl: string
-  projectImages?: Prisma.ProjectImageUncheckedCreateNestedManyWithoutProjectInput
+  images?: Prisma.ImageUncheckedCreateNestedManyWithoutProjectInput
 }
 
 export type ProjectCreateOrConnectWithoutProjectTechnologiesInput = {
@@ -502,7 +502,7 @@ export type ProjectUpdateWithoutProjectTechnologiesInput = {
   about?: Prisma.StringFieldUpdateOperationsInput | string
   repositoryCodeUrl?: Prisma.StringFieldUpdateOperationsInput | string
   deployUrl?: Prisma.StringFieldUpdateOperationsInput | string
-  projectImages?: Prisma.ProjectImageUpdateManyWithoutProjectNestedInput
+  images?: Prisma.ImageUpdateManyWithoutProjectNestedInput
 }
 
 export type ProjectUncheckedUpdateWithoutProjectTechnologiesInput = {
@@ -513,7 +513,7 @@ export type ProjectUncheckedUpdateWithoutProjectTechnologiesInput = {
   about?: Prisma.StringFieldUpdateOperationsInput | string
   repositoryCodeUrl?: Prisma.StringFieldUpdateOperationsInput | string
   deployUrl?: Prisma.StringFieldUpdateOperationsInput | string
-  projectImages?: Prisma.ProjectImageUncheckedUpdateManyWithoutProjectNestedInput
+  images?: Prisma.ImageUncheckedUpdateManyWithoutProjectNestedInput
 }
 
 
@@ -522,13 +522,13 @@ export type ProjectUncheckedUpdateWithoutProjectTechnologiesInput = {
  */
 
 export type ProjectCountOutputType = {
-  projectImages: number
   projectTechnologies: number
+  images: number
 }
 
 export type ProjectCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  projectImages?: boolean | ProjectCountOutputTypeCountProjectImagesArgs
   projectTechnologies?: boolean | ProjectCountOutputTypeCountProjectTechnologiesArgs
+  images?: boolean | ProjectCountOutputTypeCountImagesArgs
 }
 
 /**
@@ -544,15 +544,15 @@ export type ProjectCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Exte
 /**
  * ProjectCountOutputType without action
  */
-export type ProjectCountOutputTypeCountProjectImagesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.ProjectImageWhereInput
+export type ProjectCountOutputTypeCountProjectTechnologiesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ProjectTechnologyWhereInput
 }
 
 /**
  * ProjectCountOutputType without action
  */
-export type ProjectCountOutputTypeCountProjectTechnologiesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.ProjectTechnologyWhereInput
+export type ProjectCountOutputTypeCountImagesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ImageWhereInput
 }
 
 
@@ -564,8 +564,8 @@ export type ProjectSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   about?: boolean
   repositoryCodeUrl?: boolean
   deployUrl?: boolean
-  projectImages?: boolean | Prisma.Project$projectImagesArgs<ExtArgs>
   projectTechnologies?: boolean | Prisma.Project$projectTechnologiesArgs<ExtArgs>
+  images?: boolean | Prisma.Project$imagesArgs<ExtArgs>
   _count?: boolean | Prisma.ProjectCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["project"]>
 
@@ -601,8 +601,8 @@ export type ProjectSelectScalar = {
 
 export type ProjectOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "slug" | "title" | "description" | "about" | "repositoryCodeUrl" | "deployUrl", ExtArgs["result"]["project"]>
 export type ProjectInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  projectImages?: boolean | Prisma.Project$projectImagesArgs<ExtArgs>
   projectTechnologies?: boolean | Prisma.Project$projectTechnologiesArgs<ExtArgs>
+  images?: boolean | Prisma.Project$imagesArgs<ExtArgs>
   _count?: boolean | Prisma.ProjectCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type ProjectIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -611,8 +611,8 @@ export type ProjectIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Exte
 export type $ProjectPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Project"
   objects: {
-    projectImages: Prisma.$ProjectImagePayload<ExtArgs>[]
     projectTechnologies: Prisma.$ProjectTechnologyPayload<ExtArgs>[]
+    images: Prisma.$ImagePayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1016,8 +1016,8 @@ readonly fields: ProjectFieldRefs;
  */
 export interface Prisma__ProjectClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  projectImages<T extends Prisma.Project$projectImagesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Project$projectImagesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProjectImagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   projectTechnologies<T extends Prisma.Project$projectTechnologiesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Project$projectTechnologiesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProjectTechnologyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  images<T extends Prisma.Project$imagesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Project$imagesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ImagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1447,30 +1447,6 @@ export type ProjectDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Inter
 }
 
 /**
- * Project.projectImages
- */
-export type Project$projectImagesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the ProjectImage
-   */
-  select?: Prisma.ProjectImageSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the ProjectImage
-   */
-  omit?: Prisma.ProjectImageOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.ProjectImageInclude<ExtArgs> | null
-  where?: Prisma.ProjectImageWhereInput
-  orderBy?: Prisma.ProjectImageOrderByWithRelationInput | Prisma.ProjectImageOrderByWithRelationInput[]
-  cursor?: Prisma.ProjectImageWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.ProjectImageScalarFieldEnum | Prisma.ProjectImageScalarFieldEnum[]
-}
-
-/**
  * Project.projectTechnologies
  */
 export type Project$projectTechnologiesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1492,6 +1468,30 @@ export type Project$projectTechnologiesArgs<ExtArgs extends runtime.Types.Extens
   take?: number
   skip?: number
   distinct?: Prisma.ProjectTechnologyScalarFieldEnum | Prisma.ProjectTechnologyScalarFieldEnum[]
+}
+
+/**
+ * Project.images
+ */
+export type Project$imagesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Image
+   */
+  select?: Prisma.ImageSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Image
+   */
+  omit?: Prisma.ImageOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ImageInclude<ExtArgs> | null
+  where?: Prisma.ImageWhereInput
+  orderBy?: Prisma.ImageOrderByWithRelationInput | Prisma.ImageOrderByWithRelationInput[]
+  cursor?: Prisma.ImageWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ImageScalarFieldEnum | Prisma.ImageScalarFieldEnum[]
 }
 
 /**
