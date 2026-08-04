@@ -1,18 +1,61 @@
-import { projectsMock } from "@/data/projects.mocks";
+import { prisma } from "@/libs/prisma/client";
 import { Project } from "@/types/project";
 
-// TODO: provavelmente o retorno (Promise<Project[]>) será desnecessário quando implementar o prisma, pois ele ira retornar os dados em outro formato dependendo de como o banco de dados for desenhado.
-export async function findProjects(): Promise<Project[]> {
-  const data = projectsMock;
+export async function findProjectPreviews() {
+  return await prisma.project.findMany({
+    select: {
+      id: true,
+      slug: true,
+      title: true,
+      description: true,
+      repositoryCodeUrl: true,
+      deployUrl: true,
 
-  return data;
+      images: {
+        select: {
+          id: true,
+          src: true,
+          alt: true,
+        },
+      },
+    },
+  });
 }
 
-// TODO: provavelmente o retorno (Promise<Project | null/undefined>) será desnecessário quando implementar o prisma, pois ele ira retornar os dados em outro formato dependendo de como o banco de dados for desenhado.
-export async function findProjectBySlug(
-  slug: string,
-): Promise<Project | undefined> {
-  const data = projectsMock.find((project) => project.slug === slug);
+export async function findProjectBySlug(slug: string): Promise<Project | null> {
+  const data = await prisma.project.findUnique({
+    where: {
+      slug,
+    },
+    include: {
+      images: true,
+      projectTechnologies: {
+        include: {
+          technology: true,
+        },
+      },
+    },
+  });
 
-  return data;
+  if (!data) return null;
+
+  return {
+    id: data.id,
+    slug: data.slug,
+    title: data.title,
+    description: data.description,
+    about: data.about,
+    repositoryCodeUrl: data.repositoryCodeUrl,
+    deployUrl: data.deployUrl,
+
+    images: data.images.map((image) => ({
+      id: image.id,
+      src: image.src,
+      alt: image.alt,
+    })),
+
+    technologies: data.projectTechnologies.map(
+      (projectTechnology) => projectTechnology.technology.name,
+    ),
+  };
 }
