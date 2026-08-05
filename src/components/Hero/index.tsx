@@ -6,11 +6,17 @@ import AnimatedName from "../AnimatedName";
 
 interface HeroProps {
   name: string;
+  avatarUrl: string;
   jobTitle: string;
   introduction: string;
 }
 
-export default function Hero({ name, jobTitle, introduction }: HeroProps) {
+export default function Hero({
+  name,
+  avatarUrl,
+  jobTitle,
+  introduction,
+}: HeroProps) {
   return (
     <section
       id="hero"
@@ -24,7 +30,7 @@ export default function Hero({ name, jobTitle, introduction }: HeroProps) {
         <div className="flex flex-col items-center gap-5 lg:gap-20 lg:flex-row">
           <Image
             className="rounded-full border-8 size-[clamp(14rem,30vw,25rem)] border-accent dark:border-accent"
-            src="https://github.com/DaniloMelo.png"
+            src={avatarUrl}
             alt="foto de perfil"
             width="400"
             height="400"

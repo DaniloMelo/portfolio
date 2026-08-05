@@ -1,4 +1,4 @@
-export interface Contatcts {
+export interface Contatct {
   email: string;
   phone: string;
   linkedInProfileUrl: string;
@@ -6,8 +6,9 @@ export interface Contatcts {
 
 export interface Me {
   name: string;
+  avatarUrl: string;
   jobTitle: string;
   introduction: string;
   about: string;
-  contacts: Contatcts;
+  contact: Contatct;
 }

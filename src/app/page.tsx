@@ -16,6 +16,7 @@ export default async function Home() {
       <main>
         <Hero
           name={data.name}
+          avatarUrl={data.avatarUrl}
           jobTitle={data.jobTitle}
           introduction={data.introduction}
         />
@@ -25,9 +26,9 @@ export default async function Home() {
         <About about={data.about} />
 
         <Contact
-          email={data.contacts.email}
-          phone={data.contacts.phone}
-          linkedInProfileUrl={data.contacts.linkedInProfileUrl}
+          email={data.contact.email}
+          phone={data.contact.phone}
+          linkedInProfileUrl={data.contact.linkedInProfileUrl}
         />
       </main>
 
