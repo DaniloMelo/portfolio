@@ -908,6 +908,7 @@ export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof
 export const MeScalarFieldEnum = {
   id: 'id',
   name: 'name',
+  avatarUrl: 'avatarUrl',
   jobTitle: 'jobTitle',
   introduction: 'introduction',
   about: 'about'

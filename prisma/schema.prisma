@@ -10,6 +10,7 @@ datasource db {
 model Me {
   id           String @id @default(uuid())
   name         String @db.VarChar(255)
+  avatarUrl    String @map("avatar_url") @db.VarChar(255)
   jobTitle     String @map("job_title") @db.VarChar(255)
   introduction String @db.VarChar(255)
   about        String @db.Text

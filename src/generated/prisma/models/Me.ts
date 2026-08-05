@@ -27,6 +27,7 @@ export type AggregateMe = {
 export type MeMinAggregateOutputType = {
   id: string | null
   name: string | null
+  avatarUrl: string | null
   jobTitle: string | null
   introduction: string | null
   about: string | null
@@ -35,6 +36,7 @@ export type MeMinAggregateOutputType = {
 export type MeMaxAggregateOutputType = {
   id: string | null
   name: string | null
+  avatarUrl: string | null
   jobTitle: string | null
   introduction: string | null
   about: string | null
@@ -43,6 +45,7 @@ export type MeMaxAggregateOutputType = {
 export type MeCountAggregateOutputType = {
   id: number
   name: number
+  avatarUrl: number
   jobTitle: number
   introduction: number
   about: number
@@ -53,6 +56,7 @@ export type MeCountAggregateOutputType = {
 export type MeMinAggregateInputType = {
   id?: true
   name?: true
+  avatarUrl?: true
   jobTitle?: true
   introduction?: true
   about?: true
@@ -61,6 +65,7 @@ export type MeMinAggregateInputType = {
 export type MeMaxAggregateInputType = {
   id?: true
   name?: true
+  avatarUrl?: true
   jobTitle?: true
   introduction?: true
   about?: true
@@ -69,6 +74,7 @@ export type MeMaxAggregateInputType = {
 export type MeCountAggregateInputType = {
   id?: true
   name?: true
+  avatarUrl?: true
   jobTitle?: true
   introduction?: true
   about?: true
@@ -150,6 +156,7 @@ export type MeGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs 
 export type MeGroupByOutputType = {
   id: string
   name: string
+  avatarUrl: string
   jobTitle: string
   introduction: string
   about: string
@@ -179,6 +186,7 @@ export type MeWhereInput = {
   NOT?: Prisma.MeWhereInput | Prisma.MeWhereInput[]
   id?: Prisma.StringFilter<"Me"> | string
   name?: Prisma.StringFilter<"Me"> | string
+  avatarUrl?: Prisma.StringFilter<"Me"> | string
   jobTitle?: Prisma.StringFilter<"Me"> | string
   introduction?: Prisma.StringFilter<"Me"> | string
   about?: Prisma.StringFilter<"Me"> | string
@@ -188,6 +196,7 @@ export type MeWhereInput = {
 export type MeOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  avatarUrl?: Prisma.SortOrder
   jobTitle?: Prisma.SortOrder
   introduction?: Prisma.SortOrder
   about?: Prisma.SortOrder
@@ -200,6 +209,7 @@ export type MeWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.MeWhereInput[]
   NOT?: Prisma.MeWhereInput | Prisma.MeWhereInput[]
   name?: Prisma.StringFilter<"Me"> | string
+  avatarUrl?: Prisma.StringFilter<"Me"> | string
   jobTitle?: Prisma.StringFilter<"Me"> | string
   introduction?: Prisma.StringFilter<"Me"> | string
   about?: Prisma.StringFilter<"Me"> | string
@@ -209,6 +219,7 @@ export type MeWhereUniqueInput = Prisma.AtLeast<{
 export type MeOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  avatarUrl?: Prisma.SortOrder
   jobTitle?: Prisma.SortOrder
   introduction?: Prisma.SortOrder
   about?: Prisma.SortOrder
@@ -223,6 +234,7 @@ export type MeScalarWhereWithAggregatesInput = {
   NOT?: Prisma.MeScalarWhereWithAggregatesInput | Prisma.MeScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"Me"> | string
   name?: Prisma.StringWithAggregatesFilter<"Me"> | string
+  avatarUrl?: Prisma.StringWithAggregatesFilter<"Me"> | string
   jobTitle?: Prisma.StringWithAggregatesFilter<"Me"> | string
   introduction?: Prisma.StringWithAggregatesFilter<"Me"> | string
   about?: Prisma.StringWithAggregatesFilter<"Me"> | string
@@ -231,6 +243,7 @@ export type MeScalarWhereWithAggregatesInput = {
 export type MeCreateInput = {
   id?: string
   name: string
+  avatarUrl: string
   jobTitle: string
   introduction: string
   about: string
@@ -240,6 +253,7 @@ export type MeCreateInput = {
 export type MeUncheckedCreateInput = {
   id?: string
   name: string
+  avatarUrl: string
   jobTitle: string
   introduction: string
   about: string
@@ -249,6 +263,7 @@ export type MeUncheckedCreateInput = {
 export type MeUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarUrl?: Prisma.StringFieldUpdateOperationsInput | string
   jobTitle?: Prisma.StringFieldUpdateOperationsInput | string
   introduction?: Prisma.StringFieldUpdateOperationsInput | string
   about?: Prisma.StringFieldUpdateOperationsInput | string
@@ -258,6 +273,7 @@ export type MeUpdateInput = {
 export type MeUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarUrl?: Prisma.StringFieldUpdateOperationsInput | string
   jobTitle?: Prisma.StringFieldUpdateOperationsInput | string
   introduction?: Prisma.StringFieldUpdateOperationsInput | string
   about?: Prisma.StringFieldUpdateOperationsInput | string
@@ -267,6 +283,7 @@ export type MeUncheckedUpdateInput = {
 export type MeCreateManyInput = {
   id?: string
   name: string
+  avatarUrl: string
   jobTitle: string
   introduction: string
   about: string
@@ -275,6 +292,7 @@ export type MeCreateManyInput = {
 export type MeUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarUrl?: Prisma.StringFieldUpdateOperationsInput | string
   jobTitle?: Prisma.StringFieldUpdateOperationsInput | string
   introduction?: Prisma.StringFieldUpdateOperationsInput | string
   about?: Prisma.StringFieldUpdateOperationsInput | string
@@ -283,6 +301,7 @@ export type MeUpdateManyMutationInput = {
 export type MeUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarUrl?: Prisma.StringFieldUpdateOperationsInput | string
   jobTitle?: Prisma.StringFieldUpdateOperationsInput | string
   introduction?: Prisma.StringFieldUpdateOperationsInput | string
   about?: Prisma.StringFieldUpdateOperationsInput | string
@@ -291,6 +310,7 @@ export type MeUncheckedUpdateManyInput = {
 export type MeCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  avatarUrl?: Prisma.SortOrder
   jobTitle?: Prisma.SortOrder
   introduction?: Prisma.SortOrder
   about?: Prisma.SortOrder
@@ -299,6 +319,7 @@ export type MeCountOrderByAggregateInput = {
 export type MeMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  avatarUrl?: Prisma.SortOrder
   jobTitle?: Prisma.SortOrder
   introduction?: Prisma.SortOrder
   about?: Prisma.SortOrder
@@ -307,6 +328,7 @@ export type MeMaxOrderByAggregateInput = {
 export type MeMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  avatarUrl?: Prisma.SortOrder
   jobTitle?: Prisma.SortOrder
   introduction?: Prisma.SortOrder
   about?: Prisma.SortOrder
@@ -338,6 +360,7 @@ export type MeUpdateOneRequiredWithoutContactNestedInput = {
 export type MeCreateWithoutContactInput = {
   id?: string
   name: string
+  avatarUrl: string
   jobTitle: string
   introduction: string
   about: string
@@ -346,6 +369,7 @@ export type MeCreateWithoutContactInput = {
 export type MeUncheckedCreateWithoutContactInput = {
   id?: string
   name: string
+  avatarUrl: string
   jobTitle: string
   introduction: string
   about: string
@@ -370,6 +394,7 @@ export type MeUpdateToOneWithWhereWithoutContactInput = {
 export type MeUpdateWithoutContactInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarUrl?: Prisma.StringFieldUpdateOperationsInput | string
   jobTitle?: Prisma.StringFieldUpdateOperationsInput | string
   introduction?: Prisma.StringFieldUpdateOperationsInput | string
   about?: Prisma.StringFieldUpdateOperationsInput | string
@@ -378,6 +403,7 @@ export type MeUpdateWithoutContactInput = {
 export type MeUncheckedUpdateWithoutContactInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarUrl?: Prisma.StringFieldUpdateOperationsInput | string
   jobTitle?: Prisma.StringFieldUpdateOperationsInput | string
   introduction?: Prisma.StringFieldUpdateOperationsInput | string
   about?: Prisma.StringFieldUpdateOperationsInput | string
@@ -388,6 +414,7 @@ export type MeUncheckedUpdateWithoutContactInput = {
 export type MeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  avatarUrl?: boolean
   jobTitle?: boolean
   introduction?: boolean
   about?: boolean
@@ -397,6 +424,7 @@ export type MeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = run
 export type MeSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  avatarUrl?: boolean
   jobTitle?: boolean
   introduction?: boolean
   about?: boolean
@@ -405,6 +433,7 @@ export type MeSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions
 export type MeSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  avatarUrl?: boolean
   jobTitle?: boolean
   introduction?: boolean
   about?: boolean
@@ -413,12 +442,13 @@ export type MeSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions
 export type MeSelectScalar = {
   id?: boolean
   name?: boolean
+  avatarUrl?: boolean
   jobTitle?: boolean
   introduction?: boolean
   about?: boolean
 }
 
-export type MeOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "jobTitle" | "introduction" | "about", ExtArgs["result"]["me"]>
+export type MeOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "avatarUrl" | "jobTitle" | "introduction" | "about", ExtArgs["result"]["me"]>
 export type MeInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   contact?: boolean | Prisma.Me$contactArgs<ExtArgs>
 }
@@ -433,6 +463,7 @@ export type $MePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     name: string
+    avatarUrl: string
     jobTitle: string
     introduction: string
     about: string
@@ -862,6 +893,7 @@ export interface Prisma__MeClient<T, Null = never, ExtArgs extends runtime.Types
 export interface MeFieldRefs {
   readonly id: Prisma.FieldRef<"Me", 'String'>
   readonly name: Prisma.FieldRef<"Me", 'String'>
+  readonly avatarUrl: Prisma.FieldRef<"Me", 'String'>
   readonly jobTitle: Prisma.FieldRef<"Me", 'String'>
   readonly introduction: Prisma.FieldRef<"Me", 'String'>
   readonly about: Prisma.FieldRef<"Me", 'String'>

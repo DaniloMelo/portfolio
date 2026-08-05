@@ -18,6 +18,7 @@ async function seedMe() {
     },
     update: {
       name: meMock.name,
+      avatarUrl: meMock.avatarUrl,
       jobTitle: meMock.jobTitle,
       introduction: meMock.introduction,
       about: meMock.about,
@@ -25,6 +26,7 @@ async function seedMe() {
     create: {
       id: "me-example-id",
       name: meMock.name,
+      avatarUrl: meMock.avatarUrl,
       jobTitle: meMock.jobTitle,
       introduction: meMock.introduction,
       about: meMock.about,
@@ -40,15 +42,15 @@ async function seedContact(meId: string) {
       meId: meId,
     },
     update: {
-      email: meMock.contacts.email,
-      phone: meMock.contacts.phone,
-      linkedInProfileUrl: meMock.contacts.linkedInProfileUrl,
+      email: meMock.contact.email,
+      phone: meMock.contact.phone,
+      linkedInProfileUrl: meMock.contact.linkedInProfileUrl,
     },
     create: {
       meId: meId,
-      email: meMock.contacts.email,
-      phone: meMock.contacts.phone,
-      linkedInProfileUrl: meMock.contacts.linkedInProfileUrl,
+      email: meMock.contact.email,
+      phone: meMock.contact.phone,
+      linkedInProfileUrl: meMock.contact.linkedInProfileUrl,
     },
   });
 
