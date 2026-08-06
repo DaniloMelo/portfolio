@@ -52,7 +52,6 @@ export const AnyNull = runtime.AnyNull
 
 export const ModelName = {
   Me: 'Me',
-  Contact: 'Contact',
   Credential: 'Credential',
   Project: 'Project',
   Image: 'Image',
@@ -82,21 +81,13 @@ export const MeScalarFieldEnum = {
   avatarUrl: 'avatarUrl',
   jobTitle: 'jobTitle',
   introduction: 'introduction',
-  about: 'about'
+  about: 'about',
+  email: 'email',
+  phone: 'phone',
+  linkedInProfileUrl: 'linkedInProfileUrl'
 } as const
 
 export type MeScalarFieldEnum = (typeof MeScalarFieldEnum)[keyof typeof MeScalarFieldEnum]
-
-
-export const ContactScalarFieldEnum = {
-  id: 'id',
-  email: 'email',
-  phone: 'phone',
-  linkedInProfileUrl: 'linkedInProfileUrl',
-  meId: 'meId'
-} as const
-
-export type ContactScalarFieldEnum = (typeof ContactScalarFieldEnum)[keyof typeof ContactScalarFieldEnum]
 
 
 export const CredentialScalarFieldEnum = {

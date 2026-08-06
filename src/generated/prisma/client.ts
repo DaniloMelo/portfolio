@@ -47,11 +47,6 @@ export { Prisma }
  */
 export type Me = Prisma.MeModel
 /**
- * Model Contact
- * 
- */
-export type Contact = Prisma.ContactModel
-/**
  * Model Credential
  * 
  */

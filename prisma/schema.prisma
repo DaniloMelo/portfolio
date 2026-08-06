@@ -8,29 +8,19 @@ datasource db {
 }
 
 model Me {
-  id           String @id @default(uuid())
-  name         String @db.VarChar(255)
-  avatarUrl    String @map("avatar_url") @db.VarChar(255)
-  jobTitle     String @map("job_title") @db.VarChar(255)
-  introduction String @db.VarChar(255)
-  about        String @db.Text
-
-  contact    Contact?
-  credential Credential?
-
-  @@map("me")
-}
-
-model Contact {
   id                 String @id @default(uuid())
+  name               String @db.VarChar(255)
   email              String @db.VarChar(255)
+  avatarUrl          String @map("avatar_url") @db.VarChar(255)
+  jobTitle           String @map("job_title") @db.VarChar(255)
+  introduction       String @db.VarChar(255)
+  about              String @db.Text
   phone              String @db.VarChar(20)
   linkedInProfileUrl String @map("linkedin_profile_url") @db.VarChar(255)
 
-  meId String @unique @map("me_id")
-  me   Me     @relation(fields: [meId], references: [id], onDelete: Cascade)
+  credential Credential?
 
-  @@map("contacts")
+  @@map("me")
 }
 
 model Credential {

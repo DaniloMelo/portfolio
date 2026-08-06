@@ -398,7 +398,6 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 export const ModelName = {
   Me: 'Me',
-  Contact: 'Contact',
   Credential: 'Credential',
   Project: 'Project',
   Image: 'Image',
@@ -419,7 +418,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "me" | "contact" | "credential" | "project" | "image" | "technology" | "projectTechnology"
+    modelProps: "me" | "credential" | "project" | "image" | "technology" | "projectTechnology"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -494,80 +493,6 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.MeCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.MeCountAggregateOutputType> | number
-        }
-      }
-    }
-    Contact: {
-      payload: Prisma.$ContactPayload<ExtArgs>
-      fields: Prisma.ContactFieldRefs
-      operations: {
-        findUnique: {
-          args: Prisma.ContactFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContactPayload> | null
-        }
-        findUniqueOrThrow: {
-          args: Prisma.ContactFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContactPayload>
-        }
-        findFirst: {
-          args: Prisma.ContactFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContactPayload> | null
-        }
-        findFirstOrThrow: {
-          args: Prisma.ContactFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContactPayload>
-        }
-        findMany: {
-          args: Prisma.ContactFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContactPayload>[]
-        }
-        create: {
-          args: Prisma.ContactCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContactPayload>
-        }
-        createMany: {
-          args: Prisma.ContactCreateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        createManyAndReturn: {
-          args: Prisma.ContactCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContactPayload>[]
-        }
-        delete: {
-          args: Prisma.ContactDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContactPayload>
-        }
-        update: {
-          args: Prisma.ContactUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContactPayload>
-        }
-        deleteMany: {
-          args: Prisma.ContactDeleteManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateMany: {
-          args: Prisma.ContactUpdateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateManyAndReturn: {
-          args: Prisma.ContactUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContactPayload>[]
-        }
-        upsert: {
-          args: Prisma.ContactUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContactPayload>
-        }
-        aggregate: {
-          args: Prisma.ContactAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateContact>
-        }
-        groupBy: {
-          args: Prisma.ContactGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.ContactGroupByOutputType>[]
-        }
-        count: {
-          args: Prisma.ContactCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.ContactCountAggregateOutputType> | number
         }
       }
     }
@@ -986,21 +911,13 @@ export const MeScalarFieldEnum = {
   avatarUrl: 'avatarUrl',
   jobTitle: 'jobTitle',
   introduction: 'introduction',
-  about: 'about'
+  about: 'about',
+  email: 'email',
+  phone: 'phone',
+  linkedInProfileUrl: 'linkedInProfileUrl'
 } as const
 
 export type MeScalarFieldEnum = (typeof MeScalarFieldEnum)[keyof typeof MeScalarFieldEnum]
-
-
-export const ContactScalarFieldEnum = {
-  id: 'id',
-  email: 'email',
-  phone: 'phone',
-  linkedInProfileUrl: 'linkedInProfileUrl',
-  meId: 'meId'
-} as const
-
-export type ContactScalarFieldEnum = (typeof ContactScalarFieldEnum)[keyof typeof ContactScalarFieldEnum]
 
 
 export const CredentialScalarFieldEnum = {
@@ -1252,7 +1169,6 @@ export interface PrismaClientOptionsWithAdapter extends PrismaClientBaseOptions 
 export type PrismaClientOptions = PrismaClientOptionsWithAccelerateUrl | PrismaClientOptionsWithAdapter
 export type GlobalOmitConfig = {
   me?: Prisma.MeOmit
-  contact?: Prisma.ContactOmit
   credential?: Prisma.CredentialOmit
   project?: Prisma.ProjectOmit
   image?: Prisma.ImageOmit

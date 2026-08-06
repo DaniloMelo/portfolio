@@ -26,9 +26,9 @@ export default async function Home() {
         <About about={data.about} />
 
         <Contact
-          email={data.contact.email}
-          phone={data.contact.phone}
-          linkedInProfileUrl={data.contact.linkedInProfileUrl}
+          email={data.email}
+          phone={data.phone}
+          linkedInProfileUrl={data.linkedInProfileUrl}
         />
       </main>
 

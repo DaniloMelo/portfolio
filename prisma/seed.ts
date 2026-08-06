@@ -22,6 +22,9 @@ async function seedMe() {
       jobTitle: meMock.jobTitle,
       introduction: meMock.introduction,
       about: meMock.about,
+      email: meMock.email,
+      phone: meMock.phone,
+      linkedInProfileUrl: meMock.linkedInProfileUrl,
     },
     create: {
       id: "me-example-id",
@@ -30,31 +33,48 @@ async function seedMe() {
       jobTitle: meMock.jobTitle,
       introduction: meMock.introduction,
       about: meMock.about,
+      email: meMock.email,
+      phone: meMock.phone,
+      linkedInProfileUrl: meMock.linkedInProfileUrl,
     },
   });
 
   return me;
 }
 
-async function seedContact(meId: string) {
-  const contact = await prisma.contact.upsert({
+// async function seedContact(meId: string) {
+//   const contact = await prisma.contact.upsert({
+//     where: {
+//       meId: meId,
+//     },
+//     update: {
+//       email: meMock.contact.email,
+//       phone: meMock.contact.phone,
+//       linkedInProfileUrl: meMock.contact.linkedInProfileUrl,
+//     },
+//     create: {
+//       meId: meId,
+//       email: meMock.contact.email,
+//       phone: meMock.contact.phone,
+//       linkedInProfileUrl: meMock.contact.linkedInProfileUrl,
+//     },
+//   });
+
+//   return contact;
+// }
+
+async function seedCredential(meId: string) {
+  await prisma.credential.upsert({
     where: {
       meId: meId,
     },
-    update: {
-      email: meMock.contact.email,
-      phone: meMock.contact.phone,
-      linkedInProfileUrl: meMock.contact.linkedInProfileUrl,
-    },
+    update: {},
     create: {
       meId: meId,
-      email: meMock.contact.email,
-      phone: meMock.contact.phone,
-      linkedInProfileUrl: meMock.contact.linkedInProfileUrl,
+      passwordHash:
+        "$2a$12$L3Okm1HEtxKfOHoEvGyIR.NPSTjgWnufetWfDlMOREojVjgwyC9Jm", // Senha@123
     },
   });
-
-  return contact;
 }
 
 async function seedTechnologies() {
@@ -159,7 +179,7 @@ async function seedProjects() {
 
 async function main() {
   const me = await seedMe();
-  await seedContact(me.id);
+  await seedCredential(me.id);
   await seedTechnologies();
   await seedProjects();
 }
