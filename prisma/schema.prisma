@@ -15,7 +15,8 @@ model Me {
   introduction String @db.VarChar(255)
   about        String @db.Text
 
-  contact Contact?
+  contact    Contact?
+  credential Credential?
 
   @@map("me")
 }
@@ -30,6 +31,16 @@ model Contact {
   me   Me     @relation(fields: [meId], references: [id], onDelete: Cascade)
 
   @@map("contacts")
+}
+
+model Credential {
+  id           String @id @default(uuid())
+  passwordHash String @map("password_hash") @db.VarChar(99)
+
+  meId String @unique @map("me_id")
+  me   Me     @relation(fields: [meId], references: [id], onDelete: Cascade)
+
+  @@map("credentials")
 }
 
 model Project {

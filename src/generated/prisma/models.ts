@@ -10,6 +10,7 @@
  */
 export type * from './models/Me'
 export type * from './models/Contact'
+export type * from './models/Credential'
 export type * from './models/Project'
 export type * from './models/Image'
 export type * from './models/Technology'

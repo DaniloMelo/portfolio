@@ -53,6 +53,7 @@ export const AnyNull = runtime.AnyNull
 export const ModelName = {
   Me: 'Me',
   Contact: 'Contact',
+  Credential: 'Credential',
   Project: 'Project',
   Image: 'Image',
   Technology: 'Technology',
@@ -96,6 +97,15 @@ export const ContactScalarFieldEnum = {
 } as const
 
 export type ContactScalarFieldEnum = (typeof ContactScalarFieldEnum)[keyof typeof ContactScalarFieldEnum]
+
+
+export const CredentialScalarFieldEnum = {
+  id: 'id',
+  passwordHash: 'passwordHash',
+  meId: 'meId'
+} as const
+
+export type CredentialScalarFieldEnum = (typeof CredentialScalarFieldEnum)[keyof typeof CredentialScalarFieldEnum]
 
 
 export const ProjectScalarFieldEnum = {

@@ -191,6 +191,7 @@ export type MeWhereInput = {
   introduction?: Prisma.StringFilter<"Me"> | string
   about?: Prisma.StringFilter<"Me"> | string
   contact?: Prisma.XOR<Prisma.ContactNullableScalarRelationFilter, Prisma.ContactWhereInput> | null
+  credential?: Prisma.XOR<Prisma.CredentialNullableScalarRelationFilter, Prisma.CredentialWhereInput> | null
 }
 
 export type MeOrderByWithRelationInput = {
@@ -201,6 +202,7 @@ export type MeOrderByWithRelationInput = {
   introduction?: Prisma.SortOrder
   about?: Prisma.SortOrder
   contact?: Prisma.ContactOrderByWithRelationInput
+  credential?: Prisma.CredentialOrderByWithRelationInput
 }
 
 export type MeWhereUniqueInput = Prisma.AtLeast<{
@@ -214,6 +216,7 @@ export type MeWhereUniqueInput = Prisma.AtLeast<{
   introduction?: Prisma.StringFilter<"Me"> | string
   about?: Prisma.StringFilter<"Me"> | string
   contact?: Prisma.XOR<Prisma.ContactNullableScalarRelationFilter, Prisma.ContactWhereInput> | null
+  credential?: Prisma.XOR<Prisma.CredentialNullableScalarRelationFilter, Prisma.CredentialWhereInput> | null
 }, "id">
 
 export type MeOrderByWithAggregationInput = {
@@ -248,6 +251,7 @@ export type MeCreateInput = {
   introduction: string
   about: string
   contact?: Prisma.ContactCreateNestedOneWithoutMeInput
+  credential?: Prisma.CredentialCreateNestedOneWithoutMeInput
 }
 
 export type MeUncheckedCreateInput = {
@@ -258,6 +262,7 @@ export type MeUncheckedCreateInput = {
   introduction: string
   about: string
   contact?: Prisma.ContactUncheckedCreateNestedOneWithoutMeInput
+  credential?: Prisma.CredentialUncheckedCreateNestedOneWithoutMeInput
 }
 
 export type MeUpdateInput = {
@@ -268,6 +273,7 @@ export type MeUpdateInput = {
   introduction?: Prisma.StringFieldUpdateOperationsInput | string
   about?: Prisma.StringFieldUpdateOperationsInput | string
   contact?: Prisma.ContactUpdateOneWithoutMeNestedInput
+  credential?: Prisma.CredentialUpdateOneWithoutMeNestedInput
 }
 
 export type MeUncheckedUpdateInput = {
@@ -278,6 +284,7 @@ export type MeUncheckedUpdateInput = {
   introduction?: Prisma.StringFieldUpdateOperationsInput | string
   about?: Prisma.StringFieldUpdateOperationsInput | string
   contact?: Prisma.ContactUncheckedUpdateOneWithoutMeNestedInput
+  credential?: Prisma.CredentialUncheckedUpdateOneWithoutMeNestedInput
 }
 
 export type MeCreateManyInput = {
@@ -357,6 +364,20 @@ export type MeUpdateOneRequiredWithoutContactNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.MeUpdateToOneWithWhereWithoutContactInput, Prisma.MeUpdateWithoutContactInput>, Prisma.MeUncheckedUpdateWithoutContactInput>
 }
 
+export type MeCreateNestedOneWithoutCredentialInput = {
+  create?: Prisma.XOR<Prisma.MeCreateWithoutCredentialInput, Prisma.MeUncheckedCreateWithoutCredentialInput>
+  connectOrCreate?: Prisma.MeCreateOrConnectWithoutCredentialInput
+  connect?: Prisma.MeWhereUniqueInput
+}
+
+export type MeUpdateOneRequiredWithoutCredentialNestedInput = {
+  create?: Prisma.XOR<Prisma.MeCreateWithoutCredentialInput, Prisma.MeUncheckedCreateWithoutCredentialInput>
+  connectOrCreate?: Prisma.MeCreateOrConnectWithoutCredentialInput
+  upsert?: Prisma.MeUpsertWithoutCredentialInput
+  connect?: Prisma.MeWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.MeUpdateToOneWithWhereWithoutCredentialInput, Prisma.MeUpdateWithoutCredentialInput>, Prisma.MeUncheckedUpdateWithoutCredentialInput>
+}
+
 export type MeCreateWithoutContactInput = {
   id?: string
   name: string
@@ -364,6 +385,7 @@ export type MeCreateWithoutContactInput = {
   jobTitle: string
   introduction: string
   about: string
+  credential?: Prisma.CredentialCreateNestedOneWithoutMeInput
 }
 
 export type MeUncheckedCreateWithoutContactInput = {
@@ -373,6 +395,7 @@ export type MeUncheckedCreateWithoutContactInput = {
   jobTitle: string
   introduction: string
   about: string
+  credential?: Prisma.CredentialUncheckedCreateNestedOneWithoutMeInput
 }
 
 export type MeCreateOrConnectWithoutContactInput = {
@@ -398,6 +421,7 @@ export type MeUpdateWithoutContactInput = {
   jobTitle?: Prisma.StringFieldUpdateOperationsInput | string
   introduction?: Prisma.StringFieldUpdateOperationsInput | string
   about?: Prisma.StringFieldUpdateOperationsInput | string
+  credential?: Prisma.CredentialUpdateOneWithoutMeNestedInput
 }
 
 export type MeUncheckedUpdateWithoutContactInput = {
@@ -407,6 +431,63 @@ export type MeUncheckedUpdateWithoutContactInput = {
   jobTitle?: Prisma.StringFieldUpdateOperationsInput | string
   introduction?: Prisma.StringFieldUpdateOperationsInput | string
   about?: Prisma.StringFieldUpdateOperationsInput | string
+  credential?: Prisma.CredentialUncheckedUpdateOneWithoutMeNestedInput
+}
+
+export type MeCreateWithoutCredentialInput = {
+  id?: string
+  name: string
+  avatarUrl: string
+  jobTitle: string
+  introduction: string
+  about: string
+  contact?: Prisma.ContactCreateNestedOneWithoutMeInput
+}
+
+export type MeUncheckedCreateWithoutCredentialInput = {
+  id?: string
+  name: string
+  avatarUrl: string
+  jobTitle: string
+  introduction: string
+  about: string
+  contact?: Prisma.ContactUncheckedCreateNestedOneWithoutMeInput
+}
+
+export type MeCreateOrConnectWithoutCredentialInput = {
+  where: Prisma.MeWhereUniqueInput
+  create: Prisma.XOR<Prisma.MeCreateWithoutCredentialInput, Prisma.MeUncheckedCreateWithoutCredentialInput>
+}
+
+export type MeUpsertWithoutCredentialInput = {
+  update: Prisma.XOR<Prisma.MeUpdateWithoutCredentialInput, Prisma.MeUncheckedUpdateWithoutCredentialInput>
+  create: Prisma.XOR<Prisma.MeCreateWithoutCredentialInput, Prisma.MeUncheckedCreateWithoutCredentialInput>
+  where?: Prisma.MeWhereInput
+}
+
+export type MeUpdateToOneWithWhereWithoutCredentialInput = {
+  where?: Prisma.MeWhereInput
+  data: Prisma.XOR<Prisma.MeUpdateWithoutCredentialInput, Prisma.MeUncheckedUpdateWithoutCredentialInput>
+}
+
+export type MeUpdateWithoutCredentialInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  jobTitle?: Prisma.StringFieldUpdateOperationsInput | string
+  introduction?: Prisma.StringFieldUpdateOperationsInput | string
+  about?: Prisma.StringFieldUpdateOperationsInput | string
+  contact?: Prisma.ContactUpdateOneWithoutMeNestedInput
+}
+
+export type MeUncheckedUpdateWithoutCredentialInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  jobTitle?: Prisma.StringFieldUpdateOperationsInput | string
+  introduction?: Prisma.StringFieldUpdateOperationsInput | string
+  about?: Prisma.StringFieldUpdateOperationsInput | string
+  contact?: Prisma.ContactUncheckedUpdateOneWithoutMeNestedInput
 }
 
 
@@ -419,6 +500,7 @@ export type MeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = run
   introduction?: boolean
   about?: boolean
   contact?: boolean | Prisma.Me$contactArgs<ExtArgs>
+  credential?: boolean | Prisma.Me$credentialArgs<ExtArgs>
 }, ExtArgs["result"]["me"]>
 
 export type MeSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -451,6 +533,7 @@ export type MeSelectScalar = {
 export type MeOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "avatarUrl" | "jobTitle" | "introduction" | "about", ExtArgs["result"]["me"]>
 export type MeInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   contact?: boolean | Prisma.Me$contactArgs<ExtArgs>
+  credential?: boolean | Prisma.Me$credentialArgs<ExtArgs>
 }
 export type MeIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
 export type MeIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -459,6 +542,7 @@ export type $MePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   name: "Me"
   objects: {
     contact: Prisma.$ContactPayload<ExtArgs> | null
+    credential: Prisma.$CredentialPayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -862,6 +946,7 @@ readonly fields: MeFieldRefs;
 export interface Prisma__MeClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   contact<T extends Prisma.Me$contactArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Me$contactArgs<ExtArgs>>): Prisma.Prisma__ContactClient<runtime.Types.Result.GetResult<Prisma.$ContactPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  credential<T extends Prisma.Me$credentialArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Me$credentialArgs<ExtArgs>>): Prisma.Prisma__CredentialClient<runtime.Types.Result.GetResult<Prisma.$CredentialPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1306,6 +1391,25 @@ export type Me$contactArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs
    */
   include?: Prisma.ContactInclude<ExtArgs> | null
   where?: Prisma.ContactWhereInput
+}
+
+/**
+ * Me.credential
+ */
+export type Me$credentialArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Credential
+   */
+  select?: Prisma.CredentialSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Credential
+   */
+  omit?: Prisma.CredentialOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.CredentialInclude<ExtArgs> | null
+  where?: Prisma.CredentialWhereInput
 }
 
 /**
