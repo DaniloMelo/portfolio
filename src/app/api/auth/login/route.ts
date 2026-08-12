@@ -11,13 +11,13 @@ export async function POST(request: Request) {
     const result = loginSchema.safeParse(body);
 
     if (!result.success) {
-      const errorMessages = result.error.issues.map((issue) => ({
-        message: issue.message,
-      }));
+      const errorMessagesArr = result.error.issues.map(
+        (issue) => issue.message,
+      );
 
       return NextResponse.json(
         {
-          message: errorMessages,
+          error: errorMessagesArr,
         },
         { status: 400 },
       );
@@ -44,7 +44,7 @@ export async function POST(request: Request) {
     if (error instanceof AuthenticationError) {
       return NextResponse.json(
         {
-          message: [error.message],
+          error: [error.message],
         },
         {
           status: 404,
@@ -55,7 +55,7 @@ export async function POST(request: Request) {
     if (error instanceof InvalidCredentialsError) {
       return NextResponse.json(
         {
-          message: [error.message],
+          error: [error.message],
         },
         {
           status: 401,
@@ -63,9 +63,10 @@ export async function POST(request: Request) {
       );
     }
 
+    console.error("Unexpected error during login:", error);
     return NextResponse.json(
       {
-        message: ["Internal Server Error"],
+        error: ["Internal Server Error"],
       },
       {
         status: 500,
