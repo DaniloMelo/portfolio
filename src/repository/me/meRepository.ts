@@ -2,20 +2,13 @@ import { prisma } from "@/libs/prisma/client";
 import { Me } from "@/types/me";
 
 export async function findMe(): Promise<Me | null> {
-  const data = await prisma.me.findFirst({
-    select: {
-      name: true,
-      avatarUrl: true,
-      jobTitle: true,
-      introduction: true,
-      about: true,
-      email: true,
-      phone: true,
-      linkedInProfileUrl: true,
+  return await prisma.me.findFirst();
+}
+
+export async function getMeById(id: string): Promise<Me | null> {
+  return await prisma.me.findUnique({
+    where: {
+      id,
     },
   });
-
-  if (!data) return null;
-
-  return data;
 }
