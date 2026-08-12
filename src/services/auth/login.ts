@@ -1,9 +1,9 @@
 import { findCredentials } from "@/repository/credentials/credentialRepository";
 import { LoginInput, LoginResult } from "@/types/auth";
 import { comparePassword } from "./comparePassword";
-import { generateToken } from "./generateToken";
 import { AuthenticationError } from "@/errors/auth/AuthenticationError";
 import { InvalidCredentialsError } from "@/errors/auth/InvalidCredentialsError";
+import { signJwt } from "@/libs/auth/jwt";
 
 export async function login({
   email,
@@ -28,16 +28,7 @@ export async function login({
     throw new InvalidCredentialsError();
   }
 
-  // const passwordMatches = await comparePassword(
-  //   password,
-  //   credentials.passwordHash,
-  // );
-
-  // if (email !== credentials.email || !passwordMatches) {
-  //   throw new InvalidCredentialsError();
-  // }
-
-  const token = await generateToken(credentials.id);
+  const token = await signJwt(credentials.id);
 
   return {
     accessToken: token,
