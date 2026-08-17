@@ -1,13 +1,14 @@
 import LogoutBtn from "@/components/LogoutBtn";
 import { findProjectPreviews } from "@/repository/project/projectRepository";
-// import { getAuthenticatedUser } from "@/services/auth/getAuthenticatedUser";
+import { getAuthenticatedUser } from "@/services/auth/getAuthenticatedUser";
+import { redirect } from "next/navigation";
 
 export default async function ProjectsPage() {
-  // try {
-  //   await getAuthenticatedUser();
-  // } catch (error) {
-  //   console.log(error.message);
-  // }
+  try {
+    await getAuthenticatedUser();
+  } catch {
+    redirect("/login");
+  }
 
   const projects = await findProjectPreviews();
 

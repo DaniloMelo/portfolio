@@ -115,3 +115,5 @@ export default function Technology({ name }: TechnologyProps) {
     </div>
   );
 }
+
+// https://simpleicons.org/

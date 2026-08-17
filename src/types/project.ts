@@ -1,18 +1,23 @@
 export interface ProjectImage {
-  id: string;
+  id?: string;
   src: string;
   alt: string;
 }
 
+export interface ProjectTechnology {
+  id?: string;
+  name: string;
+}
+
 export interface Project {
-  id: string;
+  id?: string;
   slug: string;
   title: string;
   description: string;
   about: string;
   repositoryCodeUrl: string;
   deployUrl: string;
-  technologies: string[];
+  technologies: ProjectTechnology[];
   images: ProjectImage[];
 }
 
@@ -30,7 +35,7 @@ export interface ProjectDetail {
   title: string;
   description: string;
   about: string;
-  technologies: string[];
+  technologies: ProjectTechnology[];
   images: ProjectImage[];
   repositoryCodeUrl: string;
   deployUrl: string;
