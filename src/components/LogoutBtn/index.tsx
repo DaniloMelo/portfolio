@@ -32,7 +32,7 @@ export default function LogoutBtn() {
     <>
       <button
         onClick={handleLogout}
-        className="border px-4 py-2 rounded-md cursor-pointer"
+        className="px-2 cursor-pointer hover:border-b"
       >
         {isLoading ? "Saindo..." : "Sair"}
       </button>
