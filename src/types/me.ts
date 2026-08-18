@@ -1,5 +1,5 @@
 export interface Me {
-  id?: string;
+  // id?: string;
   name: string;
   avatarUrl: string;
   jobTitle: string;

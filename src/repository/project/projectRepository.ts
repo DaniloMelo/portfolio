@@ -30,7 +30,7 @@ export async function createProject(project: Project): Promise<Project> {
     },
 
     select: {
-      id: true,
+      // id: true,
       slug: true,
       title: true,
       description: true,
@@ -59,7 +59,7 @@ export async function createProject(project: Project): Promise<Project> {
   });
 
   return {
-    id: data.id,
+    // id: data.id,
     slug: data.slug,
     title: data.title,
     description: data.description,
@@ -112,7 +112,7 @@ export async function findProjectBySlug(slug: string): Promise<Project | null> {
   if (!data) return null;
 
   return {
-    id: data.id,
+    // id: data.id,
     slug: data.slug,
     title: data.title,
     description: data.description,

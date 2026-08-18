@@ -42,146 +42,125 @@ async function seedMe() {
   return me;
 }
 
-// async function seedContact(meId: string) {
-//   const contact = await prisma.contact.upsert({
+// async function seedCredential(meId: string) {
+//   await prisma.credential.upsert({
 //     where: {
 //       meId: meId,
 //     },
-//     update: {
-//       email: meMock.contact.email,
-//       phone: meMock.contact.phone,
-//       linkedInProfileUrl: meMock.contact.linkedInProfileUrl,
-//     },
+//     update: {},
 //     create: {
 //       meId: meId,
-//       email: meMock.contact.email,
-//       phone: meMock.contact.phone,
-//       linkedInProfileUrl: meMock.contact.linkedInProfileUrl,
+//       passwordHash:
+//         "$2a$12$L3Okm1HEtxKfOHoEvGyIR.NPSTjgWnufetWfDlMOREojVjgwyC9Jm", // Senha@123
 //     },
 //   });
-
-//   return contact;
 // }
 
-async function seedCredential(meId: string) {
-  await prisma.credential.upsert({
-    where: {
-      meId: meId,
-    },
-    update: {},
-    create: {
-      meId: meId,
-      passwordHash:
-        "$2a$12$L3Okm1HEtxKfOHoEvGyIR.NPSTjgWnufetWfDlMOREojVjgwyC9Jm", // Senha@123
-    },
-  });
-}
+// async function seedTechnologies() {
+//   const technologyNames = [
+//     "HTML5",
+//     "CSS",
+//     "JavaScript",
+//     "TypeScript",
+//     "Node.js",
+//     "tailwindcss",
+//     "React",
+//     "Next.js",
+//     "NestJS",
+//     "Docker",
+//   ];
 
-async function seedTechnologies() {
-  const technologyNames = [
-    "HTML5",
-    "CSS",
-    "JavaScript",
-    "TypeScript",
-    "Node.js",
-    "tailwindcss",
-    "React",
-    "Next.js",
-    "NestJS",
-    "Docker",
-  ];
+//   for (const name of technologyNames) {
+//     await prisma.technology.upsert({
+//       where: {
+//         name: name,
+//       },
+//       update: {},
+//       create: {
+//         name: name,
+//       },
+//     });
+//   }
+// }
 
-  for (const name of technologyNames) {
-    await prisma.technology.upsert({
-      where: {
-        name: name,
-      },
-      update: {},
-      create: {
-        name: name,
-      },
-    });
-  }
-}
+// async function seedProjects() {
+//   const technologies = await prisma.technology.findMany();
 
-async function seedProjects() {
-  const technologies = await prisma.technology.findMany();
+//   const technologiesIdsMap = new Map(
+//     technologies.map((technology) => [technology.name, technology.id]),
+//   );
 
-  const technologiesIdsMap = new Map(
-    technologies.map((technology) => [technology.name, technology.id]),
-  );
+//   for (const project of projectsMock) {
+//     await prisma.project.upsert({
+//       where: {
+//         id: project.id,
+//       },
+//       update: {
+//         slug: project.slug,
+//         title: project.title,
+//         description: project.description,
+//         about: project.about,
+//         repositoryCodeUrl: project.repositoryCodeUrl,
+//         deployUrl: project.deployUrl,
+//       },
+//       create: {
+//         id: project.id,
+//         slug: project.slug,
+//         title: project.title,
+//         description: project.description,
+//         about: project.about,
+//         repositoryCodeUrl: project.repositoryCodeUrl,
+//         deployUrl: project.deployUrl,
+//       },
+//     });
 
-  for (const project of projectsMock) {
-    await prisma.project.upsert({
-      where: {
-        id: project.id,
-      },
-      update: {
-        slug: project.slug,
-        title: project.title,
-        description: project.description,
-        about: project.about,
-        repositoryCodeUrl: project.repositoryCodeUrl,
-        deployUrl: project.deployUrl,
-      },
-      create: {
-        id: project.id,
-        slug: project.slug,
-        title: project.title,
-        description: project.description,
-        about: project.about,
-        repositoryCodeUrl: project.repositoryCodeUrl,
-        deployUrl: project.deployUrl,
-      },
-    });
+//     // Deleta todas as imagens anteriores antes de criar novas para evitar duplicatas
+//     await prisma.image.deleteMany({
+//       where: {
+//         projectId: project.id,
+//       },
+//     });
 
-    // Deleta todas as imagens anteriores antes de criar novas para evitar duplicatas
-    await prisma.image.deleteMany({
-      where: {
-        projectId: project.id,
-      },
-    });
+//     await prisma.image.createMany({
+//       data: project.images.map((image) => ({
+//         id: image.id,
+//         src: image.src,
+//         alt: image.alt,
+//         projectId: project.id,
+//       })),
+//     });
 
-    await prisma.image.createMany({
-      data: project.images.map((image) => ({
-        id: image.id,
-        src: image.src,
-        alt: image.alt,
-        projectId: project.id,
-      })),
-    });
+//     // Deleta todas as tecnologias anteriores antes de criar novas para evitar duplicatas (joining table da relação N:N)
+//     await prisma.projectTechnology.deleteMany({
+//       where: {
+//         projectId: project.id,
+//       },
+//     });
 
-    // Deleta todas as tecnologias anteriores antes de criar novas para evitar duplicatas (joining table da relação N:N)
-    await prisma.projectTechnology.deleteMany({
-      where: {
-        projectId: project.id,
-      },
-    });
+//     const projectTechnologies = project.technologies.map((technologyName) => {
+//       const technologyId = technologiesIdsMap.get(technologyName);
 
-    const projectTechnologies = project.technologies.map((technologyName) => {
-      const technologyId = technologiesIdsMap.get(technologyName);
+//       if (!technologyId) {
+//         throw new Error(`Technology "${technologyName}" not found`);
+//       }
 
-      if (!technologyId) {
-        throw new Error(`Technology "${technologyName}" not found`);
-      }
+//       return {
+//         projectId: project.id,
+//         technologyId,
+//       };
+//     });
 
-      return {
-        projectId: project.id,
-        technologyId,
-      };
-    });
-
-    await prisma.projectTechnology.createMany({
-      data: projectTechnologies,
-    });
-  }
-}
+//     await prisma.projectTechnology.createMany({
+//       data: projectTechnologies,
+//     });
+//   }
+// }
 
 async function main() {
   const me = await seedMe();
-  await seedCredential(me.id);
-  await seedTechnologies();
-  await seedProjects();
+  // await seedCredential(me.id);
+  // await seedTechnologies();
+  // await seedProjects();
 }
 
 main()

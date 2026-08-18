@@ -1,6 +1,6 @@
-import { Project } from "@/types/project";
+// import { Project } from "@/types/project";
 
-export const projectsMock: Project[] = [
+export const projectsMock = [
   {
     id: "id-projeto-exemplo-1",
     slug: "slug-projeto-exemplo-1",
@@ -11,16 +11,15 @@ export const projectsMock: Project[] = [
     repositoryCodeUrl: "#",
     deployUrl: "#",
     technologies: [
-      "HTML5",
-      "CSS",
-      "JavaScript",
-      "TypeScript",
-      "Node.js",
-      "tailwindcss",
-      "React",
-      "Next.js",
-      "NestJS",
-      "Docker",
+      { name: "HTML5" },
+      { name: "CSS" },
+      { name: "JavaScript" },
+      { name: "TypeScript" },
+      { name: "Node.js" },
+      { name: "tailwindcss" },
+      { name: "React" },
+      { name: "NestJS" },
+      { name: "Docker" },
     ],
     images: [
       {
@@ -50,7 +49,7 @@ export const projectsMock: Project[] = [
       "Sobre de exemplo projeto 2 - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga ipsam provident recusandae. Atque earum similique quae consectetur facilis tenetur vero voluptatum doloremque, eligendi, necessitatibus saepe! Vero ex repellat eveniet velit?",
     repositoryCodeUrl: "#",
     deployUrl: "#",
-    technologies: ["Next.js", "tailwindcss"],
+    technologies: [{ name: "Next.js" }, { name: "tailwindcss" }],
     images: [
       {
         id: "id-imagem-projeto-exemplo-2-1",
@@ -79,7 +78,12 @@ export const projectsMock: Project[] = [
       "Sobre de exemplo projeto 3 - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga ipsam provident recusandae. Atque earum similique quae consectetur facilis tenetur vero voluptatum doloremque, eligendi, necessitatibus saepe! Vero ex repellat eveniet velit? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga ipsam provident recusandae. Atque earum similique quae consectetur facilis tenetur vero voluptatum doloremque, eligendi, necessitatibus saepe! Vero ex repellat eveniet velit? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga ipsam provident recusandae. Atque earum similique quae consectetur facilis tenetur vero voluptatum doloremque, eligendi, necessitatibus saepe! Vero ex repellat eveniet velit?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga ipsam provident recusandae. Atque earum similique quae consectetur facilis tenetur vero voluptatum doloremque, eligendi, necessitatibus saepe! Vero ex repellat eveniet velit? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga ipsam provident recusandae. Atque earum similique quae consectetur facilis tenetur vero voluptatum doloremque, eligendi, necessitatibus saepe! Vero ex repellat eveniet velit? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga ipsam provident recusandae. Atque earum similique quae consectetur facilis tenetur vero voluptatum doloremque, eligendi, necessitatibus saepe! Vero ex repellat eveniet velit? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga ipsam provident recusandae. Atque earum similique quae consectetur facilis tenetur vero voluptatum doloremque, eligendi, necessitatibus saepe! Vero ex repellat eveniet velit? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga ipsam provident recusandae. Atque earum similique quae consectetur facilis tenetur vero voluptatum doloremque, eligendi, necessitatibus saepe! Vero ex repellat eveniet velit?",
     repositoryCodeUrl: "#",
     deployUrl: "#",
-    technologies: ["NestJS", "Node.js", "TypeScript", "Docker"],
+    technologies: [
+      { name: "NestJS" },
+      { name: "Node.js" },
+      { name: "TypeScript" },
+      { name: "Docker" },
+    ],
     images: [
       {
         id: "id-imagem-projeto-exemplo-3-1",

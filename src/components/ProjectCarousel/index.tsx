@@ -81,7 +81,7 @@ export default function ProjectCarrousel({
       <div ref={emblaRef} className="overflow-hidden">
         <div className="flex touch-pan-y">
           {images.map((image) => (
-            <div key={image.id} className="min-w-0 flex-[0_0_100%]">
+            <div key={crypto.randomUUID()} className="min-w-0 flex-[0_0_100%]">
               <div
                 className={cn(
                   "relative overflow-hidden",
@@ -134,7 +134,7 @@ export default function ProjectCarrousel({
         >
           {images.map((image, index) => (
             <button
-              key={image.id}
+              key={crypto.randomUUID()}
               type="button"
               onClick={() => emblaApi?.scrollTo(index)}
               aria-label={`Ir para imagem ${index + 1}`}

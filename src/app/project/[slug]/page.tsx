@@ -43,7 +43,10 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
             <span>Tecnologias utilizadas:</span>
             <div className="flex gap-5 flex-wrap mt-2">
               {data?.technologies.map((tech) => (
-                <Technology name={tech.name as TechnologyName} key={tech.id} />
+                <Technology
+                  name={tech.name as TechnologyName}
+                  key={tech.name}
+                />
               ))}
             </div>
           </div>

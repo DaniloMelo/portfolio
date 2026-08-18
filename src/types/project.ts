@@ -1,16 +1,18 @@
 export interface ProjectImage {
-  id?: string;
+  // id: string;
   src: string;
   alt: string;
 }
 
 export interface ProjectTechnology {
-  id?: string;
+  // id?: string;
+  // id: string;
   name: string;
 }
 
 export interface Project {
-  id?: string;
+  // id?: string;
+  // id: string;
   slug: string;
   title: string;
   description: string;

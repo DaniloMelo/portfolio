@@ -27,11 +27,11 @@ export type AggregateMe = {
 export type MeMinAggregateOutputType = {
   id: string | null
   name: string | null
+  email: string | null
   avatarUrl: string | null
   jobTitle: string | null
   introduction: string | null
   about: string | null
-  email: string | null
   phone: string | null
   linkedInProfileUrl: string | null
 }
@@ -39,11 +39,11 @@ export type MeMinAggregateOutputType = {
 export type MeMaxAggregateOutputType = {
   id: string | null
   name: string | null
+  email: string | null
   avatarUrl: string | null
   jobTitle: string | null
   introduction: string | null
   about: string | null
-  email: string | null
   phone: string | null
   linkedInProfileUrl: string | null
 }
@@ -51,11 +51,11 @@ export type MeMaxAggregateOutputType = {
 export type MeCountAggregateOutputType = {
   id: number
   name: number
+  email: number
   avatarUrl: number
   jobTitle: number
   introduction: number
   about: number
-  email: number
   phone: number
   linkedInProfileUrl: number
   _all: number
@@ -65,11 +65,11 @@ export type MeCountAggregateOutputType = {
 export type MeMinAggregateInputType = {
   id?: true
   name?: true
+  email?: true
   avatarUrl?: true
   jobTitle?: true
   introduction?: true
   about?: true
-  email?: true
   phone?: true
   linkedInProfileUrl?: true
 }
@@ -77,11 +77,11 @@ export type MeMinAggregateInputType = {
 export type MeMaxAggregateInputType = {
   id?: true
   name?: true
+  email?: true
   avatarUrl?: true
   jobTitle?: true
   introduction?: true
   about?: true
-  email?: true
   phone?: true
   linkedInProfileUrl?: true
 }
@@ -89,11 +89,11 @@ export type MeMaxAggregateInputType = {
 export type MeCountAggregateInputType = {
   id?: true
   name?: true
+  email?: true
   avatarUrl?: true
   jobTitle?: true
   introduction?: true
   about?: true
-  email?: true
   phone?: true
   linkedInProfileUrl?: true
   _all?: true
@@ -174,11 +174,11 @@ export type MeGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs 
 export type MeGroupByOutputType = {
   id: string
   name: string
+  email: string
   avatarUrl: string
   jobTitle: string
   introduction: string
   about: string
-  email: string
   phone: string
   linkedInProfileUrl: string
   _count: MeCountAggregateOutputType | null
@@ -207,11 +207,11 @@ export type MeWhereInput = {
   NOT?: Prisma.MeWhereInput | Prisma.MeWhereInput[]
   id?: Prisma.StringFilter<"Me"> | string
   name?: Prisma.StringFilter<"Me"> | string
+  email?: Prisma.StringFilter<"Me"> | string
   avatarUrl?: Prisma.StringFilter<"Me"> | string
   jobTitle?: Prisma.StringFilter<"Me"> | string
   introduction?: Prisma.StringFilter<"Me"> | string
   about?: Prisma.StringFilter<"Me"> | string
-  email?: Prisma.StringFilter<"Me"> | string
   phone?: Prisma.StringFilter<"Me"> | string
   linkedInProfileUrl?: Prisma.StringFilter<"Me"> | string
   credential?: Prisma.XOR<Prisma.CredentialNullableScalarRelationFilter, Prisma.CredentialWhereInput> | null
@@ -220,11 +220,11 @@ export type MeWhereInput = {
 export type MeOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  email?: Prisma.SortOrder
   avatarUrl?: Prisma.SortOrder
   jobTitle?: Prisma.SortOrder
   introduction?: Prisma.SortOrder
   about?: Prisma.SortOrder
-  email?: Prisma.SortOrder
   phone?: Prisma.SortOrder
   linkedInProfileUrl?: Prisma.SortOrder
   credential?: Prisma.CredentialOrderByWithRelationInput
@@ -236,11 +236,11 @@ export type MeWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.MeWhereInput[]
   NOT?: Prisma.MeWhereInput | Prisma.MeWhereInput[]
   name?: Prisma.StringFilter<"Me"> | string
+  email?: Prisma.StringFilter<"Me"> | string
   avatarUrl?: Prisma.StringFilter<"Me"> | string
   jobTitle?: Prisma.StringFilter<"Me"> | string
   introduction?: Prisma.StringFilter<"Me"> | string
   about?: Prisma.StringFilter<"Me"> | string
-  email?: Prisma.StringFilter<"Me"> | string
   phone?: Prisma.StringFilter<"Me"> | string
   linkedInProfileUrl?: Prisma.StringFilter<"Me"> | string
   credential?: Prisma.XOR<Prisma.CredentialNullableScalarRelationFilter, Prisma.CredentialWhereInput> | null
@@ -249,11 +249,11 @@ export type MeWhereUniqueInput = Prisma.AtLeast<{
 export type MeOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  email?: Prisma.SortOrder
   avatarUrl?: Prisma.SortOrder
   jobTitle?: Prisma.SortOrder
   introduction?: Prisma.SortOrder
   about?: Prisma.SortOrder
-  email?: Prisma.SortOrder
   phone?: Prisma.SortOrder
   linkedInProfileUrl?: Prisma.SortOrder
   _count?: Prisma.MeCountOrderByAggregateInput
@@ -267,11 +267,11 @@ export type MeScalarWhereWithAggregatesInput = {
   NOT?: Prisma.MeScalarWhereWithAggregatesInput | Prisma.MeScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"Me"> | string
   name?: Prisma.StringWithAggregatesFilter<"Me"> | string
+  email?: Prisma.StringWithAggregatesFilter<"Me"> | string
   avatarUrl?: Prisma.StringWithAggregatesFilter<"Me"> | string
   jobTitle?: Prisma.StringWithAggregatesFilter<"Me"> | string
   introduction?: Prisma.StringWithAggregatesFilter<"Me"> | string
   about?: Prisma.StringWithAggregatesFilter<"Me"> | string
-  email?: Prisma.StringWithAggregatesFilter<"Me"> | string
   phone?: Prisma.StringWithAggregatesFilter<"Me"> | string
   linkedInProfileUrl?: Prisma.StringWithAggregatesFilter<"Me"> | string
 }
@@ -279,11 +279,11 @@ export type MeScalarWhereWithAggregatesInput = {
 export type MeCreateInput = {
   id?: string
   name: string
+  email: string
   avatarUrl: string
   jobTitle: string
   introduction: string
   about: string
-  email: string
   phone: string
   linkedInProfileUrl: string
   credential?: Prisma.CredentialCreateNestedOneWithoutMeInput
@@ -292,11 +292,11 @@ export type MeCreateInput = {
 export type MeUncheckedCreateInput = {
   id?: string
   name: string
+  email: string
   avatarUrl: string
   jobTitle: string
   introduction: string
   about: string
-  email: string
   phone: string
   linkedInProfileUrl: string
   credential?: Prisma.CredentialUncheckedCreateNestedOneWithoutMeInput
@@ -305,11 +305,11 @@ export type MeUncheckedCreateInput = {
 export type MeUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
   avatarUrl?: Prisma.StringFieldUpdateOperationsInput | string
   jobTitle?: Prisma.StringFieldUpdateOperationsInput | string
   introduction?: Prisma.StringFieldUpdateOperationsInput | string
   about?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.StringFieldUpdateOperationsInput | string
   linkedInProfileUrl?: Prisma.StringFieldUpdateOperationsInput | string
   credential?: Prisma.CredentialUpdateOneWithoutMeNestedInput
@@ -318,11 +318,11 @@ export type MeUpdateInput = {
 export type MeUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
   avatarUrl?: Prisma.StringFieldUpdateOperationsInput | string
   jobTitle?: Prisma.StringFieldUpdateOperationsInput | string
   introduction?: Prisma.StringFieldUpdateOperationsInput | string
   about?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.StringFieldUpdateOperationsInput | string
   linkedInProfileUrl?: Prisma.StringFieldUpdateOperationsInput | string
   credential?: Prisma.CredentialUncheckedUpdateOneWithoutMeNestedInput
@@ -331,11 +331,11 @@ export type MeUncheckedUpdateInput = {
 export type MeCreateManyInput = {
   id?: string
   name: string
+  email: string
   avatarUrl: string
   jobTitle: string
   introduction: string
   about: string
-  email: string
   phone: string
   linkedInProfileUrl: string
 }
@@ -343,11 +343,11 @@ export type MeCreateManyInput = {
 export type MeUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
   avatarUrl?: Prisma.StringFieldUpdateOperationsInput | string
   jobTitle?: Prisma.StringFieldUpdateOperationsInput | string
   introduction?: Prisma.StringFieldUpdateOperationsInput | string
   about?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.StringFieldUpdateOperationsInput | string
   linkedInProfileUrl?: Prisma.StringFieldUpdateOperationsInput | string
 }
@@ -355,11 +355,11 @@ export type MeUpdateManyMutationInput = {
 export type MeUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
   avatarUrl?: Prisma.StringFieldUpdateOperationsInput | string
   jobTitle?: Prisma.StringFieldUpdateOperationsInput | string
   introduction?: Prisma.StringFieldUpdateOperationsInput | string
   about?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.StringFieldUpdateOperationsInput | string
   linkedInProfileUrl?: Prisma.StringFieldUpdateOperationsInput | string
 }
@@ -367,11 +367,11 @@ export type MeUncheckedUpdateManyInput = {
 export type MeCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  email?: Prisma.SortOrder
   avatarUrl?: Prisma.SortOrder
   jobTitle?: Prisma.SortOrder
   introduction?: Prisma.SortOrder
   about?: Prisma.SortOrder
-  email?: Prisma.SortOrder
   phone?: Prisma.SortOrder
   linkedInProfileUrl?: Prisma.SortOrder
 }
@@ -379,11 +379,11 @@ export type MeCountOrderByAggregateInput = {
 export type MeMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  email?: Prisma.SortOrder
   avatarUrl?: Prisma.SortOrder
   jobTitle?: Prisma.SortOrder
   introduction?: Prisma.SortOrder
   about?: Prisma.SortOrder
-  email?: Prisma.SortOrder
   phone?: Prisma.SortOrder
   linkedInProfileUrl?: Prisma.SortOrder
 }
@@ -391,11 +391,11 @@ export type MeMaxOrderByAggregateInput = {
 export type MeMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  email?: Prisma.SortOrder
   avatarUrl?: Prisma.SortOrder
   jobTitle?: Prisma.SortOrder
   introduction?: Prisma.SortOrder
   about?: Prisma.SortOrder
-  email?: Prisma.SortOrder
   phone?: Prisma.SortOrder
   linkedInProfileUrl?: Prisma.SortOrder
 }
@@ -426,11 +426,11 @@ export type MeUpdateOneRequiredWithoutCredentialNestedInput = {
 export type MeCreateWithoutCredentialInput = {
   id?: string
   name: string
+  email: string
   avatarUrl: string
   jobTitle: string
   introduction: string
   about: string
-  email: string
   phone: string
   linkedInProfileUrl: string
 }
@@ -438,11 +438,11 @@ export type MeCreateWithoutCredentialInput = {
 export type MeUncheckedCreateWithoutCredentialInput = {
   id?: string
   name: string
+  email: string
   avatarUrl: string
   jobTitle: string
   introduction: string
   about: string
-  email: string
   phone: string
   linkedInProfileUrl: string
 }
@@ -466,11 +466,11 @@ export type MeUpdateToOneWithWhereWithoutCredentialInput = {
 export type MeUpdateWithoutCredentialInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
   avatarUrl?: Prisma.StringFieldUpdateOperationsInput | string
   jobTitle?: Prisma.StringFieldUpdateOperationsInput | string
   introduction?: Prisma.StringFieldUpdateOperationsInput | string
   about?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.StringFieldUpdateOperationsInput | string
   linkedInProfileUrl?: Prisma.StringFieldUpdateOperationsInput | string
 }
@@ -478,11 +478,11 @@ export type MeUpdateWithoutCredentialInput = {
 export type MeUncheckedUpdateWithoutCredentialInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
   avatarUrl?: Prisma.StringFieldUpdateOperationsInput | string
   jobTitle?: Prisma.StringFieldUpdateOperationsInput | string
   introduction?: Prisma.StringFieldUpdateOperationsInput | string
   about?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.StringFieldUpdateOperationsInput | string
   linkedInProfileUrl?: Prisma.StringFieldUpdateOperationsInput | string
 }
@@ -492,11 +492,11 @@ export type MeUncheckedUpdateWithoutCredentialInput = {
 export type MeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  email?: boolean
   avatarUrl?: boolean
   jobTitle?: boolean
   introduction?: boolean
   about?: boolean
-  email?: boolean
   phone?: boolean
   linkedInProfileUrl?: boolean
   credential?: boolean | Prisma.Me$credentialArgs<ExtArgs>
@@ -505,11 +505,11 @@ export type MeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = run
 export type MeSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  email?: boolean
   avatarUrl?: boolean
   jobTitle?: boolean
   introduction?: boolean
   about?: boolean
-  email?: boolean
   phone?: boolean
   linkedInProfileUrl?: boolean
 }, ExtArgs["result"]["me"]>
@@ -517,11 +517,11 @@ export type MeSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions
 export type MeSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  email?: boolean
   avatarUrl?: boolean
   jobTitle?: boolean
   introduction?: boolean
   about?: boolean
-  email?: boolean
   phone?: boolean
   linkedInProfileUrl?: boolean
 }, ExtArgs["result"]["me"]>
@@ -529,16 +529,16 @@ export type MeSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions
 export type MeSelectScalar = {
   id?: boolean
   name?: boolean
+  email?: boolean
   avatarUrl?: boolean
   jobTitle?: boolean
   introduction?: boolean
   about?: boolean
-  email?: boolean
   phone?: boolean
   linkedInProfileUrl?: boolean
 }
 
-export type MeOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "avatarUrl" | "jobTitle" | "introduction" | "about" | "email" | "phone" | "linkedInProfileUrl", ExtArgs["result"]["me"]>
+export type MeOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "email" | "avatarUrl" | "jobTitle" | "introduction" | "about" | "phone" | "linkedInProfileUrl", ExtArgs["result"]["me"]>
 export type MeInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   credential?: boolean | Prisma.Me$credentialArgs<ExtArgs>
 }
@@ -553,11 +553,11 @@ export type $MePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     name: string
+    email: string
     avatarUrl: string
     jobTitle: string
     introduction: string
     about: string
-    email: string
     phone: string
     linkedInProfileUrl: string
   }, ExtArgs["result"]["me"]>
@@ -986,11 +986,11 @@ export interface Prisma__MeClient<T, Null = never, ExtArgs extends runtime.Types
 export interface MeFieldRefs {
   readonly id: Prisma.FieldRef<"Me", 'String'>
   readonly name: Prisma.FieldRef<"Me", 'String'>
+  readonly email: Prisma.FieldRef<"Me", 'String'>
   readonly avatarUrl: Prisma.FieldRef<"Me", 'String'>
   readonly jobTitle: Prisma.FieldRef<"Me", 'String'>
   readonly introduction: Prisma.FieldRef<"Me", 'String'>
   readonly about: Prisma.FieldRef<"Me", 'String'>
-  readonly email: Prisma.FieldRef<"Me", 'String'>
   readonly phone: Prisma.FieldRef<"Me", 'String'>
   readonly linkedInProfileUrl: Prisma.FieldRef<"Me", 'String'>
 }
