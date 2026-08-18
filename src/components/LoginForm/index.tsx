@@ -55,7 +55,10 @@ export default function LoginForm() {
       <div className="flex flex-col mb-6">
         <label htmlFor="email">Email</label>
         <input
-          className="px-2 rounded-md border border-secondary-border outline-none focus-within:border-accent dark:focus-within:border-accent/40"
+          className="
+            h-12 text-xl md:h-10 px-2 py-2 rounded-md 
+            border border-secondary-border outline-none focus-within:border-accent dark:focus-within:border-accent/40
+          "
           id="email"
           name="email"
           type="email"
@@ -68,7 +71,10 @@ export default function LoginForm() {
       <div className="flex flex-col mb-5">
         <label htmlFor="password">Senha</label>
         <input
-          className="px-2 rounded-md border border-secondary-border outline-none focus-within:border-accent dark:focus-within:border-accent/40"
+          className="
+            h-12 text-xl md:h-10 px-2 py-2 rounded-md 
+            border border-secondary-border outline-none focus-within:border-accent dark:focus-within:border-accent/40
+          "
           id="password"
           name="password"
           type="password"
@@ -89,7 +95,7 @@ export default function LoginForm() {
 
       <button
         className={cn(
-          "py-1 mt-5 rounded-md cursor-pointer text-white",
+          "py-2 mt-5 text-xl rounded-md cursor-pointer text-white",
           isLoading
             ? "bg-zinc-500 cursor-progress"
             : "bg-accent dark:bg-accent/40",

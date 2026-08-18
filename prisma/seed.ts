@@ -42,19 +42,19 @@ async function seedMe() {
   return me;
 }
 
-// async function seedCredential(meId: string) {
-//   await prisma.credential.upsert({
-//     where: {
-//       meId: meId,
-//     },
-//     update: {},
-//     create: {
-//       meId: meId,
-//       passwordHash:
-//         "$2a$12$L3Okm1HEtxKfOHoEvGyIR.NPSTjgWnufetWfDlMOREojVjgwyC9Jm", // Senha@123
-//     },
-//   });
-// }
+async function seedCredential(meId: string) {
+  await prisma.credential.upsert({
+    where: {
+      meId: meId,
+    },
+    update: {},
+    create: {
+      meId: meId,
+      passwordHash:
+        "$2a$12$L3Okm1HEtxKfOHoEvGyIR.NPSTjgWnufetWfDlMOREojVjgwyC9Jm", // Senha@123
+    },
+  });
+}
 
 // async function seedTechnologies() {
 //   const technologyNames = [
@@ -158,7 +158,7 @@ async function seedMe() {
 
 async function main() {
   const me = await seedMe();
-  // await seedCredential(me.id);
+  await seedCredential(me.id);
   // await seedTechnologies();
   // await seedProjects();
 }
