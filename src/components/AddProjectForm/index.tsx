@@ -3,6 +3,7 @@
 import { SubmitEvent, useState } from "react";
 import AddProjectFormInput from "../AddProjectFormInput";
 import { createSlug } from "@/utils/createSlug";
+import { cn } from "@/utils/cn";
 
 export default function AddProjectForm() {
   const [title, setTitle] = useState("");
@@ -78,7 +79,10 @@ export default function AddProjectForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-col gap-5 p-4 w-4xl rounded-md bg-secondary-background dark:bg-secondary-background"
+    >
       {errors &&
         errors.map((error, index) => {
           return (
@@ -144,15 +148,19 @@ export default function AddProjectForm() {
         onChange={(event) => setDeployUrl(event.target.value)}
       />
 
-      <button onClick={addTechInput} type="button">
-        + Inp
+      <button
+        onClick={addTechInput}
+        type="button"
+        className="cursor-pointer w-fit px-4 mt-10 rounded-md text-white bg-accent hover:bg-accent/70 transition-transform hover:scale-105"
+      >
+        Add Tech
       </button>
 
       {techNames.map((tech, index) => (
-        <div className="flex gap-2" key={index}>
+        <div className="flex items-end gap-2 mb-6" key={index}>
           <AddProjectFormInput
-            labelText={`Tech ${index}`}
-            htmlFor={`tech-${index}`}
+            labelText={`Tech ${index + 1}`}
+            htmlFor={`tech-${index + 1}`}
             value={tech}
             onChange={(e) => {
               const value = e.target.value;
@@ -165,23 +173,31 @@ export default function AddProjectForm() {
             }}
           />
 
-          <button onClick={() => removeTechInput(tech)} type="button">
+          <button
+            onClick={() => removeTechInput(tech)}
+            type="button"
+            className="cursor-pointer py-2 px-4 rounded-sm bg-red-400 hover:bg-red-600 text-white transition-transform hover:scale-105"
+          >
             X
           </button>
         </div>
       ))}
 
-      <button onClick={addImagesInput} type="button">
-        + Inp
+      <button
+        onClick={addImagesInput}
+        type="button"
+        className="cursor-pointer w-fit px-4 mt-10 rounded-md text-white bg-accent hover:bg-accent/70 transition-transform hover:scale-105"
+      >
+        Add imagem
       </button>
 
       {images.map((image, index) => (
-        <div key={index}>
-          <div className="flex gap-2">
+        <div key={index} className="mb-4">
+          <div className="flex items-end gap-2 mb-2">
             <AddProjectFormInput
               type="url"
-              labelText={`Imagem ${index}`}
-              htmlFor={`Imagem-${index}`}
+              labelText={`Imagem ${index + 1}`}
+              htmlFor={`Imagem-${index + 1}`}
               value={image.src}
               onChange={(e) => {
                 const value = e.target.value;
@@ -193,14 +209,18 @@ export default function AddProjectForm() {
                 });
               }}
             />
-            <button onClick={() => removeImagesInput(image.src)} type="button">
+            <button
+              onClick={() => removeImagesInput(image.src)}
+              type="button"
+              className="cursor-pointer py-2 px-4 rounded-sm bg-red-400 hover:bg-red-600 text-white transition-transform hover:scale-105"
+            >
               X
             </button>
           </div>
           <AddProjectFormInput
             type="text"
-            labelText={`Alt da Imagem ${index}`}
-            htmlFor={`alt-imagem-${index}`}
+            labelText={`Alt da Imagem ${index + 1}`}
+            htmlFor={`alt-imagem-${index + 1}`}
             value={image.alt}
             onChange={(e) => {
               const value = e.target.value;
@@ -215,7 +235,17 @@ export default function AddProjectForm() {
         </div>
       ))}
 
-      <button type="submit">{isLoading ? "Enviando..." : "Enviar"}</button>
+      <button
+        type="submit"
+        className={cn(
+          "mt-10 py-2 cursor-pointer rounded-md text-white",
+          isLoading
+            ? "bg-zinc-500 pointer-events-none"
+            : "bg-accent hover:bg-accent/70 transition-transform hover:scale-101",
+        )}
+      >
+        {isLoading ? "Adicionando..." : "Adicionar"}
+      </button>
     </form>
   );
 }

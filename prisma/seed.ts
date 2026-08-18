@@ -56,32 +56,32 @@ async function seedCredential(meId: string) {
   });
 }
 
-// async function seedTechnologies() {
-//   const technologyNames = [
-//     "HTML5",
-//     "CSS",
-//     "JavaScript",
-//     "TypeScript",
-//     "Node.js",
-//     "tailwindcss",
-//     "React",
-//     "Next.js",
-//     "NestJS",
-//     "Docker",
-//   ];
+async function seedTechnologies() {
+  const technologyNames = [
+    "HTML5",
+    "CSS",
+    "JavaScript",
+    "TypeScript",
+    "Node.js",
+    "tailwindcss",
+    "React",
+    "Next.js",
+    "NestJS",
+    "Docker",
+  ];
 
-//   for (const name of technologyNames) {
-//     await prisma.technology.upsert({
-//       where: {
-//         name: name,
-//       },
-//       update: {},
-//       create: {
-//         name: name,
-//       },
-//     });
-//   }
-// }
+  for (const name of technologyNames) {
+    await prisma.technology.upsert({
+      where: {
+        name: name,
+      },
+      update: {},
+      create: {
+        name: name,
+      },
+    });
+  }
+}
 
 // async function seedProjects() {
 //   const technologies = await prisma.technology.findMany();
@@ -159,7 +159,7 @@ async function seedCredential(meId: string) {
 async function main() {
   const me = await seedMe();
   await seedCredential(me.id);
-  // await seedTechnologies();
+  await seedTechnologies();
   // await seedProjects();
 }
 
