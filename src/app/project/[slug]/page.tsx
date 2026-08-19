@@ -1,6 +1,7 @@
 import Button from "@/components/Button";
 import Container from "@/components/Container";
 import ProjectCarrousel from "@/components/ProjectCarousel";
+import RenderMarkdown from "@/components/RenderMarkdown";
 import Technology from "@/components/Technology";
 import Theme from "@/components/Theme";
 import { getProjectDetail } from "@/services/project/getProjectDetail";
@@ -52,7 +53,8 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
           </div>
         </div>
 
-        <p className="my-10">{data.about}</p>
+        {/* <p className="my-10">{data.about}</p> */}
+        <RenderMarkdown markdown={data.about} />
 
         <div className="flex justify-center flex-wrap gap-10 my-5 lg:justify-start">
           <a href={data.repositoryCodeUrl}>
