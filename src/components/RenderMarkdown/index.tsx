@@ -10,7 +10,7 @@ export default function RenderMarkdown({ markdown }: RenderMarkdownProps) {
   return (
     <div
       className="
-        w-full max-w-none
+        w-full max-w-none mt-10
         prose prose-slate prose-a:text-blue-500 prose-a:no-underline prose-a:hover:text-blue-700 prose-a:hover:underline prose-a:transition
         prose-img:mx-auto
         md:prose-lg 

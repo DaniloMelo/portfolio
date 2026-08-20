@@ -48,7 +48,7 @@ export default async function Projects() {
                     icon={<LuFileText size={20} />}
                     className="text-[clamp(.9rem,2vw,1rem)] w-60 py-2 lg:w-fit lg:py-1"
                   >
-                    Detalhes do código
+                    Detalhes do projeto
                   </Button>
                 </Link>
 

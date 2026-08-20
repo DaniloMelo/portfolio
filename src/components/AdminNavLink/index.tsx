@@ -18,7 +18,7 @@ export default function AdminNavLink({ path, text }: AdminNavLinkProps) {
       href={path}
       className={cn(
         "border-b border-transparent px-2",
-        isActive && "text-accent border-b border-accent transform",
+        isActive && "text-accent border-b border-accent font-bold transform",
         "hover:border-accent",
       )}
     >

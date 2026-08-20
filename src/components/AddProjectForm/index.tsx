@@ -4,6 +4,7 @@ import { SubmitEvent, useState } from "react";
 import AddProjectFormInput from "../AddProjectFormInput";
 import { createSlug } from "@/utils/createSlug";
 import { cn } from "@/utils/cn";
+import { MarkdownEditor } from "../MarkdownEditor";
 
 export default function AddProjectForm() {
   const [title, setTitle] = useState("");
@@ -121,13 +122,21 @@ export default function AddProjectForm() {
         onChange={(event) => setDescription(event.target.value)}
       />
 
-      <AddProjectFormInput
+      {/* <AddProjectFormInput
         htmlFor="about"
         labelText="Sobre"
         name="about"
         type="text"
         value={about}
         onChange={(event) => setAbout(event.target.value)}
+      /> */}
+
+      <MarkdownEditor
+        textAreaName="about"
+        labelText="Sobre"
+        value={about}
+        setValue={setAbout}
+        disabled={isLoading}
       />
 
       <AddProjectFormInput
