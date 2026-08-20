@@ -19,7 +19,7 @@ export default function AddProjectFormInput({
       <input
         id={htmlFor}
         className="
-            h-12 text-xl md:h-10 px-2 py-2 rounded-md bg-primary-background dark:bg-primary-background 
+            h-12 text-md md:h-10 px-2 py-2 rounded-md bg-primary-background dark:bg-primary-background 
             border border-secondary-border outline-none focus-within:border-accent dark:focus-within:border-accent/40
           "
         {...rest}

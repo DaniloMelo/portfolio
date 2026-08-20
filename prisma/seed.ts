@@ -160,7 +160,7 @@ async function main() {
   const me = await seedMe();
   await seedCredential(me.id);
   await seedTechnologies();
-  await seedProjects();
+  // await seedProjects();
 }
 
 main()

@@ -25,9 +25,9 @@ export default function Theme() {
   return (
     <button
       className={cn(
-        "flex justify-center items-center rounded-full w-10 h-10 cursor-pointer",
-        "border-2 border-secondary-border text-primary-text",
-        "dark:border-primary-border dark:text-primary-text",
+        "flex justify-center items-center rounded-full w-10 h-10 cursor-pointer transition",
+        "border-2 border-secondary-border hover:border-primary-border text-primary-text",
+        "dark:border-secondary-border dark:hover:border-zinc-500 dark:text-primary-text",
       )}
       onClick={() =>
         resolvedTheme === "light" ? setTheme("dark") : setTheme("light")

@@ -67,6 +67,13 @@ export default function AddProjectForm() {
       }
 
       setMessage("Projeto adicionado!");
+      setTitle("");
+      setDescription("");
+      setAbout("");
+      setRepositoryCodeUrl("");
+      setDeployUrl("");
+      setTechNames([""]);
+      setImages([{ src: "", alt: "" }]);
     } catch {
       setErrors(["Erro desconhecido ao adicionar projeto"]);
     } finally {
@@ -84,17 +91,6 @@ export default function AddProjectForm() {
       onSubmit={handleSubmit}
       className="flex flex-col gap-5 p-4 w-4xl rounded-md bg-secondary-background dark:bg-secondary-background"
     >
-      {errors &&
-        errors.map((error, index) => {
-          return (
-            <p className="text-center text-red-900" key={index}>
-              {error}
-            </p>
-          );
-        })}
-
-      {message && <p className="text-center text-green-900">{message}</p>}
-
       <AddProjectFormInput
         htmlFor="title"
         labelText="Título"
@@ -160,7 +156,7 @@ export default function AddProjectForm() {
       <button
         onClick={addTechInput}
         type="button"
-        className="cursor-pointer w-fit px-4 mt-10 rounded-md text-white bg-accent hover:bg-accent/70 transition-transform hover:scale-105"
+        className="cursor-pointer w-fit py-1 px-4 mt-10 rounded-md text-white bg-accent hover:bg-accent/70 transition-transform hover:scale-105"
       >
         Add Tech
       </button>
@@ -195,7 +191,7 @@ export default function AddProjectForm() {
       <button
         onClick={addImagesInput}
         type="button"
-        className="cursor-pointer w-fit px-4 mt-10 rounded-md text-white bg-accent hover:bg-accent/70 transition-transform hover:scale-105"
+        className="cursor-pointer w-fit py-1 px-4 mt-10 rounded-md text-white bg-accent hover:bg-accent/70 transition-transform hover:scale-105"
       >
         Add imagem
       </button>
@@ -243,6 +239,24 @@ export default function AddProjectForm() {
           />
         </div>
       ))}
+
+      {errors &&
+        errors.map((error, index) => {
+          return (
+            <p
+              className="text-center text-red-900 dark:text-red-500"
+              key={index}
+            >
+              {error}
+            </p>
+          );
+        })}
+
+      {message && (
+        <p className="text-center text-green-900 dark:text-green-500">
+          {message}
+        </p>
+      )}
 
       <button
         type="submit"
