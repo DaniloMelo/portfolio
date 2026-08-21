@@ -23,7 +23,7 @@ export function validateProjectsPosition(projects: ProjectsPosition[]) {
 
   for (
     let expectedPosition = 1;
-    expectedPosition < projects.length;
+    expectedPosition <= projects.length;
     expectedPosition++
   ) {
     if (!positions.get(expectedPosition)) {
