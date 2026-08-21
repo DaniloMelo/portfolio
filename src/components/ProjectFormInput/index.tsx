@@ -1,15 +1,15 @@
 import { InputHTMLAttributes } from "react";
 
-interface AddProjectFormInputProps extends InputHTMLAttributes<HTMLInputElement> {
+interface ProjectFormInputProps extends InputHTMLAttributes<HTMLInputElement> {
   labelText: string;
   htmlFor: string;
 }
 
-export default function AddProjectFormInput({
+export default function ProjectFormInput({
   labelText,
   htmlFor,
   ...rest
-}: AddProjectFormInputProps) {
+}: ProjectFormInputProps) {
   return (
     <div className="flex flex-col w-full gap-2">
       <label className="text-sm" htmlFor={htmlFor}>

@@ -1,7 +1,7 @@
 "use client";
 
 import { SubmitEvent, useState } from "react";
-import AddProjectFormInput from "../AddProjectFormInput";
+import ProjectFormInput from "../ProjectFormInput";
 import { createSlug } from "@/utils/createSlug";
 import { cn } from "@/utils/cn";
 import { MarkdownEditor } from "../MarkdownEditor";
@@ -91,7 +91,7 @@ export default function AddProjectForm() {
       onSubmit={handleSubmit}
       className="flex flex-col gap-5 p-4 w-4xl rounded-md bg-secondary-background dark:bg-secondary-background"
     >
-      <AddProjectFormInput
+      <ProjectFormInput
         htmlFor="title"
         labelText="Título"
         name="title"
@@ -100,7 +100,7 @@ export default function AddProjectForm() {
         onChange={(event) => setTitle(event.target.value)}
       />
 
-      <AddProjectFormInput
+      <ProjectFormInput
         htmlFor="slug"
         labelText="Slug"
         name="slug"
@@ -109,7 +109,7 @@ export default function AddProjectForm() {
         readOnly
       />
 
-      <AddProjectFormInput
+      <ProjectFormInput
         htmlFor="description"
         labelText="Descrição"
         name="description"
@@ -117,15 +117,6 @@ export default function AddProjectForm() {
         value={description}
         onChange={(event) => setDescription(event.target.value)}
       />
-
-      {/* <AddProjectFormInput
-        htmlFor="about"
-        labelText="Sobre"
-        name="about"
-        type="text"
-        value={about}
-        onChange={(event) => setAbout(event.target.value)}
-      /> */}
 
       <MarkdownEditor
         textAreaName="about"
@@ -135,7 +126,7 @@ export default function AddProjectForm() {
         disabled={isLoading}
       />
 
-      <AddProjectFormInput
+      <ProjectFormInput
         htmlFor="repository"
         labelText="URL do código"
         name="repository"
@@ -144,7 +135,7 @@ export default function AddProjectForm() {
         onChange={(event) => setRepositoryCodeUrl(event.target.value)}
       />
 
-      <AddProjectFormInput
+      <ProjectFormInput
         htmlFor="deploy"
         labelText="URL do deploy"
         name="deploy"
@@ -163,7 +154,7 @@ export default function AddProjectForm() {
 
       {techNames.map((tech, index) => (
         <div className="flex items-end gap-2 mb-6" key={index}>
-          <AddProjectFormInput
+          <ProjectFormInput
             labelText={`Tech ${index + 1}`}
             htmlFor={`tech-${index + 1}`}
             value={tech}
@@ -199,7 +190,7 @@ export default function AddProjectForm() {
       {images.map((image, index) => (
         <div key={index} className="mb-4">
           <div className="flex items-end gap-2 mb-2">
-            <AddProjectFormInput
+            <ProjectFormInput
               type="url"
               labelText={`Imagem ${index + 1}`}
               htmlFor={`Imagem-${index + 1}`}
@@ -222,7 +213,7 @@ export default function AddProjectForm() {
               X
             </button>
           </div>
-          <AddProjectFormInput
+          <ProjectFormInput
             type="text"
             labelText={`Alt da Imagem ${index + 1}`}
             htmlFor={`alt-imagem-${index + 1}`}
