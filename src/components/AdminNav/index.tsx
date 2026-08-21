@@ -7,7 +7,10 @@ export default function AdminNav() {
       <nav className="flex justify-center gap-6 border-collapse py-2 mt-6">
         <AdminNavLink path="/admin/projects" text="Projetos" />
 
-        <AdminNavLink path="/admin/profile" text="Perfil" />
+        <AdminNavLink
+          path="/admin/projects/reorder"
+          text="Roposicionar projetos"
+        />
 
         <AdminNavLink path="/admin/projects/new-project" text="+ Projeto" />
 
@@ -15,6 +18,8 @@ export default function AdminNav() {
           path="/admin/projects/new-technology"
           text="+ Tecnologia"
         />
+
+        <AdminNavLink path="/admin/profile" text="Perfil" />
       </nav>
     </Container>
   );

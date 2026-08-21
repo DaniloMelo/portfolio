@@ -1,8 +1,9 @@
 import { UnauthorizedError } from "@/errors/auth/UnauthorizedError";
-import { TechnologyNotFound } from "@/errors/project/TechnologyNotFound";
-import { projectSchema } from "@/schemas/projects/projectSchema";
+import { RepositionProjectError } from "@/errors/project/RepositionProjectError";
+import { repositionProjectSchema } from "@/schemas/projects/repositionProjectSchema";
 import { getAuthenticatedUser } from "@/services/auth/getAuthenticatedUser";
-import { addProject } from "@/services/project/addProject";
+import { changeProjectsPosition } from "@/services/project/changeProjectsPosition";
+
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
@@ -11,7 +12,7 @@ export async function POST(request: Request) {
 
     const body = await request.json();
 
-    const result = projectSchema.safeParse(body);
+    const result = repositionProjectSchema.safeParse(body);
 
     if (!result.success) {
       const errorMessagesArr = result.error.issues.map(
@@ -26,13 +27,13 @@ export async function POST(request: Request) {
       );
     }
 
-    await addProject(result.data);
+    await changeProjectsPosition(result.data);
 
     return NextResponse.json({
       success: true,
     });
   } catch (error) {
-    if (error instanceof TechnologyNotFound) {
+    if (error instanceof RepositionProjectError) {
       return NextResponse.json(
         {
           error: [error.message],
