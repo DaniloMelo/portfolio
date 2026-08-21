@@ -4,6 +4,8 @@ import { SubmitEvent, useState } from "react";
 import ProjectFormInput from "../ProjectFormInput";
 import { ProjectsPosition } from "@/types/project";
 import { cn } from "@/utils/cn";
+import ErrorMessage from "../ErrorMessage";
+import SuccessMessage from "../SuccessMessage";
 
 interface RepositionProjectFormProps {
   projectsPosition: ProjectsPosition[];
@@ -84,23 +86,10 @@ export default function RepositionProjectForm({
         );
       })}
 
-      {errors &&
-        errors.map((error, index) => {
-          return (
-            <p
-              className="text-center text-red-900 dark:text-red-500"
-              key={index}
-            >
-              {error}
-            </p>
-          );
-        })}
-
-      {message && (
-        <p className="text-center text-green-900 dark:text-green-500">
-          {message}
-        </p>
-      )}
+      <div className="flex flex-col items-center gap-4">
+        {errors && <ErrorMessage errors={errors} />}
+        {message && <SuccessMessage message={message} />}
+      </div>
 
       <button
         type="submit"

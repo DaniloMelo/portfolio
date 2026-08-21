@@ -5,6 +5,8 @@ import ProjectFormInput from "../ProjectFormInput";
 import { createSlug } from "@/utils/createSlug";
 import { cn } from "@/utils/cn";
 import { MarkdownEditor } from "../MarkdownEditor";
+import ErrorMessage from "../ErrorMessage";
+import SuccessMessage from "../SuccessMessage";
 
 export default function AddProjectForm() {
   const [title, setTitle] = useState("");
@@ -82,7 +84,7 @@ export default function AddProjectForm() {
       setTimeout(() => {
         setErrors(null);
         setMessage(null);
-      }, 3000);
+      }, 5000);
     }
   }
 
@@ -231,23 +233,10 @@ export default function AddProjectForm() {
         </div>
       ))}
 
-      {errors &&
-        errors.map((error, index) => {
-          return (
-            <p
-              className="text-center text-red-900 dark:text-red-500"
-              key={index}
-            >
-              {error}
-            </p>
-          );
-        })}
-
-      {message && (
-        <p className="text-center text-green-900 dark:text-green-500">
-          {message}
-        </p>
-      )}
+      <div className="flex flex-col items-center gap-4">
+        {errors && <ErrorMessage errors={errors} />}
+        {message && <SuccessMessage message={message} />}
+      </div>
 
       <button
         type="submit"
