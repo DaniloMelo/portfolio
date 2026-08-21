@@ -1,5 +1,5 @@
 import { prisma } from "@/libs/prisma/client";
-import { Project } from "@/types/project";
+import { Project, ProjectsPosition } from "@/types/project";
 
 export async function createProject(project: Project): Promise<Project> {
   const data = await prisma.project.create({
@@ -10,6 +10,7 @@ export async function createProject(project: Project): Promise<Project> {
       about: project.about,
       repositoryCodeUrl: project.repositoryCodeUrl,
       deployUrl: project.deployUrl,
+      position: project.position,
 
       images: {
         create: project.images.map((image) => ({
@@ -37,6 +38,7 @@ export async function createProject(project: Project): Promise<Project> {
       about: true,
       repositoryCodeUrl: true,
       deployUrl: true,
+      position: true,
 
       images: {
         select: {
@@ -66,6 +68,7 @@ export async function createProject(project: Project): Promise<Project> {
     about: data.about,
     repositoryCodeUrl: data.repositoryCodeUrl,
     deployUrl: data.deployUrl,
+    position: data.position,
     images: data.images,
     technologies: data.projectTechnologies.map(
       (projectTech) => projectTech.technology,
@@ -91,6 +94,9 @@ export async function findProjectPreviews() {
         },
       },
     },
+    orderBy: {
+      position: "asc",
+    },
   });
 }
 
@@ -112,13 +118,13 @@ export async function findProjectBySlug(slug: string): Promise<Project | null> {
   if (!data) return null;
 
   return {
-    // id: data.id,
     slug: data.slug,
     title: data.title,
     description: data.description,
     about: data.about,
     repositoryCodeUrl: data.repositoryCodeUrl,
     deployUrl: data.deployUrl,
+    position: data.position,
 
     images: data.images.map((image) => ({
       id: image.id,
@@ -131,6 +137,39 @@ export async function findProjectBySlug(slug: string): Promise<Project | null> {
       name: pt.technology.name,
     })),
   };
+}
+
+export async function findProjectsPosition() {
+  return await prisma.project.findMany({
+    select: {
+      id: true,
+      title: true,
+      position: true,
+    },
+  });
+}
+
+export async function findLastProjectPosition(): Promise<number> {
+  const { _max } = await prisma.project.aggregate({
+    _max: {
+      position: true,
+    },
+  });
+
+  const position = _max.position ?? 0;
+
+  return position;
+}
+
+export async function repositionProjects(projects: ProjectsPosition[]) {
+  await prisma.$transaction(
+    projects.map((project) =>
+      prisma.project.update({
+        where: { id: project.id },
+        data: { position: project.position },
+      }),
+    ),
+  );
 }
 
 export async function findTechnologies() {
