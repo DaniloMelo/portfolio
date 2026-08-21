@@ -102,6 +102,7 @@ async function seedProjects() {
         about: project.about,
         repositoryCodeUrl: project.repositoryCodeUrl,
         deployUrl: project.deployUrl,
+        position: project.position,
       },
       create: {
         id: project.id,
@@ -111,6 +112,7 @@ async function seedProjects() {
         about: project.about,
         repositoryCodeUrl: project.repositoryCodeUrl,
         deployUrl: project.deployUrl,
+        position: project.position,
       },
     });
 
@@ -160,7 +162,7 @@ async function main() {
   const me = await seedMe();
   await seedCredential(me.id);
   await seedTechnologies();
-  // await seedProjects();
+  await seedProjects();
 }
 
 main()

@@ -20,8 +20,18 @@ export type ProjectModel = runtime.Types.Result.DefaultSelection<Prisma.$Project
 
 export type AggregateProject = {
   _count: ProjectCountAggregateOutputType | null
+  _avg: ProjectAvgAggregateOutputType | null
+  _sum: ProjectSumAggregateOutputType | null
   _min: ProjectMinAggregateOutputType | null
   _max: ProjectMaxAggregateOutputType | null
+}
+
+export type ProjectAvgAggregateOutputType = {
+  position: number | null
+}
+
+export type ProjectSumAggregateOutputType = {
+  position: number | null
 }
 
 export type ProjectMinAggregateOutputType = {
@@ -32,6 +42,7 @@ export type ProjectMinAggregateOutputType = {
   about: string | null
   repositoryCodeUrl: string | null
   deployUrl: string | null
+  position: number | null
 }
 
 export type ProjectMaxAggregateOutputType = {
@@ -42,6 +53,7 @@ export type ProjectMaxAggregateOutputType = {
   about: string | null
   repositoryCodeUrl: string | null
   deployUrl: string | null
+  position: number | null
 }
 
 export type ProjectCountAggregateOutputType = {
@@ -52,9 +64,18 @@ export type ProjectCountAggregateOutputType = {
   about: number
   repositoryCodeUrl: number
   deployUrl: number
+  position: number
   _all: number
 }
 
+
+export type ProjectAvgAggregateInputType = {
+  position?: true
+}
+
+export type ProjectSumAggregateInputType = {
+  position?: true
+}
 
 export type ProjectMinAggregateInputType = {
   id?: true
@@ -64,6 +85,7 @@ export type ProjectMinAggregateInputType = {
   about?: true
   repositoryCodeUrl?: true
   deployUrl?: true
+  position?: true
 }
 
 export type ProjectMaxAggregateInputType = {
@@ -74,6 +96,7 @@ export type ProjectMaxAggregateInputType = {
   about?: true
   repositoryCodeUrl?: true
   deployUrl?: true
+  position?: true
 }
 
 export type ProjectCountAggregateInputType = {
@@ -84,6 +107,7 @@ export type ProjectCountAggregateInputType = {
   about?: true
   repositoryCodeUrl?: true
   deployUrl?: true
+  position?: true
   _all?: true
 }
 
@@ -125,6 +149,18 @@ export type ProjectAggregateArgs<ExtArgs extends runtime.Types.Extensions.Intern
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
+   * Select which fields to average
+  **/
+  _avg?: ProjectAvgAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
+   * Select which fields to sum
+  **/
+  _sum?: ProjectSumAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
    * Select which fields to find the minimum value
   **/
   _min?: ProjectMinAggregateInputType
@@ -155,6 +191,8 @@ export type ProjectGroupByArgs<ExtArgs extends runtime.Types.Extensions.Internal
   take?: number
   skip?: number
   _count?: ProjectCountAggregateInputType | true
+  _avg?: ProjectAvgAggregateInputType
+  _sum?: ProjectSumAggregateInputType
   _min?: ProjectMinAggregateInputType
   _max?: ProjectMaxAggregateInputType
 }
@@ -167,7 +205,10 @@ export type ProjectGroupByOutputType = {
   about: string
   repositoryCodeUrl: string
   deployUrl: string
+  position: number
   _count: ProjectCountAggregateOutputType | null
+  _avg: ProjectAvgAggregateOutputType | null
+  _sum: ProjectSumAggregateOutputType | null
   _min: ProjectMinAggregateOutputType | null
   _max: ProjectMaxAggregateOutputType | null
 }
@@ -198,6 +239,7 @@ export type ProjectWhereInput = {
   about?: Prisma.StringFilter<"Project"> | string
   repositoryCodeUrl?: Prisma.StringFilter<"Project"> | string
   deployUrl?: Prisma.StringFilter<"Project"> | string
+  position?: Prisma.IntFilter<"Project"> | number
   projectTechnologies?: Prisma.ProjectTechnologyListRelationFilter
   images?: Prisma.ImageListRelationFilter
 }
@@ -210,6 +252,7 @@ export type ProjectOrderByWithRelationInput = {
   about?: Prisma.SortOrder
   repositoryCodeUrl?: Prisma.SortOrder
   deployUrl?: Prisma.SortOrder
+  position?: Prisma.SortOrder
   projectTechnologies?: Prisma.ProjectTechnologyOrderByRelationAggregateInput
   images?: Prisma.ImageOrderByRelationAggregateInput
 }
@@ -225,6 +268,7 @@ export type ProjectWhereUniqueInput = Prisma.AtLeast<{
   about?: Prisma.StringFilter<"Project"> | string
   repositoryCodeUrl?: Prisma.StringFilter<"Project"> | string
   deployUrl?: Prisma.StringFilter<"Project"> | string
+  position?: Prisma.IntFilter<"Project"> | number
   projectTechnologies?: Prisma.ProjectTechnologyListRelationFilter
   images?: Prisma.ImageListRelationFilter
 }, "id" | "slug">
@@ -237,9 +281,12 @@ export type ProjectOrderByWithAggregationInput = {
   about?: Prisma.SortOrder
   repositoryCodeUrl?: Prisma.SortOrder
   deployUrl?: Prisma.SortOrder
+  position?: Prisma.SortOrder
   _count?: Prisma.ProjectCountOrderByAggregateInput
+  _avg?: Prisma.ProjectAvgOrderByAggregateInput
   _max?: Prisma.ProjectMaxOrderByAggregateInput
   _min?: Prisma.ProjectMinOrderByAggregateInput
+  _sum?: Prisma.ProjectSumOrderByAggregateInput
 }
 
 export type ProjectScalarWhereWithAggregatesInput = {
@@ -253,6 +300,7 @@ export type ProjectScalarWhereWithAggregatesInput = {
   about?: Prisma.StringWithAggregatesFilter<"Project"> | string
   repositoryCodeUrl?: Prisma.StringWithAggregatesFilter<"Project"> | string
   deployUrl?: Prisma.StringWithAggregatesFilter<"Project"> | string
+  position?: Prisma.IntWithAggregatesFilter<"Project"> | number
 }
 
 export type ProjectCreateInput = {
@@ -263,6 +311,7 @@ export type ProjectCreateInput = {
   about: string
   repositoryCodeUrl: string
   deployUrl: string
+  position: number
   projectTechnologies?: Prisma.ProjectTechnologyCreateNestedManyWithoutProjectInput
   images?: Prisma.ImageCreateNestedManyWithoutProjectInput
 }
@@ -275,6 +324,7 @@ export type ProjectUncheckedCreateInput = {
   about: string
   repositoryCodeUrl: string
   deployUrl: string
+  position: number
   projectTechnologies?: Prisma.ProjectTechnologyUncheckedCreateNestedManyWithoutProjectInput
   images?: Prisma.ImageUncheckedCreateNestedManyWithoutProjectInput
 }
@@ -287,6 +337,7 @@ export type ProjectUpdateInput = {
   about?: Prisma.StringFieldUpdateOperationsInput | string
   repositoryCodeUrl?: Prisma.StringFieldUpdateOperationsInput | string
   deployUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  position?: Prisma.IntFieldUpdateOperationsInput | number
   projectTechnologies?: Prisma.ProjectTechnologyUpdateManyWithoutProjectNestedInput
   images?: Prisma.ImageUpdateManyWithoutProjectNestedInput
 }
@@ -299,6 +350,7 @@ export type ProjectUncheckedUpdateInput = {
   about?: Prisma.StringFieldUpdateOperationsInput | string
   repositoryCodeUrl?: Prisma.StringFieldUpdateOperationsInput | string
   deployUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  position?: Prisma.IntFieldUpdateOperationsInput | number
   projectTechnologies?: Prisma.ProjectTechnologyUncheckedUpdateManyWithoutProjectNestedInput
   images?: Prisma.ImageUncheckedUpdateManyWithoutProjectNestedInput
 }
@@ -311,6 +363,7 @@ export type ProjectCreateManyInput = {
   about: string
   repositoryCodeUrl: string
   deployUrl: string
+  position: number
 }
 
 export type ProjectUpdateManyMutationInput = {
@@ -321,6 +374,7 @@ export type ProjectUpdateManyMutationInput = {
   about?: Prisma.StringFieldUpdateOperationsInput | string
   repositoryCodeUrl?: Prisma.StringFieldUpdateOperationsInput | string
   deployUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  position?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type ProjectUncheckedUpdateManyInput = {
@@ -331,6 +385,7 @@ export type ProjectUncheckedUpdateManyInput = {
   about?: Prisma.StringFieldUpdateOperationsInput | string
   repositoryCodeUrl?: Prisma.StringFieldUpdateOperationsInput | string
   deployUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  position?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type ProjectCountOrderByAggregateInput = {
@@ -341,6 +396,11 @@ export type ProjectCountOrderByAggregateInput = {
   about?: Prisma.SortOrder
   repositoryCodeUrl?: Prisma.SortOrder
   deployUrl?: Prisma.SortOrder
+  position?: Prisma.SortOrder
+}
+
+export type ProjectAvgOrderByAggregateInput = {
+  position?: Prisma.SortOrder
 }
 
 export type ProjectMaxOrderByAggregateInput = {
@@ -351,6 +411,7 @@ export type ProjectMaxOrderByAggregateInput = {
   about?: Prisma.SortOrder
   repositoryCodeUrl?: Prisma.SortOrder
   deployUrl?: Prisma.SortOrder
+  position?: Prisma.SortOrder
 }
 
 export type ProjectMinOrderByAggregateInput = {
@@ -361,11 +422,24 @@ export type ProjectMinOrderByAggregateInput = {
   about?: Prisma.SortOrder
   repositoryCodeUrl?: Prisma.SortOrder
   deployUrl?: Prisma.SortOrder
+  position?: Prisma.SortOrder
+}
+
+export type ProjectSumOrderByAggregateInput = {
+  position?: Prisma.SortOrder
 }
 
 export type ProjectScalarRelationFilter = {
   is?: Prisma.ProjectWhereInput
   isNot?: Prisma.ProjectWhereInput
+}
+
+export type IntFieldUpdateOperationsInput = {
+  set?: number
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
 }
 
 export type ProjectCreateNestedOneWithoutImagesInput = {
@@ -404,6 +478,7 @@ export type ProjectCreateWithoutImagesInput = {
   about: string
   repositoryCodeUrl: string
   deployUrl: string
+  position: number
   projectTechnologies?: Prisma.ProjectTechnologyCreateNestedManyWithoutProjectInput
 }
 
@@ -415,6 +490,7 @@ export type ProjectUncheckedCreateWithoutImagesInput = {
   about: string
   repositoryCodeUrl: string
   deployUrl: string
+  position: number
   projectTechnologies?: Prisma.ProjectTechnologyUncheckedCreateNestedManyWithoutProjectInput
 }
 
@@ -442,6 +518,7 @@ export type ProjectUpdateWithoutImagesInput = {
   about?: Prisma.StringFieldUpdateOperationsInput | string
   repositoryCodeUrl?: Prisma.StringFieldUpdateOperationsInput | string
   deployUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  position?: Prisma.IntFieldUpdateOperationsInput | number
   projectTechnologies?: Prisma.ProjectTechnologyUpdateManyWithoutProjectNestedInput
 }
 
@@ -453,6 +530,7 @@ export type ProjectUncheckedUpdateWithoutImagesInput = {
   about?: Prisma.StringFieldUpdateOperationsInput | string
   repositoryCodeUrl?: Prisma.StringFieldUpdateOperationsInput | string
   deployUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  position?: Prisma.IntFieldUpdateOperationsInput | number
   projectTechnologies?: Prisma.ProjectTechnologyUncheckedUpdateManyWithoutProjectNestedInput
 }
 
@@ -464,6 +542,7 @@ export type ProjectCreateWithoutProjectTechnologiesInput = {
   about: string
   repositoryCodeUrl: string
   deployUrl: string
+  position: number
   images?: Prisma.ImageCreateNestedManyWithoutProjectInput
 }
 
@@ -475,6 +554,7 @@ export type ProjectUncheckedCreateWithoutProjectTechnologiesInput = {
   about: string
   repositoryCodeUrl: string
   deployUrl: string
+  position: number
   images?: Prisma.ImageUncheckedCreateNestedManyWithoutProjectInput
 }
 
@@ -502,6 +582,7 @@ export type ProjectUpdateWithoutProjectTechnologiesInput = {
   about?: Prisma.StringFieldUpdateOperationsInput | string
   repositoryCodeUrl?: Prisma.StringFieldUpdateOperationsInput | string
   deployUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  position?: Prisma.IntFieldUpdateOperationsInput | number
   images?: Prisma.ImageUpdateManyWithoutProjectNestedInput
 }
 
@@ -513,6 +594,7 @@ export type ProjectUncheckedUpdateWithoutProjectTechnologiesInput = {
   about?: Prisma.StringFieldUpdateOperationsInput | string
   repositoryCodeUrl?: Prisma.StringFieldUpdateOperationsInput | string
   deployUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  position?: Prisma.IntFieldUpdateOperationsInput | number
   images?: Prisma.ImageUncheckedUpdateManyWithoutProjectNestedInput
 }
 
@@ -564,6 +646,7 @@ export type ProjectSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   about?: boolean
   repositoryCodeUrl?: boolean
   deployUrl?: boolean
+  position?: boolean
   projectTechnologies?: boolean | Prisma.Project$projectTechnologiesArgs<ExtArgs>
   images?: boolean | Prisma.Project$imagesArgs<ExtArgs>
   _count?: boolean | Prisma.ProjectCountOutputTypeDefaultArgs<ExtArgs>
@@ -577,6 +660,7 @@ export type ProjectSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   about?: boolean
   repositoryCodeUrl?: boolean
   deployUrl?: boolean
+  position?: boolean
 }, ExtArgs["result"]["project"]>
 
 export type ProjectSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -587,6 +671,7 @@ export type ProjectSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   about?: boolean
   repositoryCodeUrl?: boolean
   deployUrl?: boolean
+  position?: boolean
 }, ExtArgs["result"]["project"]>
 
 export type ProjectSelectScalar = {
@@ -597,9 +682,10 @@ export type ProjectSelectScalar = {
   about?: boolean
   repositoryCodeUrl?: boolean
   deployUrl?: boolean
+  position?: boolean
 }
 
-export type ProjectOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "slug" | "title" | "description" | "about" | "repositoryCodeUrl" | "deployUrl", ExtArgs["result"]["project"]>
+export type ProjectOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "slug" | "title" | "description" | "about" | "repositoryCodeUrl" | "deployUrl" | "position", ExtArgs["result"]["project"]>
 export type ProjectInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   projectTechnologies?: boolean | Prisma.Project$projectTechnologiesArgs<ExtArgs>
   images?: boolean | Prisma.Project$imagesArgs<ExtArgs>
@@ -622,6 +708,7 @@ export type $ProjectPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     about: string
     repositoryCodeUrl: string
     deployUrl: string
+    position: number
   }, ExtArgs["result"]["project"]>
   composites: {}
 }
@@ -1054,6 +1141,7 @@ export interface ProjectFieldRefs {
   readonly about: Prisma.FieldRef<"Project", 'String'>
   readonly repositoryCodeUrl: Prisma.FieldRef<"Project", 'String'>
   readonly deployUrl: Prisma.FieldRef<"Project", 'String'>
+  readonly position: Prisma.FieldRef<"Project", 'Int'>
 }
     
 

@@ -41,10 +41,12 @@ model Project {
   about             String @db.Text
   repositoryCodeUrl String @map("repository_code_url") @db.VarChar(255)
   deployUrl         String @map("deploy_url") @db.VarChar(255)
+  position          Int
 
   projectTechnologies ProjectTechnology[]
   images              Image[]
 
+  @@index([position])
   @@map("projects")
 }
 
