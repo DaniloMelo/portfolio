@@ -1,18 +1,19 @@
 import { UnauthorizedError } from "@/errors/auth/UnauthorizedError";
-import { RepositionProjectError } from "@/errors/project/RepositionProjectError";
-import { repositionProjectSchema } from "@/schemas/projects/repositionProjectSchema";
+import { deleteProjectSchema } from "@/schemas/projects/deleteProjectSchema";
 import { getAuthenticatedUser } from "@/services/auth/getAuthenticatedUser";
-import { changeProjectsPosition } from "@/services/project/changeProjectsPosition";
+import { removeProject } from "@/services/project/removeProject";
+import { NextRequest, NextResponse } from "next/server";
 
-import { NextResponse } from "next/server";
-
-export async function POST(request: Request) {
+export async function DELETE(
+  request: NextRequest,
+  context: RouteContext<"/api/projects/delete/[slug]">,
+) {
   try {
     await getAuthenticatedUser();
 
-    const body = await request.json();
+    const param = await context.params;
 
-    const result = repositionProjectSchema.safeParse(body);
+    const result = deleteProjectSchema.safeParse(param);
 
     if (!result.success) {
       const errorMessagesArr = result.error.issues.map(
@@ -27,23 +28,12 @@ export async function POST(request: Request) {
       );
     }
 
-    await changeProjectsPosition(result.data);
+    await removeProject(result.data.slug);
 
     return NextResponse.json({
       success: true,
     });
   } catch (error) {
-    if (error instanceof RepositionProjectError) {
-      return NextResponse.json(
-        {
-          error: [error.message],
-        },
-        {
-          status: 400,
-        },
-      );
-    }
-
     if (error instanceof UnauthorizedError) {
       return NextResponse.json(
         {
@@ -55,7 +45,7 @@ export async function POST(request: Request) {
       );
     }
 
-    console.error("Unexpected error during project repositioning:", error);
+    console.error("Unexpected error during delete project:", error);
     return NextResponse.json(
       {
         error: ["Internal Server Error"],

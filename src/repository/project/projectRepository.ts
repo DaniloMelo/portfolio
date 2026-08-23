@@ -175,3 +175,9 @@ export async function repositionProjects(projects: ProjectsPosition[]) {
 export async function findTechnologies() {
   return await prisma.technology.findMany();
 }
+
+export async function deleteProject(slug: string) {
+  return await prisma.project.delete({
+    where: { slug },
+  });
+}

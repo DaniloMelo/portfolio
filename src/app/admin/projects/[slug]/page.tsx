@@ -1,3 +1,4 @@
+import UpdateOrDeleteProjectForm from "@/components/UpdateOrDeleteProjectForm";
 import { findProjectBySlug } from "@/repository/project/projectRepository";
 
 interface EditProjectPageParams {
@@ -14,12 +15,7 @@ export default async function EditProjectPage({
 
   return (
     <main>
-      {/* <h1 className="text-center">Editar projeto</h1>
-      <p>titulo {project?.title}</p>
-      <p>sobre {project?.about}</p>
-
-      <br />
-      <p>Posiçao atual: {project?.position}</p> */}
+      <UpdateOrDeleteProjectForm project={project} />
     </main>
   );
 }
