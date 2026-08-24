@@ -21,11 +21,6 @@ export default function UpdateOrDeleteProjectForm({
   const [errors, setErrors] = useState<string[] | null>(null);
   const [message, setMessage] = useState<string | null>(null);
 
-  async function handleDelete() {
-    try {
-    } catch (error) {}
-  }
-
   async function handleSubmit(event: SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
     const submitter = event.nativeEvent.submitter as HTMLButtonElement;

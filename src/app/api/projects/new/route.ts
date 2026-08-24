@@ -3,6 +3,7 @@ import { TechnologyNotFound } from "@/errors/project/TechnologyNotFound";
 import { projectSchema } from "@/schemas/projects/projectSchema";
 import { getAuthenticatedUser } from "@/services/auth/getAuthenticatedUser";
 import { addProject } from "@/services/project/addProject";
+import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
@@ -27,6 +28,8 @@ export async function POST(request: Request) {
     }
 
     await addProject(result.data);
+
+    revalidatePath("/");
 
     return NextResponse.json({
       success: true,
