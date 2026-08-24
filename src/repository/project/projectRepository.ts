@@ -139,6 +139,14 @@ export async function findProjectBySlug(slug: string): Promise<Project | null> {
   };
 }
 
+export async function findAllSlugs() {
+  return await prisma.project.findMany({
+    select: {
+      slug: true,
+    },
+  });
+}
+
 export async function findProjectsPosition() {
   return await prisma.project.findMany({
     select: {

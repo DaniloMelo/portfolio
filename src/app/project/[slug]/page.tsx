@@ -4,10 +4,16 @@ import ProjectCarrousel from "@/components/ProjectCarousel";
 import RenderMarkdown from "@/components/RenderMarkdown";
 import Technology from "@/components/Technology";
 import Theme from "@/components/Theme";
+import { findAllSlugs } from "@/repository/project/projectRepository";
 import { getProjectDetail } from "@/services/project/getProjectDetail";
 import { TechnologyName } from "@/types/technologies";
 import Link from "next/link";
 import { LuCodeXml, LuLaptop } from "react-icons/lu";
+
+export const dynamicParams = true;
+export async function generateStaticParams() {
+  return await findAllSlugs();
+}
 
 interface ProjectPageParams {
   params: Promise<{ slug: string }>;
