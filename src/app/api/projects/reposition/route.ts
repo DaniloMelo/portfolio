@@ -3,6 +3,7 @@ import { RepositionProjectError } from "@/errors/project/RepositionProjectError"
 import { repositionProjectSchema } from "@/schemas/projects/repositionProjectSchema";
 import { getAuthenticatedUser } from "@/services/auth/getAuthenticatedUser";
 import { changeProjectsPosition } from "@/services/project/changeProjectsPosition";
+import { revalidatePath } from "next/cache";
 
 import { NextResponse } from "next/server";
 
@@ -28,6 +29,8 @@ export async function POST(request: Request) {
     }
 
     await changeProjectsPosition(result.data);
+
+    revalidatePath("/");
 
     return NextResponse.json({
       success: true,
