@@ -172,7 +172,7 @@ export default function UpdateOrDeleteProjectForm({
         textAreaName="about"
         labelText="Sobre"
         value={about}
-        setValue={setAbout}
+        onChange={(value) => setAbout(value)}
         disabled={isLoading}
       />
 

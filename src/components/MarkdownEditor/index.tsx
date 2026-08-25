@@ -12,7 +12,7 @@ const MDEditor = dynamic(() => import("@uiw/react-md-editor"), {
 type MarkdownEditorProps = {
   labelText?: string;
   value: string;
-  setValue: React.Dispatch<React.SetStateAction<string>>;
+  onChange: (value: string) => void;
   textAreaName: string;
   disabled?: boolean;
 };
@@ -20,7 +20,7 @@ type MarkdownEditorProps = {
 export function MarkdownEditor({
   labelText = "",
   value,
-  setValue,
+  onChange,
   textAreaName,
   disabled = false,
 }: MarkdownEditorProps) {
@@ -39,7 +39,7 @@ export function MarkdownEditor({
         value={value}
         onChange={(value) => {
           if (value === undefined) return;
-          setValue(value);
+          onChange(value);
         }}
         height={400}
         hideToolbar={disabled}

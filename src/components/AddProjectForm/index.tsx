@@ -124,7 +124,7 @@ export default function AddProjectForm() {
         textAreaName="about"
         labelText="Sobre"
         value={about}
-        setValue={setAbout}
+        onChange={(value) => setAbout(value)}
         disabled={isLoading}
       />
 
