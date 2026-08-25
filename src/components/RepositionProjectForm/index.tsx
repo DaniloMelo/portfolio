@@ -1,7 +1,7 @@
 "use client";
 
 import { SubmitEvent, useState } from "react";
-import ProjectFormInput from "../ProjectFormInput";
+import Input from "../Input";
 import { ProjectsPosition } from "@/types/project";
 import { cn } from "@/utils/cn";
 import ErrorMessage from "../ErrorMessage";
@@ -71,7 +71,7 @@ export default function RepositionProjectForm({
           <div key={project.id} className="flex flex-col mb-10 ">
             <p className="text-xl font-bold">{project.title}</p>
             <div className="w-15">
-              <ProjectFormInput
+              <Input
                 htmlFor="position"
                 labelText="Posição"
                 name="position"

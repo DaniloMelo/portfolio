@@ -7,7 +7,7 @@ import { SubmitEvent, useState } from "react";
 import SuccessMessage from "../SuccessMessage";
 import { cn } from "@/utils/cn";
 import ErrorMessage from "../ErrorMessage";
-import ProjectFormInput from "../ProjectFormInput";
+import Input from "../Input";
 import { MarkdownEditor } from "../MarkdownEditor";
 
 interface UpdateOrDeleteProjectFormProps {
@@ -150,7 +150,7 @@ export default function UpdateOrDeleteProjectForm({
       onSubmit={handleSubmit}
       className="flex flex-col gap-5 p-4 w-full rounded-md bg-secondary-background dark:bg-secondary-background"
     >
-      <ProjectFormInput
+      <Input
         htmlFor="title"
         labelText="Título"
         name="title"
@@ -159,7 +159,7 @@ export default function UpdateOrDeleteProjectForm({
         onChange={(event) => setTitle(event.target.value)}
       />
 
-      <ProjectFormInput
+      <Input
         htmlFor="description"
         labelText="Descrição"
         name="description"
@@ -176,7 +176,7 @@ export default function UpdateOrDeleteProjectForm({
         disabled={isLoading}
       />
 
-      <ProjectFormInput
+      <Input
         htmlFor="repository"
         labelText="URL do código"
         name="repository"
@@ -185,7 +185,7 @@ export default function UpdateOrDeleteProjectForm({
         onChange={(event) => setRepositoryCodeUrl(event.target.value)}
       />
 
-      <ProjectFormInput
+      <Input
         htmlFor="deploy"
         labelText="URL do deploy"
         name="deploy"
@@ -204,7 +204,7 @@ export default function UpdateOrDeleteProjectForm({
 
       {techNames.map((tech, index) => (
         <div className="flex items-end gap-2 mb-6" key={index}>
-          <ProjectFormInput
+          <Input
             labelText={`Tech ${index + 1}`}
             htmlFor={`tech-${index + 1}`}
             value={tech}
@@ -240,7 +240,7 @@ export default function UpdateOrDeleteProjectForm({
       {images.map((image, index) => (
         <div key={index} className="mb-4">
           <div className="flex items-end gap-2 mb-2">
-            <ProjectFormInput
+            <Input
               type="url"
               labelText={`Imagem ${index + 1}`}
               htmlFor={`Imagem-${index + 1}`}
@@ -263,7 +263,7 @@ export default function UpdateOrDeleteProjectForm({
               X
             </button>
           </div>
-          <ProjectFormInput
+          <Input
             type="text"
             labelText={`Alt da Imagem ${index + 1}`}
             htmlFor={`alt-imagem-${index + 1}`}
