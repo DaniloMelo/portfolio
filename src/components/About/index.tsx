@@ -1,3 +1,5 @@
+import RenderMarkdown from "../RenderMarkdown";
+
 interface AboutProps {
   about: string;
 }
@@ -5,7 +7,7 @@ interface AboutProps {
 export default function About({ about }: AboutProps) {
   return (
     <section className="h-200 bg-green-950" id="about">
-      {about}
+      <RenderMarkdown markdown={about} />
     </section>
   );
 }

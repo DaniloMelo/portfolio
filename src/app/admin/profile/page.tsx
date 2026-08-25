@@ -1,3 +1,8 @@
-export default function ProfilePage() {
-  return <h1>Página de perfil</h1>;
+import UpdateProfileForm from "@/components/UpdateProfileForm";
+import { getMe } from "@/services/me/getMe";
+
+export default async function ProfilePage() {
+  const data = await getMe();
+
+  return <UpdateProfileForm meData={data} />;
 }

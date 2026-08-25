@@ -1,5 +1,4 @@
 export interface Me {
-  // id?: string;
   name: string;
   avatarUrl: string;
   jobTitle: string;
@@ -8,4 +7,8 @@ export interface Me {
   email: string;
   phone: string;
   linkedInProfileUrl: string;
+}
+
+export interface IUpdateMe extends Me {
+  id: string;
 }
