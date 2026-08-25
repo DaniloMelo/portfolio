@@ -44,3 +44,7 @@ export interface ProjectsPosition {
   title: string;
   position: number;
 }
+
+export interface UpdateProject extends Project {
+  id: string;
+}

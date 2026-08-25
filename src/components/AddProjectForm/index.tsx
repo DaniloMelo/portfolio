@@ -91,7 +91,7 @@ export default function AddProjectForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col gap-5 p-4 w-4xl rounded-md bg-secondary-background dark:bg-secondary-background"
+      className="flex flex-col gap-5 p-4 w-full rounded-md bg-secondary-background dark:bg-secondary-background"
     >
       <ProjectFormInput
         htmlFor="title"
@@ -241,10 +241,10 @@ export default function AddProjectForm() {
       <button
         type="submit"
         className={cn(
-          "mt-10 py-2 cursor-pointer rounded-md text-white",
+          "mt-10 py-2 self-center min-w-[50%] cursor-pointer rounded-md text-white",
           isLoading
             ? "bg-zinc-500 pointer-events-none"
-            : "bg-accent hover:bg-accent/70 transition-transform hover:scale-101",
+            : "bg-accent hover:bg-accent/70 font-bold transition-transform hover:scale-101",
         )}
       >
         {isLoading ? "Adicionando..." : "Adicionar"}

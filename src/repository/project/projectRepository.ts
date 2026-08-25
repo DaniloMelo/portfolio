@@ -1,5 +1,5 @@
 import { prisma } from "@/libs/prisma/client";
-import { Project, ProjectsPosition } from "@/types/project";
+import { Project, ProjectsPosition, UpdateProject } from "@/types/project";
 
 export async function createProject(project: Project): Promise<Project> {
   const data = await prisma.project.create({
@@ -100,7 +100,7 @@ export async function findProjectPreviews() {
   });
 }
 
-export async function findProjectBySlug(slug: string): Promise<Project | null> {
+export async function findProjectBySlug(slug: string) {
   const data = await prisma.project.findUnique({
     where: {
       slug,
@@ -118,6 +118,7 @@ export async function findProjectBySlug(slug: string): Promise<Project | null> {
   if (!data) return null;
 
   return {
+    id: data.id,
     slug: data.slug,
     title: data.title,
     description: data.description,
@@ -187,5 +188,41 @@ export async function findTechnologies() {
 export async function deleteProject(slug: string) {
   return await prisma.project.delete({
     where: { slug },
+  });
+}
+
+export async function updateById(project: UpdateProject) {
+  await prisma.project.update({
+    where: {
+      id: project.id,
+    },
+    data: {
+      slug: project.slug,
+      title: project.title,
+      description: project.description,
+      about: project.about,
+      repositoryCodeUrl: project.repositoryCodeUrl,
+      deployUrl: project.deployUrl,
+      position: project.position,
+
+      images: {
+        deleteMany: {},
+        create: project.images.map((image) => ({
+          src: image.src,
+          alt: image.alt,
+        })),
+      },
+
+      projectTechnologies: {
+        deleteMany: {},
+        create: project.technologies.map((technology) => ({
+          technology: {
+            connect: {
+              name: technology.name,
+            },
+          },
+        })),
+      },
+    },
   });
 }

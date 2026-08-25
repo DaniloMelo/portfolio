@@ -15,7 +15,7 @@ export default async function EditProjectPage({
 
   return (
     <main>
-      <UpdateOrDeleteProjectForm project={project} />
+      <UpdateOrDeleteProjectForm id={project.id} project={project} />
     </main>
   );
 }
