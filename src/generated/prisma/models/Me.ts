@@ -232,11 +232,11 @@ export type MeOrderByWithRelationInput = {
 
 export type MeWhereUniqueInput = Prisma.AtLeast<{
   id?: string
+  email?: string
   AND?: Prisma.MeWhereInput | Prisma.MeWhereInput[]
   OR?: Prisma.MeWhereInput[]
   NOT?: Prisma.MeWhereInput | Prisma.MeWhereInput[]
   name?: Prisma.StringFilter<"Me"> | string
-  email?: Prisma.StringFilter<"Me"> | string
   avatarUrl?: Prisma.StringFilter<"Me"> | string
   jobTitle?: Prisma.StringFilter<"Me"> | string
   introduction?: Prisma.StringFilter<"Me"> | string
@@ -244,7 +244,7 @@ export type MeWhereUniqueInput = Prisma.AtLeast<{
   phone?: Prisma.StringFilter<"Me"> | string
   linkedInProfileUrl?: Prisma.StringFilter<"Me"> | string
   credential?: Prisma.XOR<Prisma.CredentialNullableScalarRelationFilter, Prisma.CredentialWhereInput> | null
-}, "id">
+}, "id" | "email">
 
 export type MeOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
