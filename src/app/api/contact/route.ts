@@ -11,7 +11,7 @@ export async function POST(request: NextRequest) {
     if (!isValidOrigin(request)) {
       return NextResponse.json(
         {
-          error: "Origen não autorizada",
+          error: "Origem não autorizada",
         },
         {
           status: 403,

@@ -21,7 +21,7 @@ export default function ContactForm() {
 
     const form = e.currentTarget;
 
-    setStatus("loading");
+    setStatus("error");
     setErrorMessage("");
 
     const formData = new FormData(form);
@@ -169,7 +169,9 @@ export default function ContactForm() {
           </p>
         )}
 
-        {status === "error" && <p className="text-red-600">{errorMessage}</p>}
+        {status === "error" && (
+          <p className="text-center font-bold text-red-600">{errorMessage}</p>
+        )}
       </form>
     </>
   );
