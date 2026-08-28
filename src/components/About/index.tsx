@@ -6,7 +6,7 @@ interface AboutProps {
 
 export default function About({ about }: AboutProps) {
   return (
-    <section className="h-200 bg-green-950" id="about">
+    <section className="p-10 pb-50" id="about">
       <RenderMarkdown markdown={about} />
     </section>
   );

@@ -9,7 +9,7 @@ interface SendContactEmailInput {
   message: string;
 }
 
-export async function sendContactEmail({
+export async function sendEmail({
   name,
   email,
   message,
@@ -17,7 +17,7 @@ export async function sendContactEmail({
   return resend.emails.send({
     from: process.env.CONTACT_EMAIL_FROM!,
     to: process.env.CONTACT_EMAIL_TO!,
-    // replyTo: email,
+    replyTo: email,
 
     subject: `Novo contato do portfólio: ${name}`,
 

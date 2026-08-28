@@ -11,8 +11,6 @@ export async function PUT(request: Request) {
 
     const body = await request.json();
 
-    console.log("BODY: ", body);
-
     const result = updateMeSchema.safeParse(body);
 
     if (!result.success) {
