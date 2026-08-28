@@ -17,8 +17,8 @@ VALUES (
     'Desenvolvedor Web Full Stack',
     'Transformando ideias em realidade através do código',
     'Sobre de teste',
-    '11111111111',
-    'https://'
+    '11 98589-8826',
+    'https://www.linkedin.com/in/danilo-marques-de-melo'
 );
 
 INSERT INTO credentials (

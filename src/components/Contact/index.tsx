@@ -49,7 +49,14 @@ export default function Contact({
                 aria-label="meu linkedin"
                 title="meu linkedin"
               >
-                <FaLinkedin size={30} /> <span>{linkedInProfileUrl}</span>
+                <FaLinkedin size={30} />{" "}
+                <a
+                  href="https://www.linkedin.com/in/danilo-marques-de-melo"
+                  target="_blank"
+                  className="text-blue-600 hover:underline"
+                >
+                  {linkedInProfileUrl}
+                </a>
               </p>
             </div>
           </div>
