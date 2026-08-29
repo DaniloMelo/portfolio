@@ -1,7 +1,7 @@
 import { TechnologyInfo, TechnologyName } from "@/types/technologies";
 import { BsJavascript, BsTypescript } from "react-icons/bs";
 import { RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
-import { SiNestjs } from "react-icons/si";
+import { SiNestjs, SiJest, SiGithubactions } from "react-icons/si";
 import {
   FaCss3Alt,
   FaDocker,
@@ -14,81 +14,73 @@ const technologiesMap = new Map<TechnologyName, TechnologyInfo>([
   [
     "HTML5",
     {
-      icon: (
-        <FaHtml5 className="size-12 text-[#E34F26] transition-transform hover:scale-110" />
-      ),
+      icon: <FaHtml5 className="size-10 text-[#E34F26]" />,
     },
   ],
   [
     "CSS",
     {
-      icon: (
-        <FaCss3Alt className="size-12 text-[#3366CC] transition-transform hover:scale-110" />
-      ),
+      icon: <FaCss3Alt className="size-10 text-[#3366CC]" />,
     },
   ],
   [
     "JavaScript",
     {
-      icon: (
-        <BsJavascript className="size-12 text-[#e3cc1d] transition-transform hover:scale-110" />
-      ),
+      icon: <BsJavascript className="size-10 text-[#e3cc1d]" />,
     },
   ],
   [
     "TypeScript",
     {
-      icon: (
-        <BsTypescript className="size-12 text-[#3178C6] transition-transform hover:scale-110" />
-      ),
+      icon: <BsTypescript className="size-10 text-[#3178C6]" />,
     },
   ],
   [
     "Node.js",
     {
-      icon: (
-        <FaNodeJs className="size-12 text-[#5FA04E] transition-transform hover:scale-110" />
-      ),
+      icon: <FaNodeJs className="size-10 text-[#5FA04E]" />,
     },
   ],
   [
     "tailwindcss",
     {
-      icon: (
-        <RiTailwindCssFill className="size-12 text-[#06B6D4] transition-transform hover:scale-110" />
-      ),
+      icon: <RiTailwindCssFill className="size-10 text-[#06B6D4]" />,
     },
   ],
   [
     "React",
     {
-      icon: (
-        <FaReact className="size-12 text-[#61DAFB] transition-transform hover:scale-110" />
-      ),
+      icon: <FaReact className="size-10 text-[#61DAFB]" />,
     },
   ],
   [
     "Next.js",
     {
-      icon: (
-        <RiNextjsFill className="size-12 transition-transform hover:scale-110" />
-      ),
+      icon: <RiNextjsFill className="size-10 text-sm" />,
     },
   ],
   [
     "NestJS",
     {
-      icon: (
-        <SiNestjs className="size-12 text-[#E0234E] transition-transform hover:scale-110" />
-      ),
+      icon: <SiNestjs className="size-10 text-[#E0234E]" />,
     },
   ],
   [
     "Docker",
     {
-      icon: (
-        <FaDocker className="size-12 text-[#2496ED] transition-transform hover:scale-110" />
-      ),
+      icon: <FaDocker className="size-10 text-[#2496ED]" />,
+    },
+  ],
+  [
+    "Jest",
+    {
+      icon: <SiJest className="size-10 text-[#C21325]" />,
+    },
+  ],
+  [
+    "GitHub Actions",
+    {
+      icon: <SiGithubactions className="size-10 text-[#2088FF]" />,
     },
   ],
 ]);
@@ -109,7 +101,7 @@ export default function Technology({ name }: TechnologyProps) {
       "
     >
       {tech?.icon}
-      <span className="text-secondary-text dark:text-secondary-text">
+      <span className="text-secondary-text dark:text-secondary-text text-sm">
         {name}
       </span>
     </div>

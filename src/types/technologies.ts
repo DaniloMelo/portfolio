@@ -10,8 +10,14 @@ export type TechnologyName =
   | "React"
   | "Next.js"
   | "NestJS"
-  | "Docker";
+  | "Docker"
+  | "Jest"
+  | "GitHub Actions";
 
 export interface TechnologyInfo {
   icon: ReactNode;
+}
+
+export interface AddTechnology {
+  name: string;
 }

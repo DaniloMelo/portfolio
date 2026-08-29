@@ -15,7 +15,7 @@ export default function AdminNav() {
         <AdminNavLink path="/admin/projects/new-project" text="+ Projeto" />
 
         <AdminNavLink
-          path="/admin/projects/new-technology"
+          path="/admin/projects/technology/new-technology"
           text="+ Tecnologia"
         />
 

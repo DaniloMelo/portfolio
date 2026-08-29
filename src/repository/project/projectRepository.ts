@@ -1,5 +1,6 @@
 import { prisma } from "@/libs/prisma/client";
 import { Project, ProjectsPosition, UpdateProject } from "@/types/project";
+import { AddTechnology } from "@/types/technologies";
 
 export async function createProject(project: Project): Promise<Project> {
   const data = await prisma.project.create({
@@ -183,6 +184,12 @@ export async function repositionProjects(projects: ProjectsPosition[]) {
 
 export async function findTechnologies() {
   return await prisma.technology.findMany();
+}
+
+export async function createTechnology(newTech: AddTechnology) {
+  return await prisma.technology.create({
+    data: newTech,
+  });
 }
 
 export async function deleteProject(slug: string) {
