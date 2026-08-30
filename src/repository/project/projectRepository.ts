@@ -192,6 +192,14 @@ export async function createTechnology(newTech: AddTechnology) {
   });
 }
 
+export async function deleteTechnology(tech: AddTechnology) {
+  return await prisma.technology.delete({
+    where: {
+      name: tech.name,
+    },
+  });
+}
+
 export async function deleteProject(slug: string) {
   return await prisma.project.delete({
     where: { slug },

@@ -1,3 +1,5 @@
+import UpdateOrDeleteTechnologyForm from "@/components/UpdateIrOrDeleteTechnologyForm";
+
 interface EditTechnologyPageParams {
   params: Promise<{ slug: string }>;
 }
@@ -8,5 +10,5 @@ export default async function EditTechnologyPage({
   const { slug } = await params;
   const techName = decodeURIComponent(slug);
 
-  return <p>{techName}</p>;
+  return <UpdateOrDeleteTechnologyForm name={techName} />;
 }
