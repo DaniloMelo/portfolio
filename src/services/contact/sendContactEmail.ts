@@ -1,16 +1,9 @@
-import { InvalidCaptchaError } from "@/errors/contact/InvalidCaptchaError";
-import { verifyTurnstile } from "@/providers/captcha/turnstile";
 import { sendEmail } from "@/providers/email/resend";
 import { ContactFormData } from "@/schemas/contact/contactSchema";
 
-export async function sendContactEmail(data: ContactFormData, ip: string) {
+export async function sendContactEmail(data: ContactFormData) {
   if (data.website && data.website.length > 0) {
     return;
-  }
-
-  const isHuman = await verifyTurnstile(data.turnstileToken, ip);
-  if (!isHuman) {
-    throw new InvalidCaptchaError();
   }
 
   const { error } = await sendEmail({

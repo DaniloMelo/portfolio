@@ -57,7 +57,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    await sendContactEmail(result.data, ip);
+    await sendContactEmail(result.data);
 
     return NextResponse.json({
       success: true,

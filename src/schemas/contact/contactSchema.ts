@@ -16,8 +16,6 @@ export const contactSchema = z.object({
     .max(2000, "Mensagem muito longa"),
 
   website: z.string().max(0, "Spam detectado").optional().or(z.literal("")),
-
-  turnstileToken: z.string().min(1, "Verificação de segurança obrigatória"),
 });
 
 export type ContactFormData = z.infer<typeof contactSchema>;
