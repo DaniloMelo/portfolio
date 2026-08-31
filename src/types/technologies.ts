@@ -18,10 +18,6 @@ export interface TechnologyInfo {
   icon: ReactNode;
 }
 
-export interface AddTechnology {
-  name: string;
-}
-
 export interface Technology {
   name: string;
 }

@@ -29,7 +29,7 @@ export default function UpdateOrDeleteTechnologyForm({
 
     if (submitter.name === "action" && submitter.value === "delete") {
       const confirmed = window.confirm(
-        `Tem certeza que deseja excluir ${name}?`,
+        `Tem certeza que deseja excluir ${technology.name}?`,
       );
 
       if (!confirmed) {
@@ -41,7 +41,7 @@ export default function UpdateOrDeleteTechnologyForm({
         setErrors(null);
 
         const response = await fetch(
-          `/api/projects/technologies/delete/${technology.name}`,
+          `/api/technology/delete/${technology.id}`,
           {
             method: "DELETE",
           },

@@ -1,4 +1,5 @@
 import { z } from "zod";
+
 import { addNewTechSchema } from "./addNewTechSchema";
 export const updateTechnologySchema = addNewTechSchema.extend({
   id: z

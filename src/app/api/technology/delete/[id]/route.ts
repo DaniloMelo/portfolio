@@ -1,7 +1,7 @@
 import { UnauthorizedError } from "@/errors/auth/UnauthorizedError";
 import { deleteTechnologySchema } from "@/schemas/technology/deleteTechnologySchema";
 import { getAuthenticatedUser } from "@/services/auth/getAuthenticatedUser";
-import { removeTechnology } from "@/services/project/removeTechnology";
+import deleteTechnologyService from "@/services/technology/deleteTechnologyService";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function DELETE(
@@ -13,7 +13,9 @@ export async function DELETE(
 
     const param = await context.params;
 
-    const result = deleteTechnologySchema.safeParse(param);
+    const result = deleteTechnologySchema.safeParse({
+      id: param.id,
+    });
 
     if (!result.success) {
       const errorMessagesArr = result.error.issues.map(
@@ -28,7 +30,7 @@ export async function DELETE(
       );
     }
 
-    await removeTechnology(result.data);
+    await deleteTechnologyService(result.data.id);
 
     return NextResponse.json({
       success: true,
