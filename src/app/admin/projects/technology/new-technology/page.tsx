@@ -1,9 +1,9 @@
 import AddTechForm from "@/components/AddTechForm";
-import { findTechnologies } from "@/repository/project/projectRepository";
+import { findTechnologiesService } from "@/services/technology/findTechnologiesService";
 import Link from "next/link";
 
 export default async function NewTechnologyPage() {
-  const techs = await findTechnologies();
+  const techs = await findTechnologiesService();
 
   return (
     <main className="mt-10 flex flex-col items-center lg:flex-row lg:items-start lg:justify-between">
