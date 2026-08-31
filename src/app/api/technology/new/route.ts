@@ -1,5 +1,5 @@
 import { UnauthorizedError } from "@/errors/auth/UnauthorizedError";
-import { addNewTechSchema } from "@/schemas/projects/addNewTechSchema";
+import { addNewTechSchema } from "@/schemas/technology/addNewTechSchema";
 import { getAuthenticatedUser } from "@/services/auth/getAuthenticatedUser";
 import { createTechnologyService } from "@/services/technology/createTechnologyService";
 import { NextResponse } from "next/server";

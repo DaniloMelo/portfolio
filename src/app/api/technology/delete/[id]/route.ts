@@ -1,17 +1,19 @@
 import { UnauthorizedError } from "@/errors/auth/UnauthorizedError";
-import { updateTechnologySchema } from "@/schemas/projects/updateTechnologySchema";
+import { deleteTechnologySchema } from "@/schemas/technology/deleteTechnologySchema";
 import { getAuthenticatedUser } from "@/services/auth/getAuthenticatedUser";
-import { updateTechnology } from "@/services/project/updateTechnology";
-import { revalidatePath } from "next/cache";
-import { NextResponse } from "next/server";
+import { removeTechnology } from "@/services/project/removeTechnology";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function PUT(request: Request) {
+export async function DELETE(
+  request: NextRequest,
+  context: RouteContext<"/api/technology/delete/[id]">,
+) {
   try {
     await getAuthenticatedUser();
 
-    const body = await request.json();
+    const param = await context.params;
 
-    const result = updateTechnologySchema.safeParse(body);
+    const result = deleteTechnologySchema.safeParse(param);
 
     if (!result.success) {
       const errorMessagesArr = result.error.issues.map(
@@ -26,9 +28,7 @@ export async function PUT(request: Request) {
       );
     }
 
-    await updateTechnology(result.data);
-
-    revalidatePath("/");
+    await removeTechnology(result.data);
 
     return NextResponse.json({
       success: true,
@@ -45,7 +45,7 @@ export async function PUT(request: Request) {
       );
     }
 
-    console.error("Unexpected error during project creation:", error);
+    console.error("Unexpected error during delete technology :", error);
     return NextResponse.json(
       {
         error: ["Internal Server Error"],

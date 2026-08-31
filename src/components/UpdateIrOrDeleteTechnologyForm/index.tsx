@@ -3,17 +3,21 @@
 import { cn } from "@/utils/cn";
 import { SubmitEvent, useState } from "react";
 import Input from "../Input";
-import { AddTechnology } from "@/types/technologies";
+import { UpdateTechnology } from "@/types/technologies";
 import ErrorMessage from "../ErrorMessage";
 import SuccessMessage from "../SuccessMessage";
 import { useRouter } from "next/navigation";
 
-export default function UpdateOrDeleteTechnologyForm(
-  updateTech: AddTechnology,
-) {
+interface UpdateOrDeleteTechnologyFormProps {
+  technology: UpdateTechnology;
+}
+
+export default function UpdateOrDeleteTechnologyForm({
+  technology,
+}: UpdateOrDeleteTechnologyFormProps) {
   const router = useRouter();
 
-  const [updatedTechName, setUpdatedTechName] = useState(updateTech.name);
+  const [updatedTechName, setUpdatedTechName] = useState(technology.name);
 
   const [message, setMessage] = useState<string | null>(null);
   const [errors, setErrors] = useState<string[] | null>(null);
@@ -37,7 +41,7 @@ export default function UpdateOrDeleteTechnologyForm(
         setErrors(null);
 
         const response = await fetch(
-          `/api/projects/technologies/delete/${updateTech.name}`,
+          `/api/projects/technologies/delete/${technology.name}`,
           {
             method: "DELETE",
           },
@@ -71,14 +75,13 @@ export default function UpdateOrDeleteTechnologyForm(
       setIsLoading(true);
       setErrors(null);
 
-      const response = await fetch("/api/projects/technologies/update", {
+      const response = await fetch(`/api/technology/update/${technology.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          name: updateTech.name,
-          updatedName: updatedTechName,
+          name: updatedTechName,
         }),
       });
 

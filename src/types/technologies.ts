@@ -27,6 +27,6 @@ export interface Technology {
 }
 
 export interface UpdateTechnology {
+  id: string;
   name: string;
-  updatedName: string;
 }

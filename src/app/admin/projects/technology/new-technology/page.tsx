@@ -14,7 +14,7 @@ export default async function NewTechnologyPage() {
           return (
             <p key={tech.id} className="mb-5">
               <Link
-                href={`/admin/projects/technology/${tech.name}`}
+                href={`/admin/projects/technology/${tech.id}`}
                 className="hover:text-blue-600 hover:underline"
               >
                 {tech.name}

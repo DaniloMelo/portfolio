@@ -192,16 +192,16 @@ export async function repositionProjects(projects: ProjectsPosition[]) {
 //   });
 // }
 
-export async function updateTechnologyRepository(tech: UpdateTechnology) {
-  return await prisma.technology.update({
-    where: {
-      name: tech.name,
-    },
-    data: {
-      name: tech.updatedName,
-    },
-  });
-}
+// export async function updateTechnologyRepository(tech: UpdateTechnology) {
+//   return await prisma.technology.update({
+//     where: {
+//       name: tech.name,
+//     },
+//     data: {
+//       name: tech.updatedName,
+//     },
+//   });
+// }
 
 export async function deleteTechnology(tech: AddTechnology) {
   return await prisma.technology.delete({
