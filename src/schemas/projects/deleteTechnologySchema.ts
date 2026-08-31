@@ -1,12 +1,3 @@
-import { z } from "zod";
+import { addNewTechSchema } from "./addNewTechSchema";
 
-export const deleteTechnologySchema = z.object(
-  {
-    name: z
-      .string({ error: "Name deve ser um texto válido." })
-      .min(1, { error: "Name é obrigatório." }),
-  },
-  {
-    error: "Sua solicitação contém campos não permitidos.",
-  },
-);
+export const deleteTechnologySchema = addNewTechSchema.extend({});

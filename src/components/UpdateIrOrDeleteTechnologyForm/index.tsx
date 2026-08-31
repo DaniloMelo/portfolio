@@ -8,10 +8,12 @@ import ErrorMessage from "../ErrorMessage";
 import SuccessMessage from "../SuccessMessage";
 import { useRouter } from "next/navigation";
 
-export default function UpdateOrDeleteTechnologyForm({ name }: AddTechnology) {
+export default function UpdateOrDeleteTechnologyForm(
+  updateTech: AddTechnology,
+) {
   const router = useRouter();
 
-  const [tech, setTech] = useState<AddTechnology>({ name });
+  const [updatedTechName, setUpdatedTechName] = useState(updateTech.name);
 
   const [message, setMessage] = useState<string | null>(null);
   const [errors, setErrors] = useState<string[] | null>(null);
@@ -35,7 +37,7 @@ export default function UpdateOrDeleteTechnologyForm({ name }: AddTechnology) {
         setErrors(null);
 
         const response = await fetch(
-          `/api/projects/technologies/delete/${tech.name}`,
+          `/api/projects/technologies/delete/${updateTech.name}`,
           {
             method: "DELETE",
           },
@@ -53,8 +55,8 @@ export default function UpdateOrDeleteTechnologyForm({ name }: AddTechnology) {
         setTimeout(() => {
           router.push("/admin/projects/technology/new-technology");
         }, 5000);
-      } catch {
-        setErrors(["Erro desconhecido ao excluir tecnologia."]);
+      } catch (error) {
+        setErrors([`Erro desconhecido ao excluir tecnologia: ${error}`]);
       } finally {
         setIsLoading(false);
         setTimeout(() => {
@@ -65,7 +67,42 @@ export default function UpdateOrDeleteTechnologyForm({ name }: AddTechnology) {
       return;
     }
 
-    console.log("ATUALIZANDO...");
+    try {
+      setIsLoading(true);
+      setErrors(null);
+
+      const response = await fetch("/api/projects/technologies/update", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: updateTech.name,
+          updatedName: updatedTechName,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setErrors(data.error);
+        return;
+      }
+
+      setMessage("Tecnologia atualizada com sucesso.");
+
+      setTimeout(() => {
+        router.push("/admin/projects/technology/new-technology");
+      }, 5000);
+    } catch (error) {
+      setErrors([`Erro desconhecido ao atualizar tecnlogia: ${error}`]);
+    } finally {
+      setIsLoading(false);
+      setTimeout(() => {
+        setMessage(null);
+        setErrors(null);
+      }, 5000);
+    }
   }
 
   return (
@@ -78,6 +115,8 @@ export default function UpdateOrDeleteTechnologyForm({ name }: AddTechnology) {
         htmlFor="technology"
         name="technology"
         type="text"
+        value={updatedTechName}
+        onChange={(e) => setUpdatedTechName(e.target.value)}
       />
 
       <div className="flex flex-col items-center gap-4">
@@ -104,8 +143,8 @@ export default function UpdateOrDeleteTechnologyForm({ name }: AddTechnology) {
 
         <p className="mb-12">
           Cuidado! Ao deletar a tecnologia{" "}
-          <strong className="text-lg underline">{tech.name}</strong> a ação não
-          poderá ser desfeita.{" "}
+          <strong className="text-lg underline">{updatedTechName}</strong> a
+          ação não poderá ser desfeita.{" "}
         </p>
 
         <button

@@ -1,6 +1,6 @@
 import { prisma } from "@/libs/prisma/client";
 import { Project, ProjectsPosition, UpdateProject } from "@/types/project";
-import { AddTechnology } from "@/types/technologies";
+import { AddTechnology, UpdateTechnology } from "@/types/technologies";
 
 export async function createProject(project: Project): Promise<Project> {
   const data = await prisma.project.create({
@@ -189,6 +189,17 @@ export async function findTechnologies() {
 export async function createTechnology(newTech: AddTechnology) {
   return await prisma.technology.create({
     data: newTech,
+  });
+}
+
+export async function updateTechnologyRepository(tech: UpdateTechnology) {
+  return await prisma.technology.update({
+    where: {
+      name: tech.name,
+    },
+    data: {
+      name: tech.updatedName,
+    },
   });
 }
 

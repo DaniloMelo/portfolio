@@ -21,3 +21,8 @@ export interface TechnologyInfo {
 export interface AddTechnology {
   name: string;
 }
+
+export interface UpdateTechnology {
+  name: string;
+  updatedName: string;
+}
