@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, SubmitEvent } from "react";
+import { useState, SubmitEvent } from "react";
 // import Script from "next/script";
 import Input from "../Input";
 import Button from "../Button";

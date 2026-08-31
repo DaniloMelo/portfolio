@@ -186,11 +186,11 @@ export async function findTechnologies() {
   return await prisma.technology.findMany();
 }
 
-export async function createTechnology(newTech: AddTechnology) {
-  return await prisma.technology.create({
-    data: newTech,
-  });
-}
+// export async function createTechnology(newTech: AddTechnology) {
+//   return await prisma.technology.create({
+//     data: newTech,
+//   });
+// }
 
 export async function updateTechnologyRepository(tech: UpdateTechnology) {
   return await prisma.technology.update({

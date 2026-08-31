@@ -19,7 +19,7 @@ export default function AddTechForm() {
     try {
       setIsLoading(true);
 
-      const response = await fetch("/api/projects/technologies/new", {
+      const response = await fetch("/api/technology/new", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
