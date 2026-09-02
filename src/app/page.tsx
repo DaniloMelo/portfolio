@@ -4,10 +4,10 @@ import Contact from "@/components/Contact";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
-import { getMe } from "@/services/me/getMe";
+import { getProfile } from "@/services/me/getProfile";
 
 export default async function Home() {
-  const data = await getMe();
+  const data = await getProfile();
 
   return (
     <>

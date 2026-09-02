@@ -1,8 +1,8 @@
 import UpdateProfileForm from "@/components/UpdateProfileForm";
-import { getMe } from "@/services/me/getMe";
+import { getProfile } from "@/services/me/getProfile";
 
 export default async function ProfilePage() {
-  const data = await getMe();
+  const data = await getProfile();
 
   return <UpdateProfileForm meData={data} />;
 }

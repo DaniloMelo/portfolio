@@ -1,6 +1,6 @@
-import { updateMe } from "@/repository/me/updateMe";
+import { update } from "@/repository/me/update";
 import { IUpdateMe } from "@/types/me";
 
 export async function updateProfile(me: IUpdateMe) {
-  await updateMe(me);
+  await update(me);
 }

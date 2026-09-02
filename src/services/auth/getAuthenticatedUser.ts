@@ -1,6 +1,7 @@
 import { UnauthorizedError } from "@/errors/auth/UnauthorizedError";
 import { verifyJwt } from "@/libs/auth/jwt";
-import { getMeById } from "@/repository/me/getMeById";
+import { findById } from "@/repository/me/findById";
+
 import { cookies } from "next/headers";
 
 export async function getAuthenticatedUser() {
@@ -14,7 +15,7 @@ export async function getAuthenticatedUser() {
 
   const { sub } = await verifyJwt(token);
 
-  const me = await getMeById(sub);
+  const me = await findById(sub);
 
   if (!me) {
     throw new UnauthorizedError();

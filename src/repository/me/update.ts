@@ -1,7 +1,7 @@
 import { prisma } from "@/libs/prisma/client";
 import { IUpdateMe } from "@/types/me";
 
-export async function updateMe(me: IUpdateMe) {
+export async function update(me: IUpdateMe) {
   return await prisma.me.update({
     where: {
       id: me.id,
