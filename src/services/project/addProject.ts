@@ -1,11 +1,9 @@
 import { TechnologyNotFound } from "@/errors/project/TechnologyNotFound";
-import {
-  createProject,
-  findLastProjectPosition,
-} from "@/repository/project/projectRepository";
+import { findLastProjectPosition } from "@/repository/project/projectRepository";
 import { Project } from "@/types/project";
 import { createSlug } from "@/utils/createSlug";
 import { findTechnologiesService } from "../technology/findTechnologiesService";
+import { createProjectRepository } from "@/repository/project/createProjectRepository";
 
 export async function addProject(project: Omit<Project, "position">) {
   const allTechs = await findTechnologiesService();
@@ -30,5 +28,5 @@ export async function addProject(project: Omit<Project, "position">) {
     images: project.images,
   };
 
-  await createProject(newProject);
+  await createProjectRepository(newProject);
 }
