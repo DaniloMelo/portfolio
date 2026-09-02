@@ -1,7 +1,7 @@
 import { UnauthorizedError } from "@/errors/auth/UnauthorizedError";
 import { deleteTechnologySchema } from "@/schemas/technology/deleteTechnologySchema";
 import { getAuthenticatedUser } from "@/services/auth/getAuthenticatedUser";
-import deleteTechnologyService from "@/services/technology/deleteTechnologyService";
+import deleteTechnology from "@/services/technology/deleteTechnology";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function DELETE(
@@ -30,7 +30,7 @@ export async function DELETE(
       );
     }
 
-    await deleteTechnologyService(result.data.id);
+    await deleteTechnology(result.data.id);
 
     return NextResponse.json({
       success: true,

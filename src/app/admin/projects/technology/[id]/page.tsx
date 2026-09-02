@@ -1,5 +1,5 @@
 import UpdateOrDeleteTechnologyForm from "@/components/UpdateIrOrDeleteTechnologyForm";
-import { findTechnologyByIdService } from "@/services/technology/findTechnologyByIdService";
+import { getTechnology } from "@/services/technology/getTechnology";
 
 interface EditTechnologyPageParams {
   params: Promise<{ id: string }>;
@@ -10,7 +10,7 @@ export default async function EditTechnologyPage({
 }: EditTechnologyPageParams) {
   const { id } = await params;
 
-  const technology = await findTechnologyByIdService(id);
+  const technology = await getTechnology(id);
   if (!technology) return;
 
   return <UpdateOrDeleteTechnologyForm technology={technology} />;

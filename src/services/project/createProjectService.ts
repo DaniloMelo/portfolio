@@ -2,11 +2,11 @@ import { TechnologyNotFound } from "@/errors/project/TechnologyNotFound";
 import { findLastProjectPosition } from "@/repository/project/projectRepository";
 import { Project } from "@/types/project";
 import { createSlug } from "@/utils/createSlug";
-import { findTechnologiesService } from "../technology/findTechnologiesService";
 import { createProjectRepository } from "@/repository/project/createProjectRepository";
+import { listTechnologies } from "../technology/listTechnologies";
 
 export async function createProjectService(project: Omit<Project, "position">) {
-  const allTechs = await findTechnologiesService();
+  const allTechs = await listTechnologies();
   const allTechsNames = allTechs.map((tech) => tech.name);
   project.technologies.map((tech) => {
     if (!allTechsNames.includes(tech.name)) {

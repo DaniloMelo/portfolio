@@ -1,7 +1,7 @@
 import { UnauthorizedError } from "@/errors/auth/UnauthorizedError";
 import { addNewTechSchema } from "@/schemas/technology/addNewTechSchema";
 import { getAuthenticatedUser } from "@/services/auth/getAuthenticatedUser";
-import { createTechnologyService } from "@/services/technology/createTechnologyService";
+import { createTechnology } from "@/services/technology/createTechnology";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
@@ -25,7 +25,7 @@ export async function POST(request: Request) {
       );
     }
 
-    await createTechnologyService(result.data);
+    await createTechnology(result.data);
 
     return NextResponse.json({
       success: true,

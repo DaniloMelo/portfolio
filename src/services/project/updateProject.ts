@@ -1,11 +1,11 @@
 import { TechnologyNotFound } from "@/errors/project/TechnologyNotFound";
 import { updateById } from "@/repository/project/projectRepository";
-import { findTechnologiesRepository } from "@/repository/technology/findTechnologiesRepository";
 import { UpdateProject } from "@/types/project";
 import { createSlug } from "@/utils/createSlug";
+import { listTechnologies } from "../technology/listTechnologies";
 
 export async function updateProject(project: UpdateProject) {
-  const allTechs = await findTechnologiesRepository();
+  const allTechs = await listTechnologies();
   const allTechsNames = allTechs.map((tech) => tech.name);
   project.technologies.map((tech) => {
     if (!allTechsNames.includes(tech.name)) {

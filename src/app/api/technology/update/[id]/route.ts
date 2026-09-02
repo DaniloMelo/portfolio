@@ -1,7 +1,7 @@
 import { UnauthorizedError } from "@/errors/auth/UnauthorizedError";
 import { updateTechnologySchema } from "@/schemas/technology/updateTechnologySchema";
 import { getAuthenticatedUser } from "@/services/auth/getAuthenticatedUser";
-import { updateTechnologyService } from "@/services/technology/updateTechnologyService";
+import { updateTechnology } from "@/services/technology/updateTechnology";
 import { revalidatePath } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -34,7 +34,7 @@ export async function PUT(
       );
     }
 
-    await updateTechnologyService(result.data);
+    await updateTechnology(result.data);
 
     revalidatePath("/");
 
