@@ -2,7 +2,8 @@ import { UnauthorizedError } from "@/errors/auth/UnauthorizedError";
 import { TechnologyNotFound } from "@/errors/project/TechnologyNotFound";
 import { projectSchema } from "@/schemas/projects/projectSchema";
 import { getAuthenticatedUser } from "@/services/auth/getAuthenticatedUser";
-import { addProject } from "@/services/project/addProject";
+import { createProjectService } from "@/services/project/createProjectService";
+
 import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 
@@ -27,7 +28,7 @@ export async function POST(request: Request) {
       );
     }
 
-    await addProject(result.data);
+    await createProjectService(result.data);
 
     revalidatePath("/");
 

@@ -1,8 +1,8 @@
-import { getProjectPreview } from "@/services/project/getProjectPreview";
+import { findProjectPreviewsService } from "@/services/project/findProjectPreviewsService";
 import Link from "next/link";
 
 export default async function ProjectsPage() {
-  const projects = await getProjectPreview();
+  const projects = await findProjectPreviewsService();
 
   return (
     <main className="flex flex-col gap-10 p-10">

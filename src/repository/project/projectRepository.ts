@@ -76,29 +76,29 @@ import { Project, ProjectsPosition, UpdateProject } from "@/types/project";
 //   };
 // }
 
-export async function findProjectPreviews() {
-  return await prisma.project.findMany({
-    select: {
-      id: true,
-      slug: true,
-      title: true,
-      description: true,
-      repositoryCodeUrl: true,
-      deployUrl: true,
+// export async function findProjectPreviews() {
+//   return await prisma.project.findMany({
+//     select: {
+//       id: true,
+//       slug: true,
+//       title: true,
+//       description: true,
+//       repositoryCodeUrl: true,
+//       deployUrl: true,
 
-      images: {
-        select: {
-          id: true,
-          src: true,
-          alt: true,
-        },
-      },
-    },
-    orderBy: {
-      position: "asc",
-    },
-  });
-}
+//       images: {
+//         select: {
+//           id: true,
+//           src: true,
+//           alt: true,
+//         },
+//       },
+//     },
+//     orderBy: {
+//       position: "asc",
+//     },
+//   });
+// }
 
 export async function findProjectBySlug(slug: string) {
   const data = await prisma.project.findUnique({

@@ -5,7 +5,7 @@ import { createSlug } from "@/utils/createSlug";
 import { findTechnologiesService } from "../technology/findTechnologiesService";
 import { createProjectRepository } from "@/repository/project/createProjectRepository";
 
-export async function addProject(project: Omit<Project, "position">) {
+export async function createProjectService(project: Omit<Project, "position">) {
   const allTechs = await findTechnologiesService();
   const allTechsNames = allTechs.map((tech) => tech.name);
   project.technologies.map((tech) => {
