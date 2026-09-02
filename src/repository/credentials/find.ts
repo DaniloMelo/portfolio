@@ -1,7 +1,7 @@
 import { prisma } from "@/libs/prisma/client";
 import { CredentialData } from "@/types/auth";
 
-export async function findCredentialsRepository(): Promise<CredentialData | null> {
+export async function find(): Promise<CredentialData | null> {
   const data = await prisma.me.findFirst({
     select: {
       id: true,
