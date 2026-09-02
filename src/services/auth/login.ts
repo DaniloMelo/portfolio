@@ -1,15 +1,15 @@
-import { findCredentials } from "@/repository/credentials/credentialRepository";
 import { LoginInput, LoginResult } from "@/types/auth";
 import { comparePassword } from "./comparePassword";
 import { AuthenticationError } from "@/errors/auth/AuthenticationError";
 import { InvalidCredentialsError } from "@/errors/auth/InvalidCredentialsError";
 import { signJwt } from "@/libs/auth/jwt";
+import { findCredentialsRepository } from "@/repository/credentials/findCredentialsRepository";
 
 export async function login({
   email,
   password,
 }: LoginInput): Promise<LoginResult> {
-  const credentials = await findCredentials();
+  const credentials = await findCredentialsRepository();
 
   if (!credentials) {
     throw new AuthenticationError();
