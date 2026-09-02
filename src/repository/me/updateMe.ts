@@ -1,19 +1,7 @@
 import { prisma } from "@/libs/prisma/client";
 import { IUpdateMe } from "@/types/me";
 
-export async function findMe() {
-  return await prisma.me.findFirst();
-}
-
-export async function getMeById(id: string) {
-  return await prisma.me.findUnique({
-    where: {
-      id,
-    },
-  });
-}
-
-export async function UpdateMe(me: IUpdateMe) {
+export async function updateMe(me: IUpdateMe) {
   return await prisma.me.update({
     where: {
       id: me.id,

@@ -1,6 +1,6 @@
 import { UnauthorizedError } from "@/errors/auth/UnauthorizedError";
 import { verifyJwt } from "@/libs/auth/jwt";
-import { getMeById } from "@/repository/me/meRepository";
+import { getMeById } from "@/repository/me/getMeById";
 import { cookies } from "next/headers";
 
 export async function getAuthenticatedUser() {

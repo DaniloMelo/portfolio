@@ -1,4 +1,4 @@
-import { findMe } from "@/repository/me/meRepository";
+import { findMe } from "@/repository/me/findMe";
 
 export async function getMe() {
   const data = await findMe();
