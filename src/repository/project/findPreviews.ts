@@ -1,6 +1,6 @@
 import { prisma } from "@/libs/prisma/client";
 
-export async function findProjectPreviewsRepository() {
+export async function findPreviews() {
   return await prisma.project.findMany({
     select: {
       id: true,

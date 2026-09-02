@@ -1,5 +1,5 @@
 import UpdateOrDeleteProjectForm from "@/components/UpdateOrDeleteProjectForm";
-import { findProjectBySlug } from "@/repository/project/projectRepository";
+import { findBySlug } from "@/repository/project/findBySlug";
 
 interface EditProjectPageParams {
   params: Promise<{ slug: string }>;
@@ -10,7 +10,8 @@ export default async function EditProjectPage({
 }: EditProjectPageParams) {
   const { slug } = await params;
 
-  const project = await findProjectBySlug(slug);
+  // TODO: Alterar para service
+  const project = await findBySlug(slug);
   if (!project) return;
 
   return (

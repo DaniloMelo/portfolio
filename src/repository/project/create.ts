@@ -1,9 +1,7 @@
 import { prisma } from "@/libs/prisma/client";
 import { Project } from "@/types/project";
 
-export async function createProjectRepository(
-  project: Project,
-): Promise<Project> {
+export async function create(project: Project): Promise<Project> {
   const data = await prisma.project.create({
     data: {
       slug: project.slug,

@@ -4,15 +4,15 @@ import ProjectCarrousel from "@/components/ProjectCarousel";
 import RenderMarkdown from "@/components/RenderMarkdown";
 import Technology from "@/components/Technology";
 import Theme from "@/components/Theme";
-import { findAllSlugs } from "@/repository/project/projectRepository";
-import { getProjectDetail } from "@/services/project/getProjectDetail";
+import { getProjectDetails } from "@/services/project/getProjectDetails";
+import { listProjectsSlugs } from "@/services/project/listProjectsSlugs";
 import { TechnologyName } from "@/types/technologies";
 import Link from "next/link";
 import { LuCodeXml, LuLaptop } from "react-icons/lu";
 
 export const dynamicParams = true;
 export async function generateStaticParams() {
-  return await findAllSlugs();
+  return await listProjectsSlugs();
 }
 
 interface ProjectPageParams {
@@ -21,7 +21,7 @@ interface ProjectPageParams {
 
 export default async function ProjectPage({ params }: ProjectPageParams) {
   const { slug } = await params;
-  const data = await getProjectDetail(slug);
+  const data = await getProjectDetails(slug);
 
   return (
     <main>
@@ -59,7 +59,6 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
           </div>
         </div>
 
-        {/* <p className="my-10">{data.about}</p> */}
         <RenderMarkdown markdown={data.about} />
 
         <div className="flex justify-center flex-wrap gap-10 my-5 lg:justify-start">

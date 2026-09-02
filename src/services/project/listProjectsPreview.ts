@@ -1,8 +1,8 @@
-import { findProjectPreviewsRepository } from "@/repository/project/findProjectPreviewsRepository";
+import { findPreviews } from "@/repository/project/findPreviews";
 import { ProjectPreview } from "@/types/project";
 
-export async function findProjectPreviewsService(): Promise<ProjectPreview[]> {
-  const data = await findProjectPreviewsRepository();
+export async function listProjectsPreview(): Promise<ProjectPreview[]> {
+  const data = await findPreviews();
 
   return data.map((project) => {
     return {

@@ -1,8 +1,8 @@
-import { findProjectBySlug } from "@/repository/project/projectRepository";
+import { findBySlug } from "@/repository/project/findBySlug";
 import { ProjectDetail } from "@/types/project";
 
-export async function getProjectDetail(slug: string): Promise<ProjectDetail> {
-  const data = await findProjectBySlug(slug);
+export async function getProjectDetails(slug: string): Promise<ProjectDetail> {
+  const data = await findBySlug(slug);
 
   if (!data) {
     throw new Error("Projeto não encontrado");

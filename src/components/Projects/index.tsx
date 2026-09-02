@@ -3,10 +3,10 @@ import Container from "../Container";
 import Link from "next/link";
 import Button from "../Button";
 import { LuFileText, LuCodeXml, LuLaptop } from "react-icons/lu";
-import { findProjectPreviewsService } from "@/services/project/findProjectPreviewsService";
+import { listProjectsPreview } from "@/services/project/listProjectsPreview";
 
 export default async function Projects() {
-  const data = await findProjectPreviewsService();
+  const data = await listProjectsPreview();
 
   return (
     <section
