@@ -100,13 +100,12 @@ export default function UpdateOrDeleteProjectForm({
       setIsLoading(true);
       setErrors(null);
 
-      const response = await fetch("/api/projects/update", {
+      const response = await fetch(`/api/projects/update/${project.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          id: project.id,
           slug: project.slug,
           title,
           description,

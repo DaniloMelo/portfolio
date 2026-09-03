@@ -1,8 +1,8 @@
 import { TechnologyNotFound } from "@/errors/project/TechnologyNotFound";
-import { updateById } from "@/repository/project/projectRepository";
 import { UpdateProject } from "@/types/project";
 import { createSlug } from "@/utils/createSlug";
 import { listTechnologies } from "../technology/listTechnologies";
+import { update } from "@/repository/project/update";
 
 export async function updateProject(project: UpdateProject) {
   const allTechs = await listTechnologies();
@@ -26,5 +26,5 @@ export async function updateProject(project: UpdateProject) {
     images: project.images,
   };
 
-  await updateById(updatedProject);
+  await update(updatedProject);
 }

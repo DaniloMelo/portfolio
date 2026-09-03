@@ -4,15 +4,23 @@ import { updateProjectSchema } from "@/schemas/projects/updateProjectSchema";
 import { getAuthenticatedUser } from "@/services/auth/getAuthenticatedUser";
 import { updateProject } from "@/services/project/updateProject";
 import { revalidatePath } from "next/cache";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function PUT(request: Request) {
+export async function PUT(
+  request: NextRequest,
+  context: RouteContext<"/api/projects/update/[id]">,
+) {
   try {
     await getAuthenticatedUser();
 
+    const param = await context.params;
+
     const body = await request.json();
 
-    const result = updateProjectSchema.safeParse(body);
+    const result = updateProjectSchema.safeParse({
+      ...body,
+      id: param.id,
+    });
 
     if (!result.success) {
       const errorMessagesArr = result.error.issues.map(
@@ -30,6 +38,7 @@ export async function PUT(request: Request) {
     await updateProject(result.data);
 
     revalidatePath("/");
+    revalidatePath(`/project/${result.data.slug}`);
 
     return NextResponse.json({
       success: true,
