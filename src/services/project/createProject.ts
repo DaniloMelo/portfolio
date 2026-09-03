@@ -1,9 +1,9 @@
 import { TechnologyNotFound } from "@/errors/project/TechnologyNotFound";
-import { findLastProjectPosition } from "@/repository/project/projectRepository";
 import { Project } from "@/types/project";
 import { createSlug } from "@/utils/createSlug";
 import { listTechnologies } from "../technology/listTechnologies";
 import { create } from "@/repository/project/create";
+import { findLastPosition } from "@/repository/project/findLastPosition";
 
 export async function createProject(project: Omit<Project, "position">) {
   const allTechs = await listTechnologies();
@@ -14,7 +14,7 @@ export async function createProject(project: Omit<Project, "position">) {
     }
   });
 
-  const lastProjectPosition = await findLastProjectPosition();
+  const lastPosition = await findLastPosition();
 
   const newProject: Project = {
     title: project.title,
@@ -23,7 +23,7 @@ export async function createProject(project: Omit<Project, "position">) {
     about: project.about,
     repositoryCodeUrl: project.repositoryCodeUrl,
     deployUrl: project.deployUrl,
-    position: lastProjectPosition + 1,
+    position: lastPosition + 1,
     technologies: project.technologies,
     images: project.images,
   };

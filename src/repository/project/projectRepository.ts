@@ -148,38 +148,38 @@ import { Project, ProjectsPosition, UpdateProject } from "@/types/project";
 //   });
 // }
 
-export async function findProjectsPosition() {
-  return await prisma.project.findMany({
-    select: {
-      id: true,
-      title: true,
-      position: true,
-    },
-  });
-}
+// export async function findProjectsPosition() {
+//   return await prisma.project.findMany({
+//     select: {
+//       id: true,
+//       title: true,
+//       position: true,
+//     },
+//   });
+// }
 
-export async function findLastProjectPosition(): Promise<number> {
-  const { _max } = await prisma.project.aggregate({
-    _max: {
-      position: true,
-    },
-  });
+// export async function findLastProjectPosition(): Promise<number> {
+//   const { _max } = await prisma.project.aggregate({
+//     _max: {
+//       position: true,
+//     },
+//   });
 
-  const position = _max.position ?? 0;
+//   const position = _max.position ?? 0;
 
-  return position;
-}
+//   return position;
+// }
 
-export async function repositionProjects(projects: ProjectsPosition[]) {
-  await prisma.$transaction(
-    projects.map((project) =>
-      prisma.project.update({
-        where: { id: project.id },
-        data: { position: project.position },
-      }),
-    ),
-  );
-}
+// export async function repositionProjects(projects: ProjectsPosition[]) {
+//   await prisma.$transaction(
+//     projects.map((project) =>
+//       prisma.project.update({
+//         where: { id: project.id },
+//         data: { position: project.position },
+//       }),
+//     ),
+//   );
+// }
 
 // export async function deleteProject(slug: string) {
 //   return await prisma.project.delete({

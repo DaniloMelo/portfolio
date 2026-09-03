@@ -1,8 +1,9 @@
 import RepositionProjectForm from "@/components/RepositionProjectForm";
-import { findProjectsPosition } from "@/repository/project/projectRepository";
+import { getPositions } from "@/services/project/getPositions";
 
 export default async function ReorderProjectsPage() {
-  const data = await findProjectsPosition();
+  const data = await getPositions();
+
   return (
     <main className="flex items-center justify-center">
       <RepositionProjectForm projectsPosition={data} />
