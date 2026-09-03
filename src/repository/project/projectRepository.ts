@@ -181,11 +181,11 @@ export async function repositionProjects(projects: ProjectsPosition[]) {
   );
 }
 
-export async function deleteProject(slug: string) {
-  return await prisma.project.delete({
-    where: { slug },
-  });
-}
+// export async function deleteProject(slug: string) {
+//   return await prisma.project.delete({
+//     where: { slug },
+//   });
+// }
 
 export async function updateById(project: UpdateProject) {
   await prisma.project.update({

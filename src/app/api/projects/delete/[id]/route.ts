@@ -1,13 +1,13 @@
 import { UnauthorizedError } from "@/errors/auth/UnauthorizedError";
 import { deleteProjectSchema } from "@/schemas/projects/deleteProjectSchema";
 import { getAuthenticatedUser } from "@/services/auth/getAuthenticatedUser";
-import { removeProject } from "@/services/project/removeProject";
+import { deleteProject } from "@/services/project/deleteProject";
 import { revalidatePath } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function DELETE(
   request: NextRequest,
-  context: RouteContext<"/api/projects/delete/[slug]">,
+  context: RouteContext<"/api/projects/delete/[id]">,
 ) {
   try {
     await getAuthenticatedUser();
@@ -29,7 +29,7 @@ export async function DELETE(
       );
     }
 
-    await removeProject(result.data.slug);
+    await deleteProject(result.data.id);
 
     revalidatePath("/");
 

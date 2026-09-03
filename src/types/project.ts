@@ -19,6 +19,10 @@ export interface Project {
   images: ProjectImage[];
 }
 
+export interface StoredProject extends Project {
+  id: string;
+}
+
 export interface ProjectPreview {
   id: string;
   slug: string;

@@ -2,7 +2,6 @@
 
 import { UpdateProject } from "@/types/project";
 import { useRouter } from "next/navigation";
-
 import { SubmitEvent, useState } from "react";
 import SuccessMessage from "../SuccessMessage";
 import { cn } from "@/utils/cn";
@@ -11,12 +10,10 @@ import Input from "../Input";
 import { MarkdownEditor } from "../MarkdownEditor";
 
 interface UpdateOrDeleteProjectFormProps {
-  id: string;
   project: UpdateProject;
 }
 
 export default function UpdateOrDeleteProjectForm({
-  id,
   project,
 }: UpdateOrDeleteProjectFormProps) {
   const router = useRouter();
@@ -70,7 +67,7 @@ export default function UpdateOrDeleteProjectForm({
         setIsLoading(true);
         setErrors(null);
 
-        const response = await fetch(`/api/projects/delete/${project.slug}`, {
+        const response = await fetch(`/api/projects/delete/${project.id}`, {
           method: "DELETE",
         });
 
@@ -109,7 +106,7 @@ export default function UpdateOrDeleteProjectForm({
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          id,
+          id: project.id,
           slug: project.slug,
           title,
           description,
