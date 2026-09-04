@@ -11,6 +11,9 @@ export async function create(project: Project): Promise<Project> {
       repositoryCodeUrl: project.repositoryCodeUrl,
       deployUrl: project.deployUrl,
       position: project.position,
+      testUser: project.testUser,
+      testEmail: project.testEmail,
+      testPassword: project.testPassword,
 
       images: {
         create: project.images.map((image) => ({
@@ -38,6 +41,9 @@ export async function create(project: Project): Promise<Project> {
       repositoryCodeUrl: true,
       deployUrl: true,
       position: true,
+      testUser: true,
+      testEmail: true,
+      testPassword: true,
 
       images: {
         select: {
@@ -67,6 +73,9 @@ export async function create(project: Project): Promise<Project> {
     repositoryCodeUrl: data.repositoryCodeUrl,
     deployUrl: data.deployUrl,
     position: data.position,
+    testUser: data.testUser || undefined,
+    testEmail: data.testEmail || undefined,
+    testPassword: data.testPassword || undefined,
     images: data.images,
     technologies: data.projectTechnologies.map(
       (projectTech) => projectTech.technology,

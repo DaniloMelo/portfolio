@@ -59,27 +59,54 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
           </div>
         </div>
 
-        <RenderMarkdown markdown={data.about} />
+        <div className="flex flex-col">
+          {data.testPassword && (
+            <div>
+              <p className="mt-10 mb-5">
+                Não quer criar uma conta? Use as credenciais de teste abaixo.
+              </p>
 
-        <div className="flex justify-center flex-wrap gap-10 my-5 lg:justify-start">
-          <a href={data.repositoryCodeUrl}>
-            <Button
-              icon={<LuCodeXml size={20} />}
-              className="text-[clamp(.9rem,2vw,1rem)] w-60 py-2 lg:w-fit lg:py-1"
-            >
-              Ver código
-            </Button>
-          </a>
+              {data.testUser && (
+                <p className="font-bold">
+                  Nome de usuário:{" "}
+                  <span className="font-light">{data.testUser}</span>
+                </p>
+              )}
+              {data.testEmail && (
+                <p className="font-bold">
+                  E-mail: <span className="font-light">{data.testEmail}</span>
+                </p>
+              )}
+              {data.testUser && (
+                <p className="font-bold">
+                  Senha: <span className="font-light">{data.testPassword}</span>
+                </p>
+              )}
+            </div>
+          )}
 
-          <a href={data.deployUrl}>
-            <Button
-              icon={<LuLaptop size={20} />}
-              className="text-[clamp(.9rem,2vw,1rem)] w-60 py-2 lg:w-fit lg:py-1"
-            >
-              Acessar projeto
-            </Button>
-          </a>
+          <div className="flex justify-center flex-wrap gap-10 my-10 lg:justify-start">
+            <a href={data.repositoryCodeUrl}>
+              <Button
+                icon={<LuCodeXml size={20} />}
+                className="text-[clamp(.9rem,2vw,1rem)] w-60 py-2 lg:w-fit lg:py-1"
+              >
+                Ver código
+              </Button>
+            </a>
+
+            <a href={data.deployUrl}>
+              <Button
+                icon={<LuLaptop size={20} />}
+                className="text-[clamp(.9rem,2vw,1rem)] w-60 py-2 lg:w-fit lg:py-1"
+              >
+                Acessar projeto
+              </Button>
+            </a>
+          </div>
         </div>
+
+        <RenderMarkdown markdown={data.about} />
       </Container>
     </main>
   );

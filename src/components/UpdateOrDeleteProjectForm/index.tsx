@@ -1,6 +1,6 @@
 "use client";
 
-import { UpdateProject } from "@/types/project";
+import { StoredProject } from "@/types/project";
 import { useRouter } from "next/navigation";
 import { SubmitEvent, useState } from "react";
 import SuccessMessage from "../SuccessMessage";
@@ -10,7 +10,7 @@ import Input from "../Input";
 import { MarkdownEditor } from "../MarkdownEditor";
 
 interface UpdateOrDeleteProjectFormProps {
-  project: UpdateProject;
+  project: StoredProject;
 }
 
 export default function UpdateOrDeleteProjectForm({
@@ -25,6 +25,9 @@ export default function UpdateOrDeleteProjectForm({
     project.repositoryCodeUrl,
   );
   const [deployUrl, setDeployUrl] = useState(project.deployUrl);
+  const [testUser, setTestUser] = useState(project.testUser ?? "");
+  const [testEmail, setTestEmail] = useState(project.testEmail ?? "");
+  const [testPassword, setTestPassword] = useState(project.testPassword ?? "");
 
   const [techNames, setTechNames] = useState<string[]>(
     project.technologies.map((tech) => tech.name),
@@ -113,6 +116,9 @@ export default function UpdateOrDeleteProjectForm({
           repositoryCodeUrl,
           deployUrl,
           position: project.position,
+          testUser,
+          testEmail,
+          testPassword,
           technologies: techNames.map((tech) => ({ name: tech })),
           images,
         }),
@@ -234,7 +240,7 @@ export default function UpdateOrDeleteProjectForm({
       </button>
 
       {images.map((image, index) => (
-        <div key={index} className="mb-4">
+        <div key={index} className="mb-20">
           <div className="flex items-end gap-2 mb-2">
             <Input
               type="url"
@@ -276,6 +282,33 @@ export default function UpdateOrDeleteProjectForm({
           />
         </div>
       ))}
+
+      <Input
+        htmlFor="testUser"
+        labelText="Nome de usuário de teste"
+        name="testUser"
+        type="text"
+        value={testUser}
+        onChange={(event) => setTestUser(event.target.value)}
+      />
+
+      <Input
+        htmlFor="testEmail"
+        labelText="Email de teste"
+        name="testEmail"
+        type="text"
+        value={testEmail}
+        onChange={(event) => setTestEmail(event.target.value)}
+      />
+
+      <Input
+        htmlFor="testPassword"
+        labelText="Senha de teste"
+        name="testPassword"
+        type="text"
+        value={testPassword}
+        onChange={(event) => setTestPassword(event.target.value)}
+      />
 
       <div className="flex flex-col items-center gap-4">
         {errors && <ErrorMessage errors={errors} />}

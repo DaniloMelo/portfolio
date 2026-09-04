@@ -17,10 +17,25 @@ export interface Project {
   position: number;
   technologies: ProjectTechnology[];
   images: ProjectImage[];
+  testUser?: string | null;
+  testEmail?: string | null;
+  testPassword?: string | null;
 }
 
-export interface StoredProject extends Project {
+export interface StoredProject {
   id: string;
+  slug: string;
+  title: string;
+  description: string;
+  about: string;
+  repositoryCodeUrl: string;
+  deployUrl: string;
+  position: number;
+  technologies: ProjectTechnology[];
+  images: ProjectImage[];
+  testUser: string | null;
+  testEmail: string | null;
+  testPassword: string | null;
 }
 
 export interface ProjectPreview {
@@ -41,6 +56,9 @@ export interface ProjectDetail {
   images: ProjectImage[];
   repositoryCodeUrl: string;
   deployUrl: string;
+  testUser: string | null;
+  testEmail: string | null;
+  testPassword: string | null;
 }
 
 export interface ProjectsPosition {
@@ -49,6 +67,18 @@ export interface ProjectsPosition {
   position: number;
 }
 
-export interface UpdateProject extends Project {
+export interface UpdateProject {
   id: string;
+  slug: string;
+  title: string;
+  description: string;
+  about: string;
+  repositoryCodeUrl: string;
+  deployUrl: string;
+  position: number;
+  technologies: ProjectTechnology[];
+  images: ProjectImage[];
+  testUser?: string | null;
+  testEmail?: string | null;
+  testPassword?: string | null;
 }

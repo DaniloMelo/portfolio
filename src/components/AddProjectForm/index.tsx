@@ -14,6 +14,9 @@ export default function AddProjectForm() {
   const [about, setAbout] = useState("");
   const [repositoryCodeUrl, setRepositoryCodeUrl] = useState("");
   const [deployUrl, setDeployUrl] = useState("");
+  const [testUser, setTestUser] = useState("");
+  const [testEmail, setTestEmail] = useState("");
+  const [testPassword, setTestPassword] = useState("");
 
   const slug = createSlug(title);
 
@@ -56,6 +59,9 @@ export default function AddProjectForm() {
           about,
           repositoryCodeUrl,
           deployUrl,
+          testUser,
+          testEmail,
+          testPassword,
           technologies: techNames.map((tech) => ({ name: tech })),
           images,
         }),
@@ -74,6 +80,9 @@ export default function AddProjectForm() {
       setAbout("");
       setRepositoryCodeUrl("");
       setDeployUrl("");
+      setTestUser("");
+      setTestEmail("");
+      setTestPassword("");
       setTechNames([""]);
       setImages([{ src: "", alt: "" }]);
     } catch {
@@ -190,7 +199,7 @@ export default function AddProjectForm() {
       </button>
 
       {images.map((image, index) => (
-        <div key={index} className="mb-4">
+        <div key={index} className="mb-20">
           <div className="flex items-end gap-2 mb-2">
             <Input
               type="url"
@@ -232,6 +241,33 @@ export default function AddProjectForm() {
           />
         </div>
       ))}
+
+      <Input
+        htmlFor="testUser"
+        labelText="Nome de usuário de teste"
+        name="testUser"
+        type="text"
+        value={testUser}
+        onChange={(event) => setTestUser(event.target.value)}
+      />
+
+      <Input
+        htmlFor="testEmail"
+        labelText="Email de teste"
+        name="testEmail"
+        type="text"
+        value={testEmail}
+        onChange={(event) => setTestEmail(event.target.value)}
+      />
+
+      <Input
+        htmlFor="testPassword"
+        labelText="Senha de teste"
+        name="testPassword"
+        type="text"
+        value={testPassword}
+        onChange={(event) => setTestPassword(event.target.value)}
+      />
 
       <div className="flex flex-col items-center gap-4">
         {errors && <ErrorMessage errors={errors} />}

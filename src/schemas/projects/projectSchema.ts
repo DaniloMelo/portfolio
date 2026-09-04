@@ -52,6 +52,12 @@ export const projectSchema = z.object(
       .string({ error: "URL do deploy deve ser um texto válido." })
       .min(1, { error: "URL do deploy é obrigatório." }),
 
+    testUser: z.string().optional(),
+
+    testEmail: z.string().optional(),
+
+    testPassword: z.string().optional(),
+
     technologies: z.array(projectTechnologiesSchema),
 
     images: z.array(projectImagesSchema),

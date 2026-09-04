@@ -26,6 +26,9 @@ export async function findBySlug(slug: string) {
     repositoryCodeUrl: data.repositoryCodeUrl,
     deployUrl: data.deployUrl,
     position: data.position,
+    testUser: data.testUser,
+    testEmail: data.testEmail,
+    testPassword: data.testPassword,
 
     images: data.images.map((image) => ({
       id: image.id,

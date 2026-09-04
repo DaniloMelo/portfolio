@@ -16,5 +16,8 @@ export async function getProjectDetails(slug: string): Promise<ProjectDetail> {
     images: data.images,
     repositoryCodeUrl: data.repositoryCodeUrl,
     deployUrl: data.deployUrl,
+    testUser: data.testUser,
+    testEmail: data.testEmail,
+    testPassword: data.testPassword,
   };
 }
