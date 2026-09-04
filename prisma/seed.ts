@@ -103,6 +103,9 @@ async function seedProjects() {
         repositoryCodeUrl: project.repositoryCodeUrl,
         deployUrl: project.deployUrl,
         position: project.position,
+        testUser: project.testUser || null,
+        testEmail: project.testEmail || null,
+        testPassword: project.testPassword || null,
       },
       create: {
         id: project.id,
@@ -113,6 +116,9 @@ async function seedProjects() {
         repositoryCodeUrl: project.repositoryCodeUrl,
         deployUrl: project.deployUrl,
         position: project.position,
+        testUser: project.testUser || null,
+        testEmail: project.testEmail || null,
+        testPassword: project.testPassword || null,
       },
     });
 

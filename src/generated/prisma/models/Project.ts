@@ -43,6 +43,9 @@ export type ProjectMinAggregateOutputType = {
   repositoryCodeUrl: string | null
   deployUrl: string | null
   position: number | null
+  testUser: string | null
+  testEmail: string | null
+  testPassword: string | null
 }
 
 export type ProjectMaxAggregateOutputType = {
@@ -54,6 +57,9 @@ export type ProjectMaxAggregateOutputType = {
   repositoryCodeUrl: string | null
   deployUrl: string | null
   position: number | null
+  testUser: string | null
+  testEmail: string | null
+  testPassword: string | null
 }
 
 export type ProjectCountAggregateOutputType = {
@@ -65,6 +71,9 @@ export type ProjectCountAggregateOutputType = {
   repositoryCodeUrl: number
   deployUrl: number
   position: number
+  testUser: number
+  testEmail: number
+  testPassword: number
   _all: number
 }
 
@@ -86,6 +95,9 @@ export type ProjectMinAggregateInputType = {
   repositoryCodeUrl?: true
   deployUrl?: true
   position?: true
+  testUser?: true
+  testEmail?: true
+  testPassword?: true
 }
 
 export type ProjectMaxAggregateInputType = {
@@ -97,6 +109,9 @@ export type ProjectMaxAggregateInputType = {
   repositoryCodeUrl?: true
   deployUrl?: true
   position?: true
+  testUser?: true
+  testEmail?: true
+  testPassword?: true
 }
 
 export type ProjectCountAggregateInputType = {
@@ -108,6 +123,9 @@ export type ProjectCountAggregateInputType = {
   repositoryCodeUrl?: true
   deployUrl?: true
   position?: true
+  testUser?: true
+  testEmail?: true
+  testPassword?: true
   _all?: true
 }
 
@@ -206,6 +224,9 @@ export type ProjectGroupByOutputType = {
   repositoryCodeUrl: string
   deployUrl: string
   position: number
+  testUser: string | null
+  testEmail: string | null
+  testPassword: string | null
   _count: ProjectCountAggregateOutputType | null
   _avg: ProjectAvgAggregateOutputType | null
   _sum: ProjectSumAggregateOutputType | null
@@ -240,6 +261,9 @@ export type ProjectWhereInput = {
   repositoryCodeUrl?: Prisma.StringFilter<"Project"> | string
   deployUrl?: Prisma.StringFilter<"Project"> | string
   position?: Prisma.IntFilter<"Project"> | number
+  testUser?: Prisma.StringNullableFilter<"Project"> | string | null
+  testEmail?: Prisma.StringNullableFilter<"Project"> | string | null
+  testPassword?: Prisma.StringNullableFilter<"Project"> | string | null
   projectTechnologies?: Prisma.ProjectTechnologyListRelationFilter
   images?: Prisma.ImageListRelationFilter
 }
@@ -253,6 +277,9 @@ export type ProjectOrderByWithRelationInput = {
   repositoryCodeUrl?: Prisma.SortOrder
   deployUrl?: Prisma.SortOrder
   position?: Prisma.SortOrder
+  testUser?: Prisma.SortOrderInput | Prisma.SortOrder
+  testEmail?: Prisma.SortOrderInput | Prisma.SortOrder
+  testPassword?: Prisma.SortOrderInput | Prisma.SortOrder
   projectTechnologies?: Prisma.ProjectTechnologyOrderByRelationAggregateInput
   images?: Prisma.ImageOrderByRelationAggregateInput
 }
@@ -269,6 +296,9 @@ export type ProjectWhereUniqueInput = Prisma.AtLeast<{
   repositoryCodeUrl?: Prisma.StringFilter<"Project"> | string
   deployUrl?: Prisma.StringFilter<"Project"> | string
   position?: Prisma.IntFilter<"Project"> | number
+  testUser?: Prisma.StringNullableFilter<"Project"> | string | null
+  testEmail?: Prisma.StringNullableFilter<"Project"> | string | null
+  testPassword?: Prisma.StringNullableFilter<"Project"> | string | null
   projectTechnologies?: Prisma.ProjectTechnologyListRelationFilter
   images?: Prisma.ImageListRelationFilter
 }, "id" | "slug">
@@ -282,6 +312,9 @@ export type ProjectOrderByWithAggregationInput = {
   repositoryCodeUrl?: Prisma.SortOrder
   deployUrl?: Prisma.SortOrder
   position?: Prisma.SortOrder
+  testUser?: Prisma.SortOrderInput | Prisma.SortOrder
+  testEmail?: Prisma.SortOrderInput | Prisma.SortOrder
+  testPassword?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.ProjectCountOrderByAggregateInput
   _avg?: Prisma.ProjectAvgOrderByAggregateInput
   _max?: Prisma.ProjectMaxOrderByAggregateInput
@@ -301,6 +334,9 @@ export type ProjectScalarWhereWithAggregatesInput = {
   repositoryCodeUrl?: Prisma.StringWithAggregatesFilter<"Project"> | string
   deployUrl?: Prisma.StringWithAggregatesFilter<"Project"> | string
   position?: Prisma.IntWithAggregatesFilter<"Project"> | number
+  testUser?: Prisma.StringNullableWithAggregatesFilter<"Project"> | string | null
+  testEmail?: Prisma.StringNullableWithAggregatesFilter<"Project"> | string | null
+  testPassword?: Prisma.StringNullableWithAggregatesFilter<"Project"> | string | null
 }
 
 export type ProjectCreateInput = {
@@ -312,6 +348,9 @@ export type ProjectCreateInput = {
   repositoryCodeUrl: string
   deployUrl: string
   position: number
+  testUser?: string | null
+  testEmail?: string | null
+  testPassword?: string | null
   projectTechnologies?: Prisma.ProjectTechnologyCreateNestedManyWithoutProjectInput
   images?: Prisma.ImageCreateNestedManyWithoutProjectInput
 }
@@ -325,6 +364,9 @@ export type ProjectUncheckedCreateInput = {
   repositoryCodeUrl: string
   deployUrl: string
   position: number
+  testUser?: string | null
+  testEmail?: string | null
+  testPassword?: string | null
   projectTechnologies?: Prisma.ProjectTechnologyUncheckedCreateNestedManyWithoutProjectInput
   images?: Prisma.ImageUncheckedCreateNestedManyWithoutProjectInput
 }
@@ -338,6 +380,9 @@ export type ProjectUpdateInput = {
   repositoryCodeUrl?: Prisma.StringFieldUpdateOperationsInput | string
   deployUrl?: Prisma.StringFieldUpdateOperationsInput | string
   position?: Prisma.IntFieldUpdateOperationsInput | number
+  testUser?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  testEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  testPassword?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   projectTechnologies?: Prisma.ProjectTechnologyUpdateManyWithoutProjectNestedInput
   images?: Prisma.ImageUpdateManyWithoutProjectNestedInput
 }
@@ -351,6 +396,9 @@ export type ProjectUncheckedUpdateInput = {
   repositoryCodeUrl?: Prisma.StringFieldUpdateOperationsInput | string
   deployUrl?: Prisma.StringFieldUpdateOperationsInput | string
   position?: Prisma.IntFieldUpdateOperationsInput | number
+  testUser?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  testEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  testPassword?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   projectTechnologies?: Prisma.ProjectTechnologyUncheckedUpdateManyWithoutProjectNestedInput
   images?: Prisma.ImageUncheckedUpdateManyWithoutProjectNestedInput
 }
@@ -364,6 +412,9 @@ export type ProjectCreateManyInput = {
   repositoryCodeUrl: string
   deployUrl: string
   position: number
+  testUser?: string | null
+  testEmail?: string | null
+  testPassword?: string | null
 }
 
 export type ProjectUpdateManyMutationInput = {
@@ -375,6 +426,9 @@ export type ProjectUpdateManyMutationInput = {
   repositoryCodeUrl?: Prisma.StringFieldUpdateOperationsInput | string
   deployUrl?: Prisma.StringFieldUpdateOperationsInput | string
   position?: Prisma.IntFieldUpdateOperationsInput | number
+  testUser?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  testEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  testPassword?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type ProjectUncheckedUpdateManyInput = {
@@ -386,6 +440,9 @@ export type ProjectUncheckedUpdateManyInput = {
   repositoryCodeUrl?: Prisma.StringFieldUpdateOperationsInput | string
   deployUrl?: Prisma.StringFieldUpdateOperationsInput | string
   position?: Prisma.IntFieldUpdateOperationsInput | number
+  testUser?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  testEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  testPassword?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type ProjectCountOrderByAggregateInput = {
@@ -397,6 +454,9 @@ export type ProjectCountOrderByAggregateInput = {
   repositoryCodeUrl?: Prisma.SortOrder
   deployUrl?: Prisma.SortOrder
   position?: Prisma.SortOrder
+  testUser?: Prisma.SortOrder
+  testEmail?: Prisma.SortOrder
+  testPassword?: Prisma.SortOrder
 }
 
 export type ProjectAvgOrderByAggregateInput = {
@@ -412,6 +472,9 @@ export type ProjectMaxOrderByAggregateInput = {
   repositoryCodeUrl?: Prisma.SortOrder
   deployUrl?: Prisma.SortOrder
   position?: Prisma.SortOrder
+  testUser?: Prisma.SortOrder
+  testEmail?: Prisma.SortOrder
+  testPassword?: Prisma.SortOrder
 }
 
 export type ProjectMinOrderByAggregateInput = {
@@ -423,6 +486,9 @@ export type ProjectMinOrderByAggregateInput = {
   repositoryCodeUrl?: Prisma.SortOrder
   deployUrl?: Prisma.SortOrder
   position?: Prisma.SortOrder
+  testUser?: Prisma.SortOrder
+  testEmail?: Prisma.SortOrder
+  testPassword?: Prisma.SortOrder
 }
 
 export type ProjectSumOrderByAggregateInput = {
@@ -440,6 +506,10 @@ export type IntFieldUpdateOperationsInput = {
   decrement?: number
   multiply?: number
   divide?: number
+}
+
+export type NullableStringFieldUpdateOperationsInput = {
+  set?: string | null
 }
 
 export type ProjectCreateNestedOneWithoutImagesInput = {
@@ -479,6 +549,9 @@ export type ProjectCreateWithoutImagesInput = {
   repositoryCodeUrl: string
   deployUrl: string
   position: number
+  testUser?: string | null
+  testEmail?: string | null
+  testPassword?: string | null
   projectTechnologies?: Prisma.ProjectTechnologyCreateNestedManyWithoutProjectInput
 }
 
@@ -491,6 +564,9 @@ export type ProjectUncheckedCreateWithoutImagesInput = {
   repositoryCodeUrl: string
   deployUrl: string
   position: number
+  testUser?: string | null
+  testEmail?: string | null
+  testPassword?: string | null
   projectTechnologies?: Prisma.ProjectTechnologyUncheckedCreateNestedManyWithoutProjectInput
 }
 
@@ -519,6 +595,9 @@ export type ProjectUpdateWithoutImagesInput = {
   repositoryCodeUrl?: Prisma.StringFieldUpdateOperationsInput | string
   deployUrl?: Prisma.StringFieldUpdateOperationsInput | string
   position?: Prisma.IntFieldUpdateOperationsInput | number
+  testUser?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  testEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  testPassword?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   projectTechnologies?: Prisma.ProjectTechnologyUpdateManyWithoutProjectNestedInput
 }
 
@@ -531,6 +610,9 @@ export type ProjectUncheckedUpdateWithoutImagesInput = {
   repositoryCodeUrl?: Prisma.StringFieldUpdateOperationsInput | string
   deployUrl?: Prisma.StringFieldUpdateOperationsInput | string
   position?: Prisma.IntFieldUpdateOperationsInput | number
+  testUser?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  testEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  testPassword?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   projectTechnologies?: Prisma.ProjectTechnologyUncheckedUpdateManyWithoutProjectNestedInput
 }
 
@@ -543,6 +625,9 @@ export type ProjectCreateWithoutProjectTechnologiesInput = {
   repositoryCodeUrl: string
   deployUrl: string
   position: number
+  testUser?: string | null
+  testEmail?: string | null
+  testPassword?: string | null
   images?: Prisma.ImageCreateNestedManyWithoutProjectInput
 }
 
@@ -555,6 +640,9 @@ export type ProjectUncheckedCreateWithoutProjectTechnologiesInput = {
   repositoryCodeUrl: string
   deployUrl: string
   position: number
+  testUser?: string | null
+  testEmail?: string | null
+  testPassword?: string | null
   images?: Prisma.ImageUncheckedCreateNestedManyWithoutProjectInput
 }
 
@@ -583,6 +671,9 @@ export type ProjectUpdateWithoutProjectTechnologiesInput = {
   repositoryCodeUrl?: Prisma.StringFieldUpdateOperationsInput | string
   deployUrl?: Prisma.StringFieldUpdateOperationsInput | string
   position?: Prisma.IntFieldUpdateOperationsInput | number
+  testUser?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  testEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  testPassword?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   images?: Prisma.ImageUpdateManyWithoutProjectNestedInput
 }
 
@@ -595,6 +686,9 @@ export type ProjectUncheckedUpdateWithoutProjectTechnologiesInput = {
   repositoryCodeUrl?: Prisma.StringFieldUpdateOperationsInput | string
   deployUrl?: Prisma.StringFieldUpdateOperationsInput | string
   position?: Prisma.IntFieldUpdateOperationsInput | number
+  testUser?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  testEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  testPassword?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   images?: Prisma.ImageUncheckedUpdateManyWithoutProjectNestedInput
 }
 
@@ -647,6 +741,9 @@ export type ProjectSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   repositoryCodeUrl?: boolean
   deployUrl?: boolean
   position?: boolean
+  testUser?: boolean
+  testEmail?: boolean
+  testPassword?: boolean
   projectTechnologies?: boolean | Prisma.Project$projectTechnologiesArgs<ExtArgs>
   images?: boolean | Prisma.Project$imagesArgs<ExtArgs>
   _count?: boolean | Prisma.ProjectCountOutputTypeDefaultArgs<ExtArgs>
@@ -661,6 +758,9 @@ export type ProjectSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   repositoryCodeUrl?: boolean
   deployUrl?: boolean
   position?: boolean
+  testUser?: boolean
+  testEmail?: boolean
+  testPassword?: boolean
 }, ExtArgs["result"]["project"]>
 
 export type ProjectSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -672,6 +772,9 @@ export type ProjectSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   repositoryCodeUrl?: boolean
   deployUrl?: boolean
   position?: boolean
+  testUser?: boolean
+  testEmail?: boolean
+  testPassword?: boolean
 }, ExtArgs["result"]["project"]>
 
 export type ProjectSelectScalar = {
@@ -683,9 +786,12 @@ export type ProjectSelectScalar = {
   repositoryCodeUrl?: boolean
   deployUrl?: boolean
   position?: boolean
+  testUser?: boolean
+  testEmail?: boolean
+  testPassword?: boolean
 }
 
-export type ProjectOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "slug" | "title" | "description" | "about" | "repositoryCodeUrl" | "deployUrl" | "position", ExtArgs["result"]["project"]>
+export type ProjectOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "slug" | "title" | "description" | "about" | "repositoryCodeUrl" | "deployUrl" | "position" | "testUser" | "testEmail" | "testPassword", ExtArgs["result"]["project"]>
 export type ProjectInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   projectTechnologies?: boolean | Prisma.Project$projectTechnologiesArgs<ExtArgs>
   images?: boolean | Prisma.Project$imagesArgs<ExtArgs>
@@ -709,6 +815,9 @@ export type $ProjectPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     repositoryCodeUrl: string
     deployUrl: string
     position: number
+    testUser: string | null
+    testEmail: string | null
+    testPassword: string | null
   }, ExtArgs["result"]["project"]>
   composites: {}
 }
@@ -1142,6 +1251,9 @@ export interface ProjectFieldRefs {
   readonly repositoryCodeUrl: Prisma.FieldRef<"Project", 'String'>
   readonly deployUrl: Prisma.FieldRef<"Project", 'String'>
   readonly position: Prisma.FieldRef<"Project", 'Int'>
+  readonly testUser: Prisma.FieldRef<"Project", 'String'>
+  readonly testEmail: Prisma.FieldRef<"Project", 'String'>
+  readonly testPassword: Prisma.FieldRef<"Project", 'String'>
 }
     
 

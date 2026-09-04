@@ -107,7 +107,10 @@ export const ProjectScalarFieldEnum = {
   about: 'about',
   repositoryCodeUrl: 'repositoryCodeUrl',
   deployUrl: 'deployUrl',
-  position: 'position'
+  position: 'position',
+  testUser: 'testUser',
+  testEmail: 'testEmail',
+  testPassword: 'testPassword'
 } as const
 
 export type ProjectScalarFieldEnum = (typeof ProjectScalarFieldEnum)[keyof typeof ProjectScalarFieldEnum]
@@ -153,4 +156,12 @@ export const QueryMode = {
 } as const
 
 export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
+export const NullsOrder = {
+  first: 'first',
+  last: 'last'
+} as const
+
+export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 

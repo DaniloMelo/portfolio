@@ -34,14 +34,17 @@ model Credential {
 }
 
 model Project {
-  id                String @id @default(uuid())
-  slug              String @unique @db.VarChar(99)
-  title             String @db.VarChar(99)
-  description       String @db.Text
-  about             String @db.Text
-  repositoryCodeUrl String @map("repository_code_url") @db.VarChar(255)
-  deployUrl         String @map("deploy_url") @db.VarChar(255)
+  id                String  @id @default(uuid())
+  slug              String  @unique @db.VarChar(99)
+  title             String  @db.VarChar(99)
+  description       String  @db.Text
+  about             String  @db.Text
+  repositoryCodeUrl String  @map("repository_code_url") @db.VarChar(255)
+  deployUrl         String  @map("deploy_url") @db.VarChar(255)
   position          Int
+  testUser          String? @map("test_user")
+  testEmail         String? @map("test_email")
+  testPassword      String? @map("test_password")
 
   projectTechnologies ProjectTechnology[]
   images              Image[]

@@ -104,5 +104,8 @@ export const projectsMock = [
         alt: "Descrição de exemplo da imagem",
       },
     ],
+    testUser: "Test User Name",
+    testEmail: "TestUser@email",
+    testPassword: "TestPassword123",
   },
 ];
