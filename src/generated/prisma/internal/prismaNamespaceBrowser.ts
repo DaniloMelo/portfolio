@@ -84,7 +84,8 @@ export const MeScalarFieldEnum = {
   introduction: 'introduction',
   about: 'about',
   phone: 'phone',
-  linkedInProfileUrl: 'linkedInProfileUrl'
+  linkedInProfileUrl: 'linkedInProfileUrl',
+  github: 'github'
 } as const
 
 export type MeScalarFieldEnum = (typeof MeScalarFieldEnum)[keyof typeof MeScalarFieldEnum]

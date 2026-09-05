@@ -17,6 +17,7 @@ model Me {
   about              String @db.Text
   phone              String @db.VarChar(20)
   linkedInProfileUrl String @map("linkedin_profile_url") @db.VarChar(255)
+  github             String @db.VarChar(255)
 
   credential Credential?
 

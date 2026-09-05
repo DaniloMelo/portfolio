@@ -34,6 +34,7 @@ export type MeMinAggregateOutputType = {
   about: string | null
   phone: string | null
   linkedInProfileUrl: string | null
+  github: string | null
 }
 
 export type MeMaxAggregateOutputType = {
@@ -46,6 +47,7 @@ export type MeMaxAggregateOutputType = {
   about: string | null
   phone: string | null
   linkedInProfileUrl: string | null
+  github: string | null
 }
 
 export type MeCountAggregateOutputType = {
@@ -58,6 +60,7 @@ export type MeCountAggregateOutputType = {
   about: number
   phone: number
   linkedInProfileUrl: number
+  github: number
   _all: number
 }
 
@@ -72,6 +75,7 @@ export type MeMinAggregateInputType = {
   about?: true
   phone?: true
   linkedInProfileUrl?: true
+  github?: true
 }
 
 export type MeMaxAggregateInputType = {
@@ -84,6 +88,7 @@ export type MeMaxAggregateInputType = {
   about?: true
   phone?: true
   linkedInProfileUrl?: true
+  github?: true
 }
 
 export type MeCountAggregateInputType = {
@@ -96,6 +101,7 @@ export type MeCountAggregateInputType = {
   about?: true
   phone?: true
   linkedInProfileUrl?: true
+  github?: true
   _all?: true
 }
 
@@ -181,6 +187,7 @@ export type MeGroupByOutputType = {
   about: string
   phone: string
   linkedInProfileUrl: string
+  github: string
   _count: MeCountAggregateOutputType | null
   _min: MeMinAggregateOutputType | null
   _max: MeMaxAggregateOutputType | null
@@ -214,6 +221,7 @@ export type MeWhereInput = {
   about?: Prisma.StringFilter<"Me"> | string
   phone?: Prisma.StringFilter<"Me"> | string
   linkedInProfileUrl?: Prisma.StringFilter<"Me"> | string
+  github?: Prisma.StringFilter<"Me"> | string
   credential?: Prisma.XOR<Prisma.CredentialNullableScalarRelationFilter, Prisma.CredentialWhereInput> | null
 }
 
@@ -227,6 +235,7 @@ export type MeOrderByWithRelationInput = {
   about?: Prisma.SortOrder
   phone?: Prisma.SortOrder
   linkedInProfileUrl?: Prisma.SortOrder
+  github?: Prisma.SortOrder
   credential?: Prisma.CredentialOrderByWithRelationInput
 }
 
@@ -243,6 +252,7 @@ export type MeWhereUniqueInput = Prisma.AtLeast<{
   about?: Prisma.StringFilter<"Me"> | string
   phone?: Prisma.StringFilter<"Me"> | string
   linkedInProfileUrl?: Prisma.StringFilter<"Me"> | string
+  github?: Prisma.StringFilter<"Me"> | string
   credential?: Prisma.XOR<Prisma.CredentialNullableScalarRelationFilter, Prisma.CredentialWhereInput> | null
 }, "id" | "email">
 
@@ -256,6 +266,7 @@ export type MeOrderByWithAggregationInput = {
   about?: Prisma.SortOrder
   phone?: Prisma.SortOrder
   linkedInProfileUrl?: Prisma.SortOrder
+  github?: Prisma.SortOrder
   _count?: Prisma.MeCountOrderByAggregateInput
   _max?: Prisma.MeMaxOrderByAggregateInput
   _min?: Prisma.MeMinOrderByAggregateInput
@@ -274,6 +285,7 @@ export type MeScalarWhereWithAggregatesInput = {
   about?: Prisma.StringWithAggregatesFilter<"Me"> | string
   phone?: Prisma.StringWithAggregatesFilter<"Me"> | string
   linkedInProfileUrl?: Prisma.StringWithAggregatesFilter<"Me"> | string
+  github?: Prisma.StringWithAggregatesFilter<"Me"> | string
 }
 
 export type MeCreateInput = {
@@ -286,6 +298,7 @@ export type MeCreateInput = {
   about: string
   phone: string
   linkedInProfileUrl: string
+  github: string
   credential?: Prisma.CredentialCreateNestedOneWithoutMeInput
 }
 
@@ -299,6 +312,7 @@ export type MeUncheckedCreateInput = {
   about: string
   phone: string
   linkedInProfileUrl: string
+  github: string
   credential?: Prisma.CredentialUncheckedCreateNestedOneWithoutMeInput
 }
 
@@ -312,6 +326,7 @@ export type MeUpdateInput = {
   about?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.StringFieldUpdateOperationsInput | string
   linkedInProfileUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  github?: Prisma.StringFieldUpdateOperationsInput | string
   credential?: Prisma.CredentialUpdateOneWithoutMeNestedInput
 }
 
@@ -325,6 +340,7 @@ export type MeUncheckedUpdateInput = {
   about?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.StringFieldUpdateOperationsInput | string
   linkedInProfileUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  github?: Prisma.StringFieldUpdateOperationsInput | string
   credential?: Prisma.CredentialUncheckedUpdateOneWithoutMeNestedInput
 }
 
@@ -338,6 +354,7 @@ export type MeCreateManyInput = {
   about: string
   phone: string
   linkedInProfileUrl: string
+  github: string
 }
 
 export type MeUpdateManyMutationInput = {
@@ -350,6 +367,7 @@ export type MeUpdateManyMutationInput = {
   about?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.StringFieldUpdateOperationsInput | string
   linkedInProfileUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  github?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type MeUncheckedUpdateManyInput = {
@@ -362,6 +380,7 @@ export type MeUncheckedUpdateManyInput = {
   about?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.StringFieldUpdateOperationsInput | string
   linkedInProfileUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  github?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type MeCountOrderByAggregateInput = {
@@ -374,6 +393,7 @@ export type MeCountOrderByAggregateInput = {
   about?: Prisma.SortOrder
   phone?: Prisma.SortOrder
   linkedInProfileUrl?: Prisma.SortOrder
+  github?: Prisma.SortOrder
 }
 
 export type MeMaxOrderByAggregateInput = {
@@ -386,6 +406,7 @@ export type MeMaxOrderByAggregateInput = {
   about?: Prisma.SortOrder
   phone?: Prisma.SortOrder
   linkedInProfileUrl?: Prisma.SortOrder
+  github?: Prisma.SortOrder
 }
 
 export type MeMinOrderByAggregateInput = {
@@ -398,6 +419,7 @@ export type MeMinOrderByAggregateInput = {
   about?: Prisma.SortOrder
   phone?: Prisma.SortOrder
   linkedInProfileUrl?: Prisma.SortOrder
+  github?: Prisma.SortOrder
 }
 
 export type MeScalarRelationFilter = {
@@ -433,6 +455,7 @@ export type MeCreateWithoutCredentialInput = {
   about: string
   phone: string
   linkedInProfileUrl: string
+  github: string
 }
 
 export type MeUncheckedCreateWithoutCredentialInput = {
@@ -445,6 +468,7 @@ export type MeUncheckedCreateWithoutCredentialInput = {
   about: string
   phone: string
   linkedInProfileUrl: string
+  github: string
 }
 
 export type MeCreateOrConnectWithoutCredentialInput = {
@@ -473,6 +497,7 @@ export type MeUpdateWithoutCredentialInput = {
   about?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.StringFieldUpdateOperationsInput | string
   linkedInProfileUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  github?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type MeUncheckedUpdateWithoutCredentialInput = {
@@ -485,6 +510,7 @@ export type MeUncheckedUpdateWithoutCredentialInput = {
   about?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.StringFieldUpdateOperationsInput | string
   linkedInProfileUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  github?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 
@@ -499,6 +525,7 @@ export type MeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = run
   about?: boolean
   phone?: boolean
   linkedInProfileUrl?: boolean
+  github?: boolean
   credential?: boolean | Prisma.Me$credentialArgs<ExtArgs>
 }, ExtArgs["result"]["me"]>
 
@@ -512,6 +539,7 @@ export type MeSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions
   about?: boolean
   phone?: boolean
   linkedInProfileUrl?: boolean
+  github?: boolean
 }, ExtArgs["result"]["me"]>
 
 export type MeSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -524,6 +552,7 @@ export type MeSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions
   about?: boolean
   phone?: boolean
   linkedInProfileUrl?: boolean
+  github?: boolean
 }, ExtArgs["result"]["me"]>
 
 export type MeSelectScalar = {
@@ -536,9 +565,10 @@ export type MeSelectScalar = {
   about?: boolean
   phone?: boolean
   linkedInProfileUrl?: boolean
+  github?: boolean
 }
 
-export type MeOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "email" | "avatarUrl" | "jobTitle" | "introduction" | "about" | "phone" | "linkedInProfileUrl", ExtArgs["result"]["me"]>
+export type MeOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "email" | "avatarUrl" | "jobTitle" | "introduction" | "about" | "phone" | "linkedInProfileUrl" | "github", ExtArgs["result"]["me"]>
 export type MeInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   credential?: boolean | Prisma.Me$credentialArgs<ExtArgs>
 }
@@ -560,6 +590,7 @@ export type $MePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
     about: string
     phone: string
     linkedInProfileUrl: string
+    github: string
   }, ExtArgs["result"]["me"]>
   composites: {}
 }
@@ -993,6 +1024,7 @@ export interface MeFieldRefs {
   readonly about: Prisma.FieldRef<"Me", 'String'>
   readonly phone: Prisma.FieldRef<"Me", 'String'>
   readonly linkedInProfileUrl: Prisma.FieldRef<"Me", 'String'>
+  readonly github: Prisma.FieldRef<"Me", 'String'>
 }
     
 

@@ -25,6 +25,7 @@ async function seedMe() {
       email: meMock.email,
       phone: meMock.phone,
       linkedInProfileUrl: meMock.linkedInProfileUrl,
+      github: meMock.github,
     },
     create: {
       id: "me-example-id",
@@ -36,6 +37,7 @@ async function seedMe() {
       email: meMock.email,
       phone: meMock.phone,
       linkedInProfileUrl: meMock.linkedInProfileUrl,
+      github: meMock.github,
     },
   });
 
