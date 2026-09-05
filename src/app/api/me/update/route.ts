@@ -11,22 +11,22 @@ export async function PUT(request: Request) {
 
     const body = await request.json();
 
-    const result = updateMeSchema.safeParse(body);
+    // const result = updateMeSchema.safeParse(body);
 
-    if (!result.success) {
-      const errorMessagesArr = result.error.issues.map(
-        (issue) => issue.message,
-      );
+    // if (!result.success) {
+    //   const errorMessagesArr = result.error.issues.map(
+    //     (issue) => issue.message,
+    //   );
 
-      return NextResponse.json(
-        {
-          error: errorMessagesArr,
-        },
-        { status: 400 },
-      );
-    }
+    //   return NextResponse.json(
+    //     {
+    //       error: errorMessagesArr,
+    //     },
+    //     { status: 400 },
+    //   );
+    // }
 
-    await updateProfile(result.data);
+    await updateProfile(body);
 
     revalidatePath("/");
 

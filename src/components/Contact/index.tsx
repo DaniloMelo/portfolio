@@ -7,7 +7,7 @@ interface ContactProps {
   email: string;
   phone: string;
   linkedInProfileUrl: string;
-  github: string;
+  github: string | null;
 }
 
 export default function Contact({
@@ -68,7 +68,7 @@ export default function Contact({
               >
                 <FaGithub size={30} />{" "}
                 <a
-                  href={github}
+                  href={github!}
                   target="_blank"
                   className="text-blue-600 hover:underline"
                 >

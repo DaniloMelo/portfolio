@@ -187,7 +187,7 @@ export type MeGroupByOutputType = {
   about: string
   phone: string
   linkedInProfileUrl: string
-  github: string
+  github: string | null
   _count: MeCountAggregateOutputType | null
   _min: MeMinAggregateOutputType | null
   _max: MeMaxAggregateOutputType | null
@@ -221,7 +221,7 @@ export type MeWhereInput = {
   about?: Prisma.StringFilter<"Me"> | string
   phone?: Prisma.StringFilter<"Me"> | string
   linkedInProfileUrl?: Prisma.StringFilter<"Me"> | string
-  github?: Prisma.StringFilter<"Me"> | string
+  github?: Prisma.StringNullableFilter<"Me"> | string | null
   credential?: Prisma.XOR<Prisma.CredentialNullableScalarRelationFilter, Prisma.CredentialWhereInput> | null
 }
 
@@ -235,7 +235,7 @@ export type MeOrderByWithRelationInput = {
   about?: Prisma.SortOrder
   phone?: Prisma.SortOrder
   linkedInProfileUrl?: Prisma.SortOrder
-  github?: Prisma.SortOrder
+  github?: Prisma.SortOrderInput | Prisma.SortOrder
   credential?: Prisma.CredentialOrderByWithRelationInput
 }
 
@@ -252,7 +252,7 @@ export type MeWhereUniqueInput = Prisma.AtLeast<{
   about?: Prisma.StringFilter<"Me"> | string
   phone?: Prisma.StringFilter<"Me"> | string
   linkedInProfileUrl?: Prisma.StringFilter<"Me"> | string
-  github?: Prisma.StringFilter<"Me"> | string
+  github?: Prisma.StringNullableFilter<"Me"> | string | null
   credential?: Prisma.XOR<Prisma.CredentialNullableScalarRelationFilter, Prisma.CredentialWhereInput> | null
 }, "id" | "email">
 
@@ -266,7 +266,7 @@ export type MeOrderByWithAggregationInput = {
   about?: Prisma.SortOrder
   phone?: Prisma.SortOrder
   linkedInProfileUrl?: Prisma.SortOrder
-  github?: Prisma.SortOrder
+  github?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.MeCountOrderByAggregateInput
   _max?: Prisma.MeMaxOrderByAggregateInput
   _min?: Prisma.MeMinOrderByAggregateInput
@@ -285,7 +285,7 @@ export type MeScalarWhereWithAggregatesInput = {
   about?: Prisma.StringWithAggregatesFilter<"Me"> | string
   phone?: Prisma.StringWithAggregatesFilter<"Me"> | string
   linkedInProfileUrl?: Prisma.StringWithAggregatesFilter<"Me"> | string
-  github?: Prisma.StringWithAggregatesFilter<"Me"> | string
+  github?: Prisma.StringNullableWithAggregatesFilter<"Me"> | string | null
 }
 
 export type MeCreateInput = {
@@ -298,7 +298,7 @@ export type MeCreateInput = {
   about: string
   phone: string
   linkedInProfileUrl: string
-  github: string
+  github?: string | null
   credential?: Prisma.CredentialCreateNestedOneWithoutMeInput
 }
 
@@ -312,7 +312,7 @@ export type MeUncheckedCreateInput = {
   about: string
   phone: string
   linkedInProfileUrl: string
-  github: string
+  github?: string | null
   credential?: Prisma.CredentialUncheckedCreateNestedOneWithoutMeInput
 }
 
@@ -326,7 +326,7 @@ export type MeUpdateInput = {
   about?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.StringFieldUpdateOperationsInput | string
   linkedInProfileUrl?: Prisma.StringFieldUpdateOperationsInput | string
-  github?: Prisma.StringFieldUpdateOperationsInput | string
+  github?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   credential?: Prisma.CredentialUpdateOneWithoutMeNestedInput
 }
 
@@ -340,7 +340,7 @@ export type MeUncheckedUpdateInput = {
   about?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.StringFieldUpdateOperationsInput | string
   linkedInProfileUrl?: Prisma.StringFieldUpdateOperationsInput | string
-  github?: Prisma.StringFieldUpdateOperationsInput | string
+  github?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   credential?: Prisma.CredentialUncheckedUpdateOneWithoutMeNestedInput
 }
 
@@ -354,7 +354,7 @@ export type MeCreateManyInput = {
   about: string
   phone: string
   linkedInProfileUrl: string
-  github: string
+  github?: string | null
 }
 
 export type MeUpdateManyMutationInput = {
@@ -367,7 +367,7 @@ export type MeUpdateManyMutationInput = {
   about?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.StringFieldUpdateOperationsInput | string
   linkedInProfileUrl?: Prisma.StringFieldUpdateOperationsInput | string
-  github?: Prisma.StringFieldUpdateOperationsInput | string
+  github?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type MeUncheckedUpdateManyInput = {
@@ -380,7 +380,7 @@ export type MeUncheckedUpdateManyInput = {
   about?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.StringFieldUpdateOperationsInput | string
   linkedInProfileUrl?: Prisma.StringFieldUpdateOperationsInput | string
-  github?: Prisma.StringFieldUpdateOperationsInput | string
+  github?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type MeCountOrderByAggregateInput = {
@@ -431,6 +431,10 @@ export type StringFieldUpdateOperationsInput = {
   set?: string
 }
 
+export type NullableStringFieldUpdateOperationsInput = {
+  set?: string | null
+}
+
 export type MeCreateNestedOneWithoutCredentialInput = {
   create?: Prisma.XOR<Prisma.MeCreateWithoutCredentialInput, Prisma.MeUncheckedCreateWithoutCredentialInput>
   connectOrCreate?: Prisma.MeCreateOrConnectWithoutCredentialInput
@@ -455,7 +459,7 @@ export type MeCreateWithoutCredentialInput = {
   about: string
   phone: string
   linkedInProfileUrl: string
-  github: string
+  github?: string | null
 }
 
 export type MeUncheckedCreateWithoutCredentialInput = {
@@ -468,7 +472,7 @@ export type MeUncheckedCreateWithoutCredentialInput = {
   about: string
   phone: string
   linkedInProfileUrl: string
-  github: string
+  github?: string | null
 }
 
 export type MeCreateOrConnectWithoutCredentialInput = {
@@ -497,7 +501,7 @@ export type MeUpdateWithoutCredentialInput = {
   about?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.StringFieldUpdateOperationsInput | string
   linkedInProfileUrl?: Prisma.StringFieldUpdateOperationsInput | string
-  github?: Prisma.StringFieldUpdateOperationsInput | string
+  github?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type MeUncheckedUpdateWithoutCredentialInput = {
@@ -510,7 +514,7 @@ export type MeUncheckedUpdateWithoutCredentialInput = {
   about?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.StringFieldUpdateOperationsInput | string
   linkedInProfileUrl?: Prisma.StringFieldUpdateOperationsInput | string
-  github?: Prisma.StringFieldUpdateOperationsInput | string
+  github?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 
@@ -590,7 +594,7 @@ export type $MePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
     about: string
     phone: string
     linkedInProfileUrl: string
-    github: string
+    github: string | null
   }, ExtArgs["result"]["me"]>
   composites: {}
 }
