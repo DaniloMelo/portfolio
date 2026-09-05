@@ -7,7 +7,8 @@ INSERT INTO me (
     introduction,
     about,
     phone,
-    linkedin_profile_url
+    linkedin_profile_url,
+    github
 )
 VALUES (
     '6d4c1b85-66e8-43f2-a6d0-8d40d8f8e8c7',
@@ -18,7 +19,8 @@ VALUES (
     'Transformando ideias em realidade através do código',
     'Sobre de teste',
     '11 98589-8826',
-    'https://www.linkedin.com/in/danilo-marques-de-melo'
+    'https://www.linkedin.com/in/danilo-marques-de-melo',
+    'https://github.com/DaniloMelo'
 );
 
 INSERT INTO credentials (

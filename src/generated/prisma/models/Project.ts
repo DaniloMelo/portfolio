@@ -508,6 +508,10 @@ export type IntFieldUpdateOperationsInput = {
   divide?: number
 }
 
+export type NullableStringFieldUpdateOperationsInput = {
+  set?: string | null
+}
+
 export type ProjectCreateNestedOneWithoutImagesInput = {
   create?: Prisma.XOR<Prisma.ProjectCreateWithoutImagesInput, Prisma.ProjectUncheckedCreateWithoutImagesInput>
   connectOrCreate?: Prisma.ProjectCreateOrConnectWithoutImagesInput
