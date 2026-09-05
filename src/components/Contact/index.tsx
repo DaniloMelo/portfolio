@@ -1,18 +1,20 @@
 import ContactForm from "../ContactForm";
 import Container from "../Container";
 import { LuMail, LuPhone } from "react-icons/lu";
-import { FaLinkedin } from "react-icons/fa6";
+import { FaLinkedin, FaGithub } from "react-icons/fa6";
 
 interface ContactProps {
   email: string;
   phone: string;
   linkedInProfileUrl: string;
+  github: string;
 }
 
 export default function Contact({
   email,
   phone,
   linkedInProfileUrl,
+  github,
 }: ContactProps) {
   return (
     <section className="mb-10" id="contact">
@@ -45,17 +47,32 @@ export default function Contact({
               </p>
 
               <p
-                className="flex justify-start items-center gap-10 text-lg"
+                className="flex justify-start items-center gap-10 text-lg mb-10"
                 aria-label="meu linkedin"
                 title="meu linkedin"
               >
                 <FaLinkedin size={30} />{" "}
                 <a
-                  href="https://www.linkedin.com/in/danilo-marques-de-melo"
+                  href={linkedInProfileUrl}
                   target="_blank"
                   className="text-blue-600 hover:underline"
                 >
                   {linkedInProfileUrl}
+                </a>
+              </p>
+
+              <p
+                className="flex justify-start items-center gap-10 text-lg"
+                aria-label="meu github"
+                title="meu github"
+              >
+                <FaGithub size={30} />{" "}
+                <a
+                  href={github}
+                  target="_blank"
+                  className="text-blue-600 hover:underline"
+                >
+                  {github}
                 </a>
               </p>
             </div>

@@ -42,13 +42,13 @@ export default function Hero({
               <AnimatedName name={name} />
             </h1>
 
-            <p className="mb-4 text-[clamp(1.2rem,2vw,1.5rem)] font-bold">
+            <p className="pl-0 lg:pl-14 mb-4 text-[clamp(1.2rem,2vw,1.5rem)] font-bold">
               {jobTitle}
             </p>
 
-            <p>{introduction}</p>
+            <p className="pl-0 lg:pl-14">{introduction}</p>
 
-            <div className="flex items-center gap-4 mt-10">
+            <div className="pl-0 lg:pl-14 flex items-center gap-4 mt-10">
               <Button icon={<LuEye />}>
                 <a
                   href="/Danilo-Marques-de-Melo.pdf"

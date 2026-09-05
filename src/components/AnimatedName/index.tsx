@@ -7,9 +7,10 @@ interface AnimatedNameProps {
 }
 
 export default function AnimatedName({ name }: AnimatedNameProps) {
+  const promptName = `~/ ${name}`;
   return (
     <TypeAnimation
-      sequence={[name, 100]}
+      sequence={[promptName, 100]}
       wrapper="span"
       speed={60}
       style={{ display: "inline-block" }}

@@ -7,6 +7,7 @@ export interface Me {
   email: string;
   phone: string;
   linkedInProfileUrl: string;
+  github: string;
 }
 
 export interface IUpdateMe extends Me {

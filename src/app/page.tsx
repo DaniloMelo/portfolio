@@ -29,6 +29,7 @@ export default async function Home() {
           email={data.email}
           phone={data.phone}
           linkedInProfileUrl={data.linkedInProfileUrl}
+          github={data.github}
         />
       </main>
 
