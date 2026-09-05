@@ -7,7 +7,7 @@ interface ContactProps {
   email: string;
   phone: string;
   linkedInProfileUrl: string;
-  github: string | null;
+  github: string;
 }
 
 export default function Contact({

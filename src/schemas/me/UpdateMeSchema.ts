@@ -37,20 +37,12 @@ export const updateMeSchema = z.object(
     linkedInProfileUrl: z
       .url({ error: "URL de perfl do linkdin deve ser válida." })
       .min(1, { error: "URL de perfl do linkdin é obrigatória." }),
+
+    github: z
+      .url({ error: "URL do github deve ser válida." })
+      .min(1, { error: "github é obrigatório." }),
   },
   {
     error: "Sua solicitação contém campos não permitidos.",
   },
 );
-
-/*
-  id: string;
-  name: string;
-  avatarUrl: string;
-  jobTitle: string;
-  introduction: string;
-  about: string;
-  email: string;
-  phone: string;
-  linkedInProfileUrl: string;
-*/
