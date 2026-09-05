@@ -5,4 +5,4 @@
 
 */
 -- AlterTable
-ALTER TABLE "me" ADD COLUMN     "github" VARCHAR(255) NOT NULL;
+ALTER TABLE "me" ADD COLUMN "github" VARCHAR(255);
