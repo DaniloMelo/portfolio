@@ -7,7 +7,7 @@ export const meMock: Me = {
   introduction: "Transformando idéias em realidade através do código",
   about:
     "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga ipsam provident recusandae. Atque earum similique quae consectetur facilis tenetur vero voluptatum doloremque, eligendi, necessitatibus saepe! Vero ex repellat eveniet velit? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga ipsam provident recusandae. Atque earum similique quae consectetur facilis tenetur vero voluptatum doloremque, eligendi, necessitatibus saepe! Vero ex repellat eveniet velit? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga ipsam provident recusandae. Atque earum similique quae consectetur facilis tenetur vero voluptatum doloremque, eligendi, necessitatibus saepe! Vero ex repellat eveniet velit? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga ipsam provident recusandae. Atque earum similique quae consectetur facilis tenetur vero voluptatum doloremque, eligendi, necessitatibus saepe! Vero ex repellat eveniet velit?",
-  email: "danilomarquesdemelo@gmail.com",
+  email: "teste@email.com",
   phone: "11 98589-8826",
   linkedInProfileUrl: "https://www.linkedin.com/in/danilo-marques-de-melo",
   github: "https://github.com/DaniloMelo",

@@ -15,6 +15,7 @@ export async function update(me: IUpdateMe) {
       about: me.about,
       phone: me.phone,
       linkedInProfileUrl: me.linkedInProfileUrl,
+      github: me.github,
     },
   });
 }

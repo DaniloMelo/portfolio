@@ -141,6 +141,15 @@ export default function UpdateProfileForm({ meData }: UpdateProfileFormProps) {
         }
       />
 
+      <Input
+        htmlFor="github"
+        labelText="GitHub URL"
+        name="github"
+        type="url"
+        value={me.github}
+        onChange={(e) => setMe((prev) => ({ ...prev, github: e.target.value }))}
+      />
+
       <div className="flex flex-col items-center gap-4">
         {errors && <ErrorMessage errors={errors} />}
         {message && <SuccessMessage message={message} />}
