@@ -11,6 +11,10 @@ export default function Header() {
   useActiveSection();
   const { activeSection } = useNavigation();
 
+  const activeSectionCss = "text-accent dark:text-accent font-bold transition";
+  const unactiveSectionCss =
+    "text-zinc-500 hover:text-black dark:text-zinc-300 dark:hover:text-white transition";
+
   return (
     <header
       className={cn(
@@ -24,7 +28,9 @@ export default function Header() {
             <AnchorLink
               sectionId="hero"
               className={cn(
-                activeSection === "hero" && "text-accent dark:text-accent",
+                activeSection === "hero"
+                  ? activeSectionCss
+                  : unactiveSectionCss,
               )}
             >
               Início
@@ -33,7 +39,9 @@ export default function Header() {
             <AnchorLink
               sectionId="projects"
               className={cn(
-                activeSection === "projects" && "text-accent dark:text-accent",
+                activeSection === "projects"
+                  ? activeSectionCss
+                  : unactiveSectionCss,
               )}
             >
               Projetos
@@ -42,7 +50,9 @@ export default function Header() {
             <AnchorLink
               sectionId="about"
               className={cn(
-                activeSection === "about" && "text-accent dark:text-accent",
+                activeSection === "about"
+                  ? activeSectionCss
+                  : unactiveSectionCss,
               )}
             >
               Sobre
@@ -51,7 +61,9 @@ export default function Header() {
             <AnchorLink
               sectionId="contact"
               className={cn(
-                activeSection === "contact" && "text-accent dark:text-accent",
+                activeSection === "contact"
+                  ? activeSectionCss
+                  : unactiveSectionCss,
               )}
             >
               Contato
