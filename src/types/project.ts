@@ -15,6 +15,7 @@ export interface Project {
   repositoryCodeUrl: string;
   deployUrl: string;
   position: number;
+  visible: boolean;
   technologies: ProjectTechnology[];
   images: ProjectImage[];
   testUser?: string | null;
@@ -31,6 +32,7 @@ export interface StoredProject {
   repositoryCodeUrl: string;
   deployUrl: string;
   position: number;
+  visible: boolean;
   technologies: ProjectTechnology[];
   images: ProjectImage[];
   testUser: string | null;
@@ -76,6 +78,7 @@ export interface UpdateProject {
   repositoryCodeUrl: string;
   deployUrl: string;
   position: number;
+  visible: boolean;
   technologies: ProjectTechnology[];
   images: ProjectImage[];
   testUser?: string | null;

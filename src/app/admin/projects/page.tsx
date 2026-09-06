@@ -1,8 +1,8 @@
-import { listProjectsPreview } from "@/services/project/listProjectsPreview";
+import { listProjectTitlesAndSlugs } from "@/services/project/listProjectTitltesAndSlugs";
 import Link from "next/link";
 
 export default async function ProjectsPage() {
-  const projects = await listProjectsPreview();
+  const projects = await listProjectTitlesAndSlugs();
 
   return (
     <main className="flex flex-col gap-10 p-10">

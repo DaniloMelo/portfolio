@@ -26,6 +26,7 @@ export async function findBySlug(slug: string) {
     repositoryCodeUrl: data.repositoryCodeUrl,
     deployUrl: data.deployUrl,
     position: data.position,
+    visible: data.visible,
     testUser: data.testUser,
     testEmail: data.testEmail,
     testPassword: data.testPassword,

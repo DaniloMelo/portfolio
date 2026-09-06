@@ -24,6 +24,7 @@ export async function createProject(project: Omit<Project, "position">) {
     repositoryCodeUrl: project.repositoryCodeUrl,
     deployUrl: project.deployUrl,
     position: lastPosition + 1,
+    visible: project.visible,
     testUser: project.testUser?.trim() || null,
     testEmail: project.testEmail?.trim() || null,
     testPassword: project.testPassword?.trim() || null,

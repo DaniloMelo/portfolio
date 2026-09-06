@@ -58,6 +58,8 @@ export const projectSchema = z.object(
 
     testPassword: z.string().optional(),
 
+    visible: z.boolean({ error: "visible deve ser verdadeiro ou falso" }),
+
     technologies: z.array(projectTechnologiesSchema),
 
     images: z.array(projectImagesSchema),

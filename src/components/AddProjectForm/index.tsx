@@ -7,6 +7,7 @@ import { cn } from "@/utils/cn";
 import { MarkdownEditor } from "../MarkdownEditor";
 import ErrorMessage from "../ErrorMessage";
 import SuccessMessage from "../SuccessMessage";
+import ToggleProjectVisibility from "../ToggleProjectVisibility";
 
 export default function AddProjectForm() {
   const [title, setTitle] = useState("");
@@ -17,6 +18,7 @@ export default function AddProjectForm() {
   const [testUser, setTestUser] = useState("");
   const [testEmail, setTestEmail] = useState("");
   const [testPassword, setTestPassword] = useState("");
+  const [isVisible, setIsVisible] = useState(false);
 
   const slug = createSlug(title);
 
@@ -59,6 +61,7 @@ export default function AddProjectForm() {
           about,
           repositoryCodeUrl,
           deployUrl,
+          visible: isVisible,
           testUser,
           testEmail,
           testPassword,
@@ -85,6 +88,7 @@ export default function AddProjectForm() {
       setTestPassword("");
       setTechNames([""]);
       setImages([{ src: "", alt: "" }]);
+      setIsVisible(false);
     } catch {
       setErrors(["Erro desconhecido ao adicionar projeto"]);
     } finally {
@@ -268,6 +272,8 @@ export default function AddProjectForm() {
         value={testPassword}
         onChange={(event) => setTestPassword(event.target.value)}
       />
+
+      <ToggleProjectVisibility value={isVisible} onChange={setIsVisible} />
 
       <div className="flex flex-col items-center gap-4">
         {errors && <ErrorMessage errors={errors} />}

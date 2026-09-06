@@ -2,6 +2,9 @@ import { prisma } from "@/libs/prisma/client";
 
 export async function findPreviews() {
   return await prisma.project.findMany({
+    where: {
+      visible: true,
+    },
     select: {
       id: true,
       slug: true,

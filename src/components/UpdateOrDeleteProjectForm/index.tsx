@@ -8,6 +8,7 @@ import { cn } from "@/utils/cn";
 import ErrorMessage from "../ErrorMessage";
 import Input from "../Input";
 import { MarkdownEditor } from "../MarkdownEditor";
+import ToggleProjectVisibility from "../ToggleProjectVisibility";
 
 interface UpdateOrDeleteProjectFormProps {
   project: StoredProject;
@@ -28,6 +29,7 @@ export default function UpdateOrDeleteProjectForm({
   const [testUser, setTestUser] = useState(project.testUser ?? "");
   const [testEmail, setTestEmail] = useState(project.testEmail ?? "");
   const [testPassword, setTestPassword] = useState(project.testPassword ?? "");
+  const [isVisible, setIsVisible] = useState(project.visible);
 
   const [techNames, setTechNames] = useState<string[]>(
     project.technologies.map((tech) => tech.name),
@@ -116,6 +118,7 @@ export default function UpdateOrDeleteProjectForm({
           repositoryCodeUrl,
           deployUrl,
           position: project.position,
+          visible: isVisible,
           testUser,
           testEmail,
           testPassword,
@@ -309,6 +312,8 @@ export default function UpdateOrDeleteProjectForm({
         value={testPassword}
         onChange={(event) => setTestPassword(event.target.value)}
       />
+
+      <ToggleProjectVisibility value={isVisible} onChange={setIsVisible} />
 
       <div className="flex flex-col items-center gap-4">
         {errors && <ErrorMessage errors={errors} />}

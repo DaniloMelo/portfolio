@@ -22,6 +22,7 @@ export async function updateProject(project: UpdateProject) {
     repositoryCodeUrl: project.repositoryCodeUrl,
     deployUrl: project.deployUrl,
     position: project.position,
+    visible: project.visible,
     testUser: project.testUser?.trim() || null,
     testEmail: project.testEmail?.trim() || null,
     testPassword: project.testPassword?.trim() || null,
