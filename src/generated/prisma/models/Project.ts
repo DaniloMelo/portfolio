@@ -46,6 +46,7 @@ export type ProjectMinAggregateOutputType = {
   testUser: string | null
   testEmail: string | null
   testPassword: string | null
+  visible: boolean | null
 }
 
 export type ProjectMaxAggregateOutputType = {
@@ -60,6 +61,7 @@ export type ProjectMaxAggregateOutputType = {
   testUser: string | null
   testEmail: string | null
   testPassword: string | null
+  visible: boolean | null
 }
 
 export type ProjectCountAggregateOutputType = {
@@ -74,6 +76,7 @@ export type ProjectCountAggregateOutputType = {
   testUser: number
   testEmail: number
   testPassword: number
+  visible: number
   _all: number
 }
 
@@ -98,6 +101,7 @@ export type ProjectMinAggregateInputType = {
   testUser?: true
   testEmail?: true
   testPassword?: true
+  visible?: true
 }
 
 export type ProjectMaxAggregateInputType = {
@@ -112,6 +116,7 @@ export type ProjectMaxAggregateInputType = {
   testUser?: true
   testEmail?: true
   testPassword?: true
+  visible?: true
 }
 
 export type ProjectCountAggregateInputType = {
@@ -126,6 +131,7 @@ export type ProjectCountAggregateInputType = {
   testUser?: true
   testEmail?: true
   testPassword?: true
+  visible?: true
   _all?: true
 }
 
@@ -227,6 +233,7 @@ export type ProjectGroupByOutputType = {
   testUser: string | null
   testEmail: string | null
   testPassword: string | null
+  visible: boolean
   _count: ProjectCountAggregateOutputType | null
   _avg: ProjectAvgAggregateOutputType | null
   _sum: ProjectSumAggregateOutputType | null
@@ -264,6 +271,7 @@ export type ProjectWhereInput = {
   testUser?: Prisma.StringNullableFilter<"Project"> | string | null
   testEmail?: Prisma.StringNullableFilter<"Project"> | string | null
   testPassword?: Prisma.StringNullableFilter<"Project"> | string | null
+  visible?: Prisma.BoolFilter<"Project"> | boolean
   projectTechnologies?: Prisma.ProjectTechnologyListRelationFilter
   images?: Prisma.ImageListRelationFilter
 }
@@ -280,6 +288,7 @@ export type ProjectOrderByWithRelationInput = {
   testUser?: Prisma.SortOrderInput | Prisma.SortOrder
   testEmail?: Prisma.SortOrderInput | Prisma.SortOrder
   testPassword?: Prisma.SortOrderInput | Prisma.SortOrder
+  visible?: Prisma.SortOrder
   projectTechnologies?: Prisma.ProjectTechnologyOrderByRelationAggregateInput
   images?: Prisma.ImageOrderByRelationAggregateInput
 }
@@ -299,6 +308,7 @@ export type ProjectWhereUniqueInput = Prisma.AtLeast<{
   testUser?: Prisma.StringNullableFilter<"Project"> | string | null
   testEmail?: Prisma.StringNullableFilter<"Project"> | string | null
   testPassword?: Prisma.StringNullableFilter<"Project"> | string | null
+  visible?: Prisma.BoolFilter<"Project"> | boolean
   projectTechnologies?: Prisma.ProjectTechnologyListRelationFilter
   images?: Prisma.ImageListRelationFilter
 }, "id" | "slug">
@@ -315,6 +325,7 @@ export type ProjectOrderByWithAggregationInput = {
   testUser?: Prisma.SortOrderInput | Prisma.SortOrder
   testEmail?: Prisma.SortOrderInput | Prisma.SortOrder
   testPassword?: Prisma.SortOrderInput | Prisma.SortOrder
+  visible?: Prisma.SortOrder
   _count?: Prisma.ProjectCountOrderByAggregateInput
   _avg?: Prisma.ProjectAvgOrderByAggregateInput
   _max?: Prisma.ProjectMaxOrderByAggregateInput
@@ -337,6 +348,7 @@ export type ProjectScalarWhereWithAggregatesInput = {
   testUser?: Prisma.StringNullableWithAggregatesFilter<"Project"> | string | null
   testEmail?: Prisma.StringNullableWithAggregatesFilter<"Project"> | string | null
   testPassword?: Prisma.StringNullableWithAggregatesFilter<"Project"> | string | null
+  visible?: Prisma.BoolWithAggregatesFilter<"Project"> | boolean
 }
 
 export type ProjectCreateInput = {
@@ -351,6 +363,7 @@ export type ProjectCreateInput = {
   testUser?: string | null
   testEmail?: string | null
   testPassword?: string | null
+  visible: boolean
   projectTechnologies?: Prisma.ProjectTechnologyCreateNestedManyWithoutProjectInput
   images?: Prisma.ImageCreateNestedManyWithoutProjectInput
 }
@@ -367,6 +380,7 @@ export type ProjectUncheckedCreateInput = {
   testUser?: string | null
   testEmail?: string | null
   testPassword?: string | null
+  visible: boolean
   projectTechnologies?: Prisma.ProjectTechnologyUncheckedCreateNestedManyWithoutProjectInput
   images?: Prisma.ImageUncheckedCreateNestedManyWithoutProjectInput
 }
@@ -383,6 +397,7 @@ export type ProjectUpdateInput = {
   testUser?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   testEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   testPassword?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  visible?: Prisma.BoolFieldUpdateOperationsInput | boolean
   projectTechnologies?: Prisma.ProjectTechnologyUpdateManyWithoutProjectNestedInput
   images?: Prisma.ImageUpdateManyWithoutProjectNestedInput
 }
@@ -399,6 +414,7 @@ export type ProjectUncheckedUpdateInput = {
   testUser?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   testEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   testPassword?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  visible?: Prisma.BoolFieldUpdateOperationsInput | boolean
   projectTechnologies?: Prisma.ProjectTechnologyUncheckedUpdateManyWithoutProjectNestedInput
   images?: Prisma.ImageUncheckedUpdateManyWithoutProjectNestedInput
 }
@@ -415,6 +431,7 @@ export type ProjectCreateManyInput = {
   testUser?: string | null
   testEmail?: string | null
   testPassword?: string | null
+  visible: boolean
 }
 
 export type ProjectUpdateManyMutationInput = {
@@ -429,6 +446,7 @@ export type ProjectUpdateManyMutationInput = {
   testUser?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   testEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   testPassword?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  visible?: Prisma.BoolFieldUpdateOperationsInput | boolean
 }
 
 export type ProjectUncheckedUpdateManyInput = {
@@ -443,6 +461,7 @@ export type ProjectUncheckedUpdateManyInput = {
   testUser?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   testEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   testPassword?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  visible?: Prisma.BoolFieldUpdateOperationsInput | boolean
 }
 
 export type ProjectCountOrderByAggregateInput = {
@@ -457,6 +476,7 @@ export type ProjectCountOrderByAggregateInput = {
   testUser?: Prisma.SortOrder
   testEmail?: Prisma.SortOrder
   testPassword?: Prisma.SortOrder
+  visible?: Prisma.SortOrder
 }
 
 export type ProjectAvgOrderByAggregateInput = {
@@ -475,6 +495,7 @@ export type ProjectMaxOrderByAggregateInput = {
   testUser?: Prisma.SortOrder
   testEmail?: Prisma.SortOrder
   testPassword?: Prisma.SortOrder
+  visible?: Prisma.SortOrder
 }
 
 export type ProjectMinOrderByAggregateInput = {
@@ -489,6 +510,7 @@ export type ProjectMinOrderByAggregateInput = {
   testUser?: Prisma.SortOrder
   testEmail?: Prisma.SortOrder
   testPassword?: Prisma.SortOrder
+  visible?: Prisma.SortOrder
 }
 
 export type ProjectSumOrderByAggregateInput = {
@@ -510,6 +532,10 @@ export type IntFieldUpdateOperationsInput = {
 
 export type NullableStringFieldUpdateOperationsInput = {
   set?: string | null
+}
+
+export type BoolFieldUpdateOperationsInput = {
+  set?: boolean
 }
 
 export type ProjectCreateNestedOneWithoutImagesInput = {
@@ -552,6 +578,7 @@ export type ProjectCreateWithoutImagesInput = {
   testUser?: string | null
   testEmail?: string | null
   testPassword?: string | null
+  visible: boolean
   projectTechnologies?: Prisma.ProjectTechnologyCreateNestedManyWithoutProjectInput
 }
 
@@ -567,6 +594,7 @@ export type ProjectUncheckedCreateWithoutImagesInput = {
   testUser?: string | null
   testEmail?: string | null
   testPassword?: string | null
+  visible: boolean
   projectTechnologies?: Prisma.ProjectTechnologyUncheckedCreateNestedManyWithoutProjectInput
 }
 
@@ -598,6 +626,7 @@ export type ProjectUpdateWithoutImagesInput = {
   testUser?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   testEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   testPassword?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  visible?: Prisma.BoolFieldUpdateOperationsInput | boolean
   projectTechnologies?: Prisma.ProjectTechnologyUpdateManyWithoutProjectNestedInput
 }
 
@@ -613,6 +642,7 @@ export type ProjectUncheckedUpdateWithoutImagesInput = {
   testUser?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   testEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   testPassword?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  visible?: Prisma.BoolFieldUpdateOperationsInput | boolean
   projectTechnologies?: Prisma.ProjectTechnologyUncheckedUpdateManyWithoutProjectNestedInput
 }
 
@@ -628,6 +658,7 @@ export type ProjectCreateWithoutProjectTechnologiesInput = {
   testUser?: string | null
   testEmail?: string | null
   testPassword?: string | null
+  visible: boolean
   images?: Prisma.ImageCreateNestedManyWithoutProjectInput
 }
 
@@ -643,6 +674,7 @@ export type ProjectUncheckedCreateWithoutProjectTechnologiesInput = {
   testUser?: string | null
   testEmail?: string | null
   testPassword?: string | null
+  visible: boolean
   images?: Prisma.ImageUncheckedCreateNestedManyWithoutProjectInput
 }
 
@@ -674,6 +706,7 @@ export type ProjectUpdateWithoutProjectTechnologiesInput = {
   testUser?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   testEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   testPassword?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  visible?: Prisma.BoolFieldUpdateOperationsInput | boolean
   images?: Prisma.ImageUpdateManyWithoutProjectNestedInput
 }
 
@@ -689,6 +722,7 @@ export type ProjectUncheckedUpdateWithoutProjectTechnologiesInput = {
   testUser?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   testEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   testPassword?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  visible?: Prisma.BoolFieldUpdateOperationsInput | boolean
   images?: Prisma.ImageUncheckedUpdateManyWithoutProjectNestedInput
 }
 
@@ -744,6 +778,7 @@ export type ProjectSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   testUser?: boolean
   testEmail?: boolean
   testPassword?: boolean
+  visible?: boolean
   projectTechnologies?: boolean | Prisma.Project$projectTechnologiesArgs<ExtArgs>
   images?: boolean | Prisma.Project$imagesArgs<ExtArgs>
   _count?: boolean | Prisma.ProjectCountOutputTypeDefaultArgs<ExtArgs>
@@ -761,6 +796,7 @@ export type ProjectSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   testUser?: boolean
   testEmail?: boolean
   testPassword?: boolean
+  visible?: boolean
 }, ExtArgs["result"]["project"]>
 
 export type ProjectSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -775,6 +811,7 @@ export type ProjectSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   testUser?: boolean
   testEmail?: boolean
   testPassword?: boolean
+  visible?: boolean
 }, ExtArgs["result"]["project"]>
 
 export type ProjectSelectScalar = {
@@ -789,9 +826,10 @@ export type ProjectSelectScalar = {
   testUser?: boolean
   testEmail?: boolean
   testPassword?: boolean
+  visible?: boolean
 }
 
-export type ProjectOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "slug" | "title" | "description" | "about" | "repositoryCodeUrl" | "deployUrl" | "position" | "testUser" | "testEmail" | "testPassword", ExtArgs["result"]["project"]>
+export type ProjectOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "slug" | "title" | "description" | "about" | "repositoryCodeUrl" | "deployUrl" | "position" | "testUser" | "testEmail" | "testPassword" | "visible", ExtArgs["result"]["project"]>
 export type ProjectInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   projectTechnologies?: boolean | Prisma.Project$projectTechnologiesArgs<ExtArgs>
   images?: boolean | Prisma.Project$imagesArgs<ExtArgs>
@@ -818,6 +856,7 @@ export type $ProjectPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     testUser: string | null
     testEmail: string | null
     testPassword: string | null
+    visible: boolean
   }, ExtArgs["result"]["project"]>
   composites: {}
 }
@@ -1254,6 +1293,7 @@ export interface ProjectFieldRefs {
   readonly testUser: Prisma.FieldRef<"Project", 'String'>
   readonly testEmail: Prisma.FieldRef<"Project", 'String'>
   readonly testPassword: Prisma.FieldRef<"Project", 'String'>
+  readonly visible: Prisma.FieldRef<"Project", 'Boolean'>
 }
     
 

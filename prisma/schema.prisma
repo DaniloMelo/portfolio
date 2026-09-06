@@ -46,6 +46,7 @@ model Project {
   testUser          String? @map("test_user")
   testEmail         String? @map("test_email")
   testPassword      String? @map("test_password")
+  visible           Boolean
 
   projectTechnologies ProjectTechnology[]
   images              Image[]

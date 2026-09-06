@@ -11,6 +11,7 @@ export const projectsMock = [
     repositoryCodeUrl: "#",
     deployUrl: "#",
     position: 1,
+    visible: true,
     technologies: [
       { name: "HTML5" },
       { name: "CSS" },
@@ -51,6 +52,7 @@ export const projectsMock = [
     repositoryCodeUrl: "#",
     deployUrl: "#",
     position: 2,
+    visible: false,
     technologies: [{ name: "Next.js" }, { name: "tailwindcss" }],
     images: [
       {
@@ -81,6 +83,7 @@ export const projectsMock = [
     repositoryCodeUrl: "#",
     deployUrl: "#",
     position: 3,
+    visible: true,
     technologies: [
       { name: "NestJS" },
       { name: "Node.js" },

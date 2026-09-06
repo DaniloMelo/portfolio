@@ -111,7 +111,8 @@ export const ProjectScalarFieldEnum = {
   position: 'position',
   testUser: 'testUser',
   testEmail: 'testEmail',
-  testPassword: 'testPassword'
+  testPassword: 'testPassword',
+  visible: 'visible'
 } as const
 
 export type ProjectScalarFieldEnum = (typeof ProjectScalarFieldEnum)[keyof typeof ProjectScalarFieldEnum]
