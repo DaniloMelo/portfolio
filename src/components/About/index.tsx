@@ -1,3 +1,4 @@
+import Container from "../Container";
 import RenderMarkdown from "../RenderMarkdown";
 
 interface AboutProps {
@@ -7,7 +8,9 @@ interface AboutProps {
 export default function About({ about }: AboutProps) {
   return (
     <section className="p-10 pb-50" id="about">
-      <RenderMarkdown markdown={about} />
+      <Container>
+        <RenderMarkdown markdown={about} />
+      </Container>
     </section>
   );
 }
