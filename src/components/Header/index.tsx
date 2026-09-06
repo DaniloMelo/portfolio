@@ -13,7 +13,7 @@ export default function Header() {
 
   const activeSectionCss = "text-accent dark:text-accent font-bold transition";
   const unactiveSectionCss =
-    "text-zinc-500 hover:text-black dark:text-zinc-300 dark:hover:text-white transition";
+    "text-zinc-600 hover:text-black dark:text-zinc-300 dark:hover:text-white transition";
 
   return (
     <header

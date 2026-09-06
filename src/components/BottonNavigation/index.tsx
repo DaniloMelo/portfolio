@@ -17,6 +17,10 @@ export default function BottonNavigation() {
   useActiveSection();
   const { activeSection } = useNavigation();
 
+  const activeSectionCss = "text-accent dark:text-accent font-bold transition";
+  const unactiveSectionCss =
+    "text-zinc-600 hover:text-black dark:text-zinc-300 dark:hover:text-white transition";
+
   return (
     <div
       className={cn(
@@ -36,7 +40,7 @@ export default function BottonNavigation() {
             sectionId="hero"
             className={cn(
               "flex flex-col justify-center items-center gap-0.5 text-xs",
-              activeSection === "hero" && "text-accent dark:text-accent",
+              activeSection === "hero" ? activeSectionCss : unactiveSectionCss,
             )}
           >
             <LuHouse size={25} />
@@ -47,7 +51,9 @@ export default function BottonNavigation() {
             sectionId="projects"
             className={cn(
               "flex flex-col justify-center items-center gap-0.5 text-xs",
-              activeSection === "projects" && "text-accent dark:text-accent",
+              activeSection === "projects"
+                ? activeSectionCss
+                : unactiveSectionCss,
             )}
           >
             <LuLaptop size={25} />
@@ -58,7 +64,7 @@ export default function BottonNavigation() {
             sectionId="about"
             className={cn(
               "flex flex-col justify-center items-center gap-0.5 text-xs",
-              activeSection === "about" && "text-accent dark:text-accent",
+              activeSection === "about" ? activeSectionCss : unactiveSectionCss,
             )}
           >
             <GoPerson size={25} />
@@ -69,7 +75,9 @@ export default function BottonNavigation() {
             sectionId="contact"
             className={cn(
               "flex flex-col justify-center items-center gap-0.5 text-xs",
-              activeSection === "contact" && "text-accent dark:text-accent",
+              activeSection === "contact"
+                ? activeSectionCss
+                : unactiveSectionCss,
             )}
           >
             <LuPhone size={25} />
