@@ -44,8 +44,8 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
             <ProjectCarrousel images={data.images} variant="detail" />
           </div>
 
-          <div className="w-full lg:w-[30%] flex flex-col">
-            <p className="mb-6">{data.description}</p>
+          <div className="w-full lg:w-[30%] flex flex-col text-secondary-text dark:text-secondary-text">
+            <p className="mb-12 lg:mb-6">{data.description}</p>
 
             <span>Tecnologias utilizadas:</span>
             <div className="flex gap-5 flex-wrap mt-2">
@@ -62,34 +62,42 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
         <div className="flex flex-col">
           {data.testPassword && (
             <div>
-              <p className="mt-10 mb-5">
+              <p className="mt-10 mb-5 text-secondary-text dark:text-secondary-text">
                 Não quer criar uma conta? Use as credenciais de teste abaixo.
               </p>
 
               {data.testUser && (
                 <p className="font-bold">
                   Nome de usuário:{" "}
-                  <span className="font-light">{data.testUser}</span>
+                  <span className="font-light text-secondary-text dark:text-secondary-text">
+                    {data.testUser}
+                  </span>
                 </p>
               )}
               {data.testEmail && (
                 <p className="font-bold">
-                  E-mail: <span className="font-light">{data.testEmail}</span>
+                  E-mail:{" "}
+                  <span className="font-light text-secondary-text dark:text-secondary-text">
+                    {data.testEmail}
+                  </span>
                 </p>
               )}
               {data.testUser && (
                 <p className="font-bold">
-                  Senha: <span className="font-light">{data.testPassword}</span>
+                  Senha:{" "}
+                  <span className="font-light text-secondary-text dark:text-secondary-text">
+                    {data.testPassword}
+                  </span>
                 </p>
               )}
             </div>
           )}
 
-          <div className="flex justify-center flex-wrap gap-10 my-10 lg:justify-start">
+          <div className="flex justify-center gap-10 my-10 lg:justify-start">
             <a href={data.repositoryCodeUrl} target="_blank">
               <Button
                 icon={<LuCodeXml size={20} />}
-                className="text-[clamp(.9rem,2vw,1rem)] w-60 py-2 lg:w-fit lg:py-1"
+                className="text-[clamp(.9rem,2vw,1rem)] py-2 lg:w-fit lg:py-1"
               >
                 Ver código
               </Button>
@@ -98,7 +106,7 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
             <a href={data.deployUrl} target="_blank">
               <Button
                 icon={<LuLaptop size={20} />}
-                className="text-[clamp(.9rem,2vw,1rem)] w-60 py-2 lg:w-fit lg:py-1"
+                className="text-[clamp(.9rem,2vw,1rem)] py-2 lg:w-fit lg:py-1"
               >
                 Acessar projeto
               </Button>
@@ -106,7 +114,9 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
           </div>
         </div>
 
-        <RenderMarkdown markdown={data.about} />
+        <div className="my-10">
+          <RenderMarkdown markdown={data.about} />
+        </div>
       </Container>
     </main>
   );

@@ -21,7 +21,7 @@ export default async function Projects() {
         {data.map((project) => (
           <div
             className="
-              flex flex-col items-center gap-5 mb-50 lg:flex-row lg:items-start lg:gap-10"
+              flex flex-col items-center gap-5 mb-30 lg:flex-row lg:items-start lg:gap-10"
             key={project.id}
           >
             <div className="w-80 lg:w-100">
