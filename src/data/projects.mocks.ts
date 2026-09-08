@@ -103,7 +103,7 @@ export const projectsMock = [
       },
       {
         id: "id-imagem-projeto-exemplo-3-3",
-        src: "https://picsum.photos/1600/900",
+        src: "https://res.cloudinary.com/nbzm2ql5/image/upload/v1788897012/game-boy-1.jpg",
         alt: "Descrição de exemplo da imagem",
       },
     ],
