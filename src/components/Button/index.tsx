@@ -21,7 +21,7 @@ export default function Button({
         "transition-colors",
         disabled
           ? "bg-zinc-600 text-zinc-300 pointer-events-none"
-          : "bg-accent/20 dark:bg-accent/20 border-2 border-accent hover:bg-accent/40 dark:border-accent dark:hover:bg-accent/40 text-indigo-900 dark:text-primary-text",
+          : "bg-accent/20 dark:bg-accent/20 border-2 border-accent hover:bg-accent/40 dark:border-accent dark:hover:bg-accent/40 text-primary-text dark:text-primary-text",
         className,
       )}
     >

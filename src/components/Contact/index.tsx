@@ -19,7 +19,9 @@ export default function Contact({
   return (
     <section className="mb-10" id="contact">
       <Container>
-        <p className="text-center text-2xl mb-10">Vamos conversar?</p>
+        <p className="text-center mb-10 text-[clamp(1rem,5vw,2rem)]">
+          Vamos conversar?
+        </p>
 
         <div className="flex flex-col lg:flex-row lg:justify-between">
           <ContactForm />

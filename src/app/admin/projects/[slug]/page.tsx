@@ -11,7 +11,6 @@ export default async function EditProjectPage({
   const { slug } = await params;
 
   const project = await getProject(slug);
-  console.log("===> ", project);
   if (!project) return;
 
   return (
