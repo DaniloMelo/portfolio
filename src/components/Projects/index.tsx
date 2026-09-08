@@ -52,7 +52,7 @@ export default async function Projects() {
                   </Button>
                 </Link>
 
-                <a href={project.repositoryCodeUrl}>
+                <a href={project.repositoryCodeUrl} target="_blank">
                   <Button
                     icon={<LuCodeXml size={20} />}
                     className="text-[clamp(.9rem,2vw,1rem)] w-60 py-2 lg:w-fit lg:py-1"
@@ -61,7 +61,7 @@ export default async function Projects() {
                   </Button>
                 </a>
 
-                <a href={project.deployUrl}>
+                <a href={project.deployUrl} target="_blank">
                   <Button
                     icon={<LuLaptop size={20} />}
                     className="text-[clamp(.9rem,2vw,1rem)] w-60 py-2 lg:w-fit lg:py-1"

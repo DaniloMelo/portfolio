@@ -86,7 +86,7 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
           )}
 
           <div className="flex justify-center flex-wrap gap-10 my-10 lg:justify-start">
-            <a href={data.repositoryCodeUrl}>
+            <a href={data.repositoryCodeUrl} target="_blank">
               <Button
                 icon={<LuCodeXml size={20} />}
                 className="text-[clamp(.9rem,2vw,1rem)] w-60 py-2 lg:w-fit lg:py-1"
@@ -95,7 +95,7 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
               </Button>
             </a>
 
-            <a href={data.deployUrl}>
+            <a href={data.deployUrl} target="_blank">
               <Button
                 icon={<LuLaptop size={20} />}
                 className="text-[clamp(.9rem,2vw,1rem)] w-60 py-2 lg:w-fit lg:py-1"
