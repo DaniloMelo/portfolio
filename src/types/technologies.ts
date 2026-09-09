@@ -12,7 +12,11 @@ export type TechnologyName =
   | "NestJS"
   | "Docker"
   | "Jest"
-  | "GitHub Actions";
+  | "GitHub Actions"
+  | "Prisma"
+  | "PostgreSQL"
+  | "MySQL"
+  | "Redis";
 
 export interface TechnologyInfo {
   icon: ReactNode;

@@ -70,6 +70,10 @@ async function seedTechnologies() {
     "Next.js",
     "NestJS",
     "Docker",
+    "Prisma",
+    "PostgreSQL",
+    "MySQL",
+    "Redis",
   ];
 
   for (const name of technologyNames) {

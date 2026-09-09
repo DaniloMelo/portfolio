@@ -1,7 +1,10 @@
 import { TechnologyInfo, TechnologyName } from "@/types/technologies";
 import { BsJavascript, BsTypescript } from "react-icons/bs";
 import { RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
-import { SiNestjs, SiJest, SiGithubactions } from "react-icons/si";
+import { SiNestjs, SiJest, SiGithubactions, SiPrisma } from "react-icons/si";
+import { BiLogoPostgresql } from "react-icons/bi";
+import { GrMysql } from "react-icons/gr";
+import { DiRedis } from "react-icons/di";
 import {
   FaCss3Alt,
   FaDocker,
@@ -81,6 +84,30 @@ const technologiesMap = new Map<TechnologyName, TechnologyInfo>([
     "GitHub Actions",
     {
       icon: <SiGithubactions className="size-10 text-[#2088FF]" />,
+    },
+  ],
+  [
+    "Prisma",
+    {
+      icon: <SiPrisma className="size-10 text-[#2D3748]" />,
+    },
+  ],
+  [
+    "PostgreSQL",
+    {
+      icon: <BiLogoPostgresql className="size-10 text-[#336791]" />,
+    },
+  ],
+  [
+    "MySQL",
+    {
+      icon: <GrMysql className="size-10 text-[#4479A1]" />,
+    },
+  ],
+  [
+    "Redis",
+    {
+      icon: <DiRedis className="size-10 text-[#FF4438]" />,
     },
   ],
 ]);
