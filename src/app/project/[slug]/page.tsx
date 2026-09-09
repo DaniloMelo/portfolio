@@ -115,7 +115,7 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
         </div>
 
         <div className="my-10">
-          <p className="text-center lg:text-start text-xl font-bold">
+          <p className="text-center lg:text-start text-2xl font-bold">
             Sobre o projeto
           </p>
           <RenderMarkdown markdown={data.about} />
