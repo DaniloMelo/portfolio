@@ -26,18 +26,33 @@ export const projectsMock = [
     images: [
       {
         id: "id-imagem-projeto-exemplo-1-1",
-        src: "https://picsum.photos/500/700",
-        alt: "Descrição de exemplo da imagem",
+        src: "https://res.cloudinary.com/nbzm2ql5/image/upload/v1789241119/shopping-list-desk-auth-light-2.png",
+        alt: "Tela de login tema claro",
       },
       {
         id: "id-imagem-projeto-exemplo-1-2",
-        src: "https://picsum.photos/1200/600",
-        alt: "Descrição de exemplo da imagem",
+        src: "https://res.cloudinary.com/nbzm2ql5/image/upload/v1789241119/shopping-list-desk-dash-light-2.png",
+        alt: "Dashboard tema claro",
       },
       {
         id: "id-imagem-projeto-exemplo-1-3",
-        src: "https://picsum.photos/800/800",
-        alt: "Descrição de exemplo da imagem",
+        src: "https://res.cloudinary.com/nbzm2ql5/image/upload/v1788973145/shopping-list-mobile-auth-light.png",
+        alt: "Tela de login mobile tema claro",
+      },
+      {
+        id: "id-imagem-projeto-exemplo-1-4",
+        src: "https://res.cloudinary.com/nbzm2ql5/image/upload/v1788973145/shopping-list-mobile-dash-light.png",
+        alt: "Dashboard mobile tema claro",
+      },
+      {
+        id: "id-imagem-projeto-exemplo-1-5",
+        src: "https://res.cloudinary.com/nbzm2ql5/image/upload/v1788973145/shopping-list-mobile-auth-dark.png",
+        alt: "Tela de login mobile tema escuro",
+      },
+      {
+        id: "id-imagem-projeto-exemplo-1-6",
+        src: "https://res.cloudinary.com/nbzm2ql5/image/upload/v1788973145/shopping-list-mobile-dash-dark.png",
+        alt: "Dashboard mobile tema escuro",
       },
     ],
   },

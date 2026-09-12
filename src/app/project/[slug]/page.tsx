@@ -40,7 +40,7 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
         </h1>
 
         <div className="flex flex-col lg:flex-row gap-10">
-          <div className="w-full lg:w-[70%]">
+          <div className="w-full lg:w-4xl">
             <ProjectCarrousel images={data.images} variant="detail" />
           </div>
 

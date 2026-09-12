@@ -19,10 +19,12 @@ const carrouselConfig = {
   preview: {
     autoplay: true,
     showArrows: false,
+    sizes: "(min-width: 1024px) 400px, 320px",
   },
   detail: {
     autoplay: false,
     showArrows: true,
+    sizes: "(min-width: 1024px) 896px, 100vw",
   },
 } as const;
 
@@ -81,7 +83,7 @@ export default function ProjectCarrousel({
       <div ref={emblaRef} className="overflow-hidden">
         <div className="flex touch-pan-y">
           {images.map((image) => (
-            <div key={crypto.randomUUID()} className="min-w-0 flex-[0_0_100%]">
+            <div key={image.src} className="min-w-0 flex-[0_0_100%]">
               <div
                 className={cn(
                   "relative overflow-hidden",
@@ -94,8 +96,9 @@ export default function ProjectCarrousel({
                   src={image.src}
                   alt={image.alt}
                   fill
-                  sizes="(max-width: 768px) 100vw, 768px"
+                  sizes={config.sizes}
                   className="object-cover"
+                  quality={90}
                 />
               </div>
             </div>
@@ -134,7 +137,7 @@ export default function ProjectCarrousel({
         >
           {images.map((image, index) => (
             <button
-              key={crypto.randomUUID()}
+              key={image.src}
               type="button"
               onClick={() => emblaApi?.scrollTo(index)}
               aria-label={`Ir para imagem ${index + 1}`}
